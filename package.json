@@ -1,0 +1,55 @@
+{
+  "name": "satomi",
+  "version": "1.0.0",
+  "description": "a fun discord bot to add some life to your discord server",
+  "main": "src/satomi.js",
+  "directories": {
+    "src": "src"
+  },
+  "scripts": {
+    "test": "eslint /src",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stellarsdev/satomi.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "discord",
+    "bot",
+    "eris",
+    "sylphy",
+    "satomi",
+    "stellars",
+    "stellarsdev"
+  ],
+  "author": "stellarsdev @github",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stellarsdev/satomi/issues"
+  },
+  "homepage": "https://github.com/stellarsdev/satomi#readme",
+  "dependencies": {
+    "aesthetics": "^2.1.0",
+    "chalk": "^2.3.0",
+    "eris": "^0.8.2",
+    "moment": "^2.19.4",
+    "sylphy": "^0.4.4",
+    "urban": "^0.3.1",
+    "winston": "^2.4.0",
+    "yahoo-weather": "^2.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 8
+    },
+    "rules": {
+      "semi": 0
+    }
+  }
+}
