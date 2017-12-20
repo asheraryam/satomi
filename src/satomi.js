@@ -4,13 +4,14 @@ const winston = require('winston')
 const moment = require('moment')
 const statusList = require('./assets/statusList.js')
 const masterkeys = require('../masterkeys.json')
+const fs = require('fs')
 
 const logger = new (winston.Logger)({
     transports: [
         new(winston.transports.Console)({
             level: 'silly',
             colorize: true,
-            timestamp: () => `[${chalk.magenta(moment().format('MMMM Do YYYY, h:mm'))}]`
+            timestamp: () => `[${chalk.magenta(moment().format('YYYY MMM Do, h:mm:ss a'))}]`
         })
     ]
 })
@@ -21,7 +22,7 @@ const satomi = new Client({
     modules: './src/modules',
     messageLimit: 0,
     getAllUsers: true,
-    disableEveryone: false, //;D
+    disableEveryone: false,
     maxShards: 'auto'
 })
 
@@ -33,11 +34,18 @@ satomi
 .register('middleware', './src/middleware')
 .register('commands', cmdpath, { groupedCommands: true})
 
+fs.readFile('./src/assets/satomiASCII.txt', 'utf-8', function (err, data) {
+    if (err) {
+        console.log(err)
+    }
+    console.log(data)
+})
+
 satomi.on('ready', () => {
     const shards = satomi.shards.size
     const guilds = satomi.guilds.size
     const users = satomi.users.size
-    
+
     satomi.logger.info(
         `Shards: ${chalk.cyan.bold(shards)} | ` +
         `Servers: ${chalk.cyan.bold(guilds)} | ` +

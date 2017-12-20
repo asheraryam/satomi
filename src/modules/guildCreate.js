@@ -1,12 +1,12 @@
 const chalk = require('chalk')
-const guildConfig = require('../assets/guildConfig.json')
+const masterkeys = require('../../masterkeys.json')
 
 module.exports = satomi = {
     name: 'guilds:create',
     events: {
         guildCreate: 'newGuild'
     },
-    newGuild: (guild, satomi) => satomi.createMessage(guildConfig.botLog, {embed: {
+    newGuild: (guild, satomi) => satomi.createMessage(masterkeys.botLog, {embed: {
         color: 0x66dac3,
         author: {
             name: `${guild.name} (${guild.id})`,

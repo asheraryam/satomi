@@ -12,8 +12,8 @@ class Coinflip extends Command {
 
     handle ({ args, client, msg }, responder) {
         const coins = [
-            { name: ':eggplant: heads'},
-            { name: ':peach: tails' }
+            { name: 'heads! :eggplant:' },
+            { name: 'tails! :peach:' }
         ]
 
         const coin = coins[~~(Math.random() * coins.length)]
@@ -21,7 +21,7 @@ class Coinflip extends Command {
         return responder.send(' ', {embed:{
             color: 0x66dac3,
             title: `${msg.author.username} flipped a coin!`,
-            description: coin.name,
+            description: 'and it landed on... ' + coin.name,
             timestamp: new Date()
         }})
         .catch(this.logger.error)

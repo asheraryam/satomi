@@ -13,8 +13,7 @@ class Help extends Command {
     handle ({ args, client, msg}, responder) {
         return responder.send(`${msg.author.mention}`, {embed: {
             title: 'Satomi, Help!',
-            description: 'hopefully this command solves your question(s) >.<' +
-            '\nEvery minute, the status changes ~',
+            description: 'hopefully this command solves your question(s), every minute, the status changes ~',
             color: 0x66dac3,
             author: {
                 name: client.user.username,
@@ -30,8 +29,7 @@ class Help extends Command {
             },
             {
                 name: 'Commands',
-                value: '`s.commands public`: will return with all commands available to regular users' +
-                '\n`s.commands private`: will return with commands used by mods/admins/owners'
+                value: '`s.commands`: will return with all commands available'
             },
             {
                 name: 'Wheres Ban/Kick?',

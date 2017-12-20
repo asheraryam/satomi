@@ -6,6 +6,7 @@ class Weather extends Command {
         super (...args, {
             name: 'weather',
             group: 'utility',
+            aliases: ['w'],
             cooldown: 2,
             options: {guildsOnly: true},
             usage: [
@@ -21,12 +22,16 @@ class Weather extends Command {
 
         weather(city, tempunit).then(info => {
             const url = info.item.link
+            const imageurl = info.item.description
             if (info === null) return responder.send(`:no_entry_sign: couldnt find weather on ${city}`)
 
             return responder.send(' ', {embed: {
                 color: 0x66dac3,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf("*") + 1),
+                thumbnail: {
+                    url: info.item.description.slice(19, 56)
+                },
                 fields: [{
                     name: ':thermometer: Temperature',
                     value: `${info.item.condition.temp} °${info.units.temperature}`,

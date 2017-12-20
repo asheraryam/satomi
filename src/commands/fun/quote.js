@@ -15,7 +15,7 @@ class Quote extends Command {
         const quote = quoteList.quotes[~~(Math.random() * quoteList.quotes.length)]
 
         return responder.send(' ', {embed: {
-            title: ':scroll: Quote: ',
+            title: ':scroll: An Inspirational Quote: ',
             description: quote.name,
             color: 0x66dac3,
             timestamp: new Date()

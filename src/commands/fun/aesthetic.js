@@ -6,7 +6,7 @@ class Aesthetic extends Command {
         super(...args, {
             name: 'aesthetic',
             group: 'fun',
-            aliases: ['aesth'],
+            aliases: ['aesth', 'vwave', 'vapor'],
             cooldown: 1,
             options: {guildsOnly: true},
             usage: [
