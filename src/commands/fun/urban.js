@@ -1,12 +1,12 @@
-const { Command } = require('sylphy')
-const urban = require('urban')
+const { Command } = require('sylphy');
+const urban = require('urban');
 
 class Urban extends Command {
     constructor (...args) {
         super (...args, {
             name: 'urban',
             group: 'fun',
-            cooldown: 3,
+            cooldown: 0,
             options: {guildsOnly: true},
             usage: [
                 { name: 'word', displayName: 'word', type: 'string', optional: true, last: true }
@@ -29,8 +29,7 @@ class Urban extends Command {
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()
-                }})
-                .catch(this.logger.error)
+                }}).catch(this.logger.error);
         })} else {
             urban.random().first(async(json) => {
                 return responder.send(' ', {embed: {
@@ -42,11 +41,10 @@ class Urban extends Command {
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()
-                }})
-                .catch(this.logger.error)
-            })
+                }}).catch(this.logger.error);
+            });
         }
     }
 }
 
-module.exports = Urban
+module.exports = Urban;

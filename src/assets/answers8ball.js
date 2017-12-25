@@ -19,8 +19,8 @@ const magicList = [
     { name: 'My sources say no' },
     { name: 'Outlook not so good' },
     { name: 'Very doubtful' }
-]
+];
 
 module.exports = {
     magicList
-}
+};

@@ -8,7 +8,7 @@ echo options
 echo.
 echo ***************************************************************
 echo.
-echo [1] Start the bot
+echo [1] Start Satomi~!
 echo.
 echo [e] Exit the console
 echo.

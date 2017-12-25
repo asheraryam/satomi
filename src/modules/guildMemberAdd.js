@@ -1,5 +1,7 @@
-const chalk = require('chalk')
-const masterkeys = require('../../masterkeys.json')
+//only used for the bot's main server
+
+const chalk = require('chalk');
+const masterkeys = require('../../masterkeys.json');
 
 module.exports = satomi = {
     name: 'guilds:memberjoin',
@@ -18,4 +20,4 @@ module.exports = satomi = {
         title: `:ribbon: ${member.username}#${member.discriminator} (${member.id}) has joined the server`,
         timestamp: new Date()
     }}).then(satomi.logger.info(chalk.green.bold(`${member.username}#${member.discriminator} (${member.id}) has joined ${guild.name}`)))
-}
+};

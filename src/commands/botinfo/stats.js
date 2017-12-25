@@ -1,13 +1,13 @@
-const { Command } = require('sylphy')
-const moment = require('moment')
-const pkg = require('../../../package.json')
+const { Command } = require('sylphy');
+const moment = require('moment');
+const pkg = require('../../../package.json');
 
 class Stats extends Command {
     constructor (...args) {
         super(...args, {
             name:  'stats',
             group: 'botinfo',
-            cooldown: 10,
+            cooldown: 0,
             options: {guildsOnly: true}
         })
     }
@@ -16,7 +16,7 @@ class Stats extends Command {
         return responder.send(' ', {embed: {
             color: 0x66dac3,
             author: {
-                name: 'Satomi  Stats~',
+                name: 'Satomi Stats~',
                 icon_url: `${client.user.avatarURL}`
             },
             thumbnail: {
@@ -41,18 +41,14 @@ class Stats extends Command {
             },
             {
                 name: 'Satomi serves...',
-                value: `Servers: ${client.guilds.size}` +
+                value: `Shards: ${client.shards.size}` +
+                `\nServers: ${client.guilds.size}` +
                 `\nUsers: ${client.users.size}`,
-                inline: true
-            },
-            {
-                name: 'Shards',
-                value: `Count: ${client.shards.size}`,
                 inline: true
             }],
             timestamp: new Date()
-        }}).catch(this.logger.error)
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = Stats
+module.exports = Stats;

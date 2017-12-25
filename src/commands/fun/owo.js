@@ -1,11 +1,11 @@
-const { Command } = require('sylphy')
+const { Command } = require('sylphy');
 
 class Owo extends Command {
     constructor (...args) {
         super(...args, {
             name: 'owo',
             group: 'fun',
-            cooldown: 10,
+            cooldown: 0,
             options: {guildsOnly: true}
         })
     }
@@ -16,8 +16,8 @@ class Owo extends Command {
             image: {
                 url: 'https://stellarsdev.github.io/types/owo-whats-this.gif'
             }
-        }}).catch(this.logger.error)
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = Owo
+module.exports = Owo;

@@ -1,11 +1,11 @@
-const { Command } = require('sylphy')
+const { Command } = require('sylphy');
 
 class Hug extends Command {
     constructor (...args) {
         super (...args, {
             name: 'hug',
             group: 'fun',
-            cooldown: 3,
+            cooldown: 0,
             options: {guildsOnly: true},
             usage: [
                 { name: 'user', displayName: 'user', type: 'member', optional: false }
@@ -36,9 +36,8 @@ class Hug extends Command {
             image: {
                 url: 'https://stellarsdev.github.io/types/hug.gif'
             }
-        }})
-        .catch(this.logger.error)
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = Hug
+module.exports = Hug;

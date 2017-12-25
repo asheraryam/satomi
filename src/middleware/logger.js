@@ -1,10 +1,10 @@
-const chalk = require('chalk')
+const chalk = require('chalk');
 
 module.exports = {
 	priority: 5,
 	process: container => {
-    	const { client, msg, commands, logger, isPrivate, isCommand } = container
-    	if (!isCommand) return Promise.resolve()
+    	const { client, msg, commands, logger, isPrivate, isCommand } = container;
+    	if (!isCommand) return Promise.resolve();
     	logger.info(
       	`${chalk.magenta.bold(
         	!isPrivate
@@ -12,8 +12,8 @@ module.exports = {
         	: '(in PMs)'
       	)} > ${chalk.cyan.bold(msg.author.username)}: ` +
       	`${chalk.green.bold(msg.cleanContent.replace(/\n/g, ' '))}`
-    	)
+    	);
 
-    	return Promise.resolve(container)
+    	return Promise.resolve(container);
 	}
-}
+};

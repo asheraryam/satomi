@@ -1,4 +1,4 @@
-const { Command } = require('sylphy')
+const { Command } = require('sylphy');
 
 class Avatar extends Command {
     constructor (...args) {
@@ -13,11 +13,11 @@ class Avatar extends Command {
 
     handle ({ args, client, msg }, responder) {
         const user = msg.mentions[0] || msg.author
-        const avatarURL = user.dynamicAvatarURL('png', 256)
+        const avatarURL = user.dynamicAvatarURL('png', 256);
 
         return responder.format('emoji:camera').send(`${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`)
-        .catch(this.logger.error)
+        .catch(this.logger.error);
     }
 }
 
-module.exports = Avatar
+module.exports = Avatar;

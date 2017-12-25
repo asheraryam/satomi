@@ -1,5 +1,7 @@
-const chalk = require('chalk')
-const masterkeys = require('../../masterkeys.json')
+//only used for the bot's main server
+
+const chalk = require('chalk');
+const masterkeys = require('../../masterkeys.json');
 
 module.exports = satomi = {
     name: 'guilds:delete',
@@ -15,4 +17,4 @@ module.exports = satomi = {
         title: `Satomi has left "${guild.name}" with ${guild.memberCount} members :skull:`,
         timestamp: new Date()
     }}).then(satomi.logger.info(chalk.red.bold(`Satomi has left "${guild.name}" (${guild.id})`)))
-}
+};

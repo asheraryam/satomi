@@ -1,5 +1,5 @@
-const { Command } = require('sylphy')
-const moment = require('moment')
+const { Command } = require('sylphy');
+const moment = require('moment');
 
 class ServerInfo extends Command {
     constructor (...args) {
@@ -7,13 +7,13 @@ class ServerInfo extends Command {
             name: 'serverinfo',
             group: 'utility',
             aliases: ['server'],
-            cooldown: 10,
+            cooldown: 0,
             options: {guildsOnly: true}
         })
     }
 
     handle ({ args, client, msg }, responder) {
-        const server = msg.channel.guild
+        const server = msg.channel.guild;
 
         return responder.send(' ', {
             embed: {
@@ -57,9 +57,8 @@ class ServerInfo extends Command {
                     text: client.user.username
                 }
             }
-        })
-        .catch(this.logger.error)
+        }).catch(this.logger.error);
     }
 }
 
-module.exports = ServerInfo
+module.exports = ServerInfo;

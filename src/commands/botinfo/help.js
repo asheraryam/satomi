@@ -1,11 +1,11 @@
-const { Command } = require('sylphy')
+const { Command } = require('sylphy');
 
 class Help extends Command {
     constructor (...args) {
         super (...args, {
             name: 'help',
             group: 'botinfo',
-            cooldown: 5,
+            cooldown: 0,
             options: {guildsOnly: true}
         })
     }
@@ -33,7 +33,7 @@ class Help extends Command {
             },
             {
                 name: 'Wheres Ban/Kick?',
-                value: 'I think I just want this to be a fun bot, but i will probably add so in the future'
+                value: 'I think I just want this to be a fun bot, but I will probably add so in the future'
             },
             {
                 name: 'No NSFW Commands?',
@@ -45,9 +45,8 @@ class Help extends Command {
                 icon_url: client.user.avatarURL,
                 text: client.user.username + ' | created by stellarsdev @github'
             }
-        }})
-        .catch(this.logger.error)
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = Help
+module.exports = Help;

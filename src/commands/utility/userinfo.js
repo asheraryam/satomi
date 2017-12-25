@@ -1,5 +1,5 @@
-const { Command } = require('sylphy')
-const moment = require('moment')
+const { Command } = require('sylphy');
+const moment = require('moment');
 
 class UserInfo extends Command {
     constructor (...args) {
@@ -7,7 +7,7 @@ class UserInfo extends Command {
             name: 'userinfo',
             group: 'utility',
             aliases: ['user'],
-            cooldown: 2,
+            cooldown: 0,
             options: {guildsOnly: true},
             usage: [
                 { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }
@@ -17,10 +17,10 @@ class UserInfo extends Command {
 
     handle ({ args, client, msg }, responder) {
         if (msg.mentions.length === 0) {
-            return responder.send(`${msg.author.mention}, Please mention a user~!`)
+            return responder.send(`${msg.author.mention}, Please mention a user~!`);
         }
 
-        const user = msg.channel.guild.members.get(msg.mentions[0].id)
+        const user = msg.channel.guild.members.get(msg.mentions[0].id);
 
         return responder.send(' ', {embed: {
             title: 'User Information',
@@ -65,9 +65,8 @@ class UserInfo extends Command {
                 inline: true
             }],
             timestamp: new Date()
-        }})
-        .catch(this.logger.error)
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = UserInfo
+module.exports = UserInfo;

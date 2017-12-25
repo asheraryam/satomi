@@ -1,5 +1,5 @@
-const { Command } = require('sylphy')
-const weather = require('yahoo-weather')
+const { Command } = require('sylphy');
+const weather = require('yahoo-weather');
 
 class Weather extends Command {
     constructor (...args) {
@@ -7,7 +7,7 @@ class Weather extends Command {
             name: 'weather',
             group: 'utility',
             aliases: ['w'],
-            cooldown: 2,
+            cooldown: 0,
             options: {guildsOnly: true},
             usage: [
                 { name: 'city', displayName: 'city', type: 'string', optional: false },
@@ -17,13 +17,13 @@ class Weather extends Command {
     }
 
     handle ({ args, client, msg }, responder) {
-        const city = args.city
-        const tempunit = args.tempunit
+        const city = args.city;
+        const tempunit = args.tempunit;
 
         weather(city, tempunit).then(info => {
-            const url = info.item.link
-            const imageurl = info.item.description
-            if (info === null) return responder.send(`:no_entry_sign: couldnt find weather on ${city}`)
+            const url = info.item.link;
+            const imageurl = info.item.description;
+            if (info === null) return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
 
             return responder.send(' ', {embed: {
                 color: 0x66dac3,
@@ -76,9 +76,9 @@ class Weather extends Command {
                 footer: {
                     text: `${info.item.title} `
                 }
-            }})
-        })
+            }});
+        }).catch(this.logger.error);
     }
 }
 
-module.exports = Weather
+module.exports = Weather;

@@ -1,12 +1,12 @@
-const { Command } = require('sylphy')
-const answers8ball = require('../../assets/answers8ball.js')
+const { Command } = require('sylphy');
+const answers8ball = require('../../assets/answers8ball.js');
 
 class Eightball extends Command {
     constructor (...args) {
         super (...args, {
             name: '8ball',
             group: 'fun',
-            cooldown: 3,
+            cooldown: 0,
             options: {guildsOnly: true},
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true}
@@ -23,8 +23,8 @@ class Eightball extends Command {
             description: ':8ball: Answer: ' + answer.name,
             color: 0x66dac3,
             timestamp: new Date()
-        }})
+        }}).catch(this.logger.error);
     }
 }
 
-module.exports = Eightball
+module.exports = Eightball;

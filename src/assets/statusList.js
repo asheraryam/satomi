@@ -1,7 +1,8 @@
-// 0=Playing
-// 1=Twitch
-// 2=Listening to
-// 3=Watching
+// Status types for Discord Bots
+// 0 = Playing
+// 1 = Twitch
+// 2 = Listening to
+// 3 = Watching
 
 const statuses = [
     { type: 0, name: 'type s.help for help~!' },
@@ -18,8 +19,8 @@ const statuses = [
     { type: 0, name: 'with the best girl <3' },
     { type: 2, name: 'lofi hip-hop' },
     { type: 0, name: 'with Ghostface Killers' }
-]
+];
 
 module.exports = {
     statuses
-}
+};
