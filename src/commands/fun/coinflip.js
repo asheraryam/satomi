@@ -6,7 +6,7 @@ class Coinflip extends Command {
             name: 'coinflip',
             group: 'fun',
             cooldown: 0,
-            options: {guildsOnly: true}
+            options: { guildsOnly: true }
         })
     }
 
@@ -19,7 +19,7 @@ class Coinflip extends Command {
         const coin = coins[~~(Math.random() * coins.length)]
 
         return responder.send(' ', {embed:{
-            color: 0x66dac3,
+            color: 0xea9a94,
             title: `${msg.author.username} flipped a coin!`,
             description: 'and it landed on... ' + coin.name,
             timestamp: new Date()

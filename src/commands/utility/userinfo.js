@@ -8,7 +8,7 @@ class UserInfo extends Command {
             group: 'utility',
             aliases: ['user'],
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }
             ]
@@ -25,7 +25,7 @@ class UserInfo extends Command {
         return responder.send(' ', {embed: {
             title: 'User Information',
             description: `${user.username}#${user.discriminator} || Bot? ${user.bot}`,
-            color: 0x66dac3,
+            color: 0xea9a94,
             thumbnail: {
                 url: user.avatarURL
             },

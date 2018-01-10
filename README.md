@@ -40,6 +40,10 @@ You can have the bot online while you work on it with nodemon like so :
 ```js
 nodemon index.js
 ```
+or you can use my script, which then types the above aswell~ :
+```js
+npm run devstart
+```
 * This requires using the console in an IDE ("CTRL + `" for VSCode, then type whats in the code block)
 * Every time you save ("CTRL + s"), it will restart the bot and you test the command right away without having to keep closing and openning the batch file
 
@@ -49,8 +53,7 @@ ESLint is used for this bot with no exeptions for the linter. You can lint the c
 npm run lint
 ```
 * This script will look through the "src" directory and make sure the files meet the ecma requirement(s)
-* The only file that is not read through this is satomiASCII.txt, since the file has ASCII characters for the start up message
-* The regular script for this is : `eslint src/**` , which you can find in the package.json
+* The regular script for this is : `eslint src --ext js` , which you can find in the package.json
 
 ## Hosting the Bot locally :
 This requires the set up of just 1 JSON file. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/).
@@ -60,11 +63,11 @@ This requires the set up of just 1 JSON file. You also need an IDE to configure 
 For masterkeys.json...
 ```
 {
-    token: "BOT_TOKEN",
-    prefix: "s.", (you can change this if you want to)
-    ownerID: "OWNER_ID",
+    "token": "BOT_TOKEN",
+    "prefix": "s.", (this can be changed if you want)
+    "ownerID": "OWNER_ID",
     "botLog": "CHANNEL_ID",
-    "memberLog: "CHANNEL_ID"
+    "memberLog": "CHANNEL_ID"
 }
 ```
 * You get your bot token from [here](https://discordapp.com/developers/applications/me), you need to create an application and then create a bot user. After, you need to invite the bot to your/a discord server to use its commands. (There are tutorials on how to do this if you are confused)

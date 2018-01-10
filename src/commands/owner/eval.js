@@ -7,7 +7,7 @@ class Eval extends Command {
             name: 'eval',
             group: 'owner',
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'file', displayName: 'file', type: 'string', optional: false, last: true }
             ]
@@ -29,7 +29,7 @@ class Eval extends Command {
             } catch(error) {
                 this.logger.error;
                 return responder.send(`\`\`\`javascript\n${error}\`\`\``);
-            };
+            }
         }
     }
 }

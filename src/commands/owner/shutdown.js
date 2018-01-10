@@ -9,7 +9,7 @@ class Shutdown extends Command {
             group: 'owner',
             aliases: ['die'],
             cooldown: 30,
-            options: {guildsOnly: true}
+            options: { guildsOnly: true }
         })
     }
 
@@ -23,7 +23,7 @@ class Shutdown extends Command {
             if (shutdown.choice === 'y') {
                 console.log(chalk.cyan('Satomi has shut down'));
                 return responder.send(' ', {embed: {
-                    color: 0x66dac3,
+                    color: 0xea9a94,
                     title: ':zzz: Satomi has shut down...'}})
                 .then(client.disconnect())
                 .catch(this.logger.error)

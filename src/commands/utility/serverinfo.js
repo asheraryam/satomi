@@ -8,7 +8,7 @@ class ServerInfo extends Command {
             group: 'utility',
             aliases: ['server'],
             cooldown: 0,
-            options: {guildsOnly: true}
+            options: { guildsOnly: true }
         })
     }
 
@@ -23,7 +23,7 @@ class ServerInfo extends Command {
                     name: 'Server Information:',
                     icon_url: client.user.avatarURL
                 },
-                color: 0x66dac3,
+                color: 0xea9a94,
                 thumbnail: {
                     url: server.iconURL
                 },

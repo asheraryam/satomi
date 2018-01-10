@@ -7,9 +7,9 @@ class Purge extends Command {
             group: 'admin-mod',
             aliases: ['clear', 'delete'],
             cooldown: 0,
-            options: {guildsOnly: true, requirements:{permissions: {manageMessages: true}}},
+            options: { guildsOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
-                {name: 'limit', displayName: 'limit', type: 'int', max: 50}
+                { name: 'limit', displayName: 'limit', type: 'int', max: 50 }
             ]
         })
     }

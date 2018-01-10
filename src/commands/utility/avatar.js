@@ -7,7 +7,7 @@ class Avatar extends Command {
             group: 'utility',
             aliases: ['profilepicture', 'profilepic'],
             cooldown: 0,
-            options: {guildsOnly: true}
+            options: { guildsOnly: true }
         })
     }
 

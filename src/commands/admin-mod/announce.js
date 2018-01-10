@@ -6,7 +6,7 @@ class Announce extends Command {
             name: 'announce',
             group: 'admin-mod',
             cooldown: 0,
-            options: {guildsOnly: true, requirements:{permissions: {administrator: true}}},
+            options: { guildsOnly: true, requirements: { permissions: { administrator: true }}},
             usage: [
                 { name: 'announcement', displayName: 'announcement', type: 'string', optional: 'false', last: true }
             ]
@@ -18,7 +18,7 @@ class Announce extends Command {
 
         msg.delete()
         return responder.send('@everyone', {embed:{
-            color: 0x66dac3,
+            color: 0xea9a94,
             title: ':postal_horn: Announcement!',
             description: `${announcement}`,
             timestamp: new Date()

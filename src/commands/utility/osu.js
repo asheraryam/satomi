@@ -7,7 +7,7 @@ class Osu extends Command {
             name: 'osu',
             group: 'utility',
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'gameType', displayName: 'gameType', type: 'string', optional: true },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }
@@ -22,10 +22,10 @@ class Osu extends Command {
         '\n example use: `s.osu 0 cookiezi`');
         }
 
-        const gameType = '&mode=' + args.gameType
-        const player = args.player
+        const gameType = args.gameType;
+        const player = args.player;
 
-        const data = await snekfetch.get(`http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}${gameType}&pp=1&removeavmargin&flagstroke&onlineindicator=undefined&xpbar`);
+        const data = await snekfetch.get(`http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=${gameType}&pp=1&removeavmargin&flagstroke&onlineindicator=undefined&xpbar`);
 
         return client.createMessage(msg.channel.id, ' ', {
             file: data.body,

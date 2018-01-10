@@ -7,14 +7,14 @@ class Urban extends Command {
             name: 'urban',
             group: 'fun',
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'word', displayName: 'word', type: 'string', optional: true, last: true }
             ]
         })
     }
 
-    handle ({ args, client, msg}, responder) {
+    handle ({ args, client, msg }, responder) {
         if (args.word.length > 0) {
             urban(args.word).first(async(json) => {
                 if (json === undefined) {
@@ -25,7 +25,7 @@ class Urban extends Command {
                         name: `Definition of ${json.word}`,
                         icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
                     },
-                    color: 0x66dac3,
+                    color: 0xea9a94,
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()
@@ -37,7 +37,7 @@ class Urban extends Command {
                         name: `Random Urban Dictionary Word! (${json.word})`,
                         icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
                     },
-                    color: 0x66dac3,
+                    color: 0xea9a94,
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()

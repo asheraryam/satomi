@@ -8,7 +8,7 @@ class Weather extends Command {
             group: 'utility',
             aliases: ['w'],
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'city', displayName: 'city', type: 'string', optional: false },
                 { name: 'tempunit', displayName: 'tempunit', type: 'string', optional: true, last: true }
@@ -26,7 +26,7 @@ class Weather extends Command {
             if (info === null) return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
 
             return responder.send(' ', {embed: {
-                color: 0x66dac3,
+                color: 0xea9a94,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf("*") + 1),
                 thumbnail: {

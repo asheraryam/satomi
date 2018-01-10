@@ -9,7 +9,7 @@ module.exports = satomi = {
         guildDelete: 'delGuild'
     },
     delGuild: (guild, satomi) => satomi.createMessage(masterkeys.botLog, {embed: {
-        color: 0x66dac3,
+        color: 0xea9a94,
         author: {
             name: `${guild.name} (${guild.id})`,
             icon_url: `${guild.iconURL}`

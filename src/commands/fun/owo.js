@@ -6,7 +6,7 @@ class Owo extends Command {
             name: 'owo',
             group: 'fun',
             cooldown: 0,
-            options: {guildsOnly: true}
+            options: { guildsOnly: true }
         })
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "a fun discord bot to add some life to your discord server",
   "main": "src/satomi.js",
   "directories": {
@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint src/**",
-    "start": "node index.js"
+    "lint": "eslint src --ext js",
+    "start": "node index.js",
+    "devstart": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   },
   "homepage": "https://github.com/stellarsdev/satomi#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "chalk": "^2.3.0",
     "eris": "^0.8.2",
     "moment": "^2.20.1",
@@ -44,8 +46,8 @@
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.13.1",
-    "nodemon": "^1.14.3"
+    "eslint": "^4.15.0",
+    "nodemon": "^1.14.9"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -54,8 +56,5 @@
     "env": {
       "node": true
     }
-  },
-  "eslintIgnore": [
-    "src/assets/satomiASCII.txt"
-  ]
+  }
 }

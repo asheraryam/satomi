@@ -18,7 +18,9 @@ const statuses = [
     { type: 3, name: 'imaqtpie' },
     { type: 0, name: 'with the best girl <3' },
     { type: 2, name: 'lofi hip-hop' },
-    { type: 0, name: 'with Ghostface Killers' }
+    { type: 0, name: 'with cute traps' },
+    { type: 2, name: 'classical music' },
+    { type: 0, name: 'the violin' }
 ];
 
 module.exports = {

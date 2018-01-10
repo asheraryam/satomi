@@ -7,21 +7,21 @@ class Eightball extends Command {
             name: '8ball',
             group: 'fun',
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true}
             ]
         })
     }
 
-    handle ({ args, client, msg}, responder) {
+    handle ({ args, client, msg }, responder) {
         const question = args.question
         const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)]
 
         return responder.send(' ', {embed: {
             title: ':question: Your Question: ' + question,
             description: ':8ball: Answer: ' + answer.name,
-            color: 0x66dac3,
+            color: 0xea9a94,
             timestamp: new Date()
         }}).catch(this.logger.error);
     }

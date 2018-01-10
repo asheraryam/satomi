@@ -8,7 +8,7 @@ class Overwatch extends Command {
             group: 'utility',
             aliases: ['ow'],
             cooldown: 0,
-            options: {guildsOnly: true},
+            options: { guildsOnly: true },
             usage: [
                 { name: 'type', displayName: 'type', type: 'string', optional: false },
                 { name: 'platform', displayName: 'platform', type: 'string', optional: false },
@@ -60,7 +60,7 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input`)
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
                 .catch(this.logger.error);
             });
         } else if (type == 'competitive' || type == 'comp' || type == 'c') {
@@ -127,7 +127,7 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input`)
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
                 .catch(this.logger.error);
             });
         } else if (type == 'quickplay' || type == 'quick' || type == 'q') {
@@ -194,7 +194,7 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input`)
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
                 .catch(this.logger.error);
             });
         }
