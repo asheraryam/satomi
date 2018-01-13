@@ -11,7 +11,7 @@
 
 Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. I hope to later add some exciting features in the future.
 
-If you dont mind, you check Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
+If you dont mind, you can check Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
 
 ## Satomi is built on :
 * [Node.js](https://nodejs.org/en/) : A Javascript runtime for scalable network applications
@@ -28,7 +28,7 @@ Thanks for your interest in my code, I have added these setup instructions to he
 
 ### Installing
 First you can either download the latest release or install straight from github through the console like so :
-```js
+```
 git clone https://github.com/stellarsdev/satomi.git
 cd satomi/
 npm install
