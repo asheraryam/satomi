@@ -33,7 +33,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'botinfo' || category == 'info') {
@@ -55,7 +55,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'fun') {
@@ -77,7 +77,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'music') {
@@ -99,7 +99,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'owner') {
@@ -120,7 +120,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'utility' || category == 'util') {
@@ -143,7 +143,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by stellarsdev @github'
+                    text: ' | created by envyist @github'
                 }
             }}).catch(this.logger.error);
         }

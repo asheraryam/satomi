@@ -14,7 +14,7 @@ class Owo extends Command {
         return responder.send('owo?', {embed: {
             color: 0xf7e1ff,
             image: {
-                url: 'https://stellarsdev.github.io/types/owo-whats-this.gif'
+                url: 'https://envyist.github.io/types/owo-whats-this.gif'
             }
         }}).catch(this.logger.error);
     }

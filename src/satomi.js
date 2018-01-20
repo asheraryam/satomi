@@ -26,14 +26,14 @@ const satomi = new Client({
     maxShards: 'auto'
 });
 
-const cmdpath = './src/commands'
+const cmdpath = './src/commands';
 satomi.unregister('logger', 'console');
 satomi.register('logger', 'winston', logger);
 satomi.unregister('middleware', true);
 satomi.register('middleware', './src/middleware');
-satomi.register('commands', cmdpath, { groupedCommands: true});
+satomi.register('commands', cmdpath, { groupedCommands: true });
 
-fs.readFile('./src/assets/satomiASCII.txt', 'utf-8', function (err, data) {
+fs.readFile('./src/assets/satomiASCII.txt', 'utf-8', (err, data) => {
     if (err) {
         console.log(err);
     }

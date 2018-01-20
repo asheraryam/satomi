@@ -9,7 +9,7 @@ class Purge extends Command {
             cooldown: 0,
             options: { guildsOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
-                { name: 'limit', displayName: 'limit', type: 'int', max: 50 }
+                { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 50 }
             ]
         })
     }

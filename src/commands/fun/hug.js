@@ -24,7 +24,7 @@ class Hug extends Command {
             return responder.send(`Hey, ${msg.author.mention}! Don't hug me, baka!!! :anger:`, {embed:{
                 color: 0xff4b4b,
                 image: {
-                    url: 'https://stellarsdev.github.io/types/getoffofme.gif'
+                    url: 'https://envyist.github.io/types/getoffofme.gif'
                 }
             }})
         } else if (user.id === msg.author.id) {
@@ -34,7 +34,7 @@ class Hug extends Command {
         return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, {embed:{
             color: 0xea9a94,
             image: {
-                url: 'https://stellarsdev.github.io/types/hug.gif'
+                url: 'https://envyist.github.io/types/hug.gif'
             }
         }}).catch(this.logger.error);
     }
