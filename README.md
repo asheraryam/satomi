@@ -3,7 +3,7 @@
 <a title="Release" href="https://github.com/envyist/satomi/releases"><img src="https://img.shields.io/github/release/envyist/satomi.svg?style=flat-square"></a>
 <a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat-square"></a>
 <a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat-square"></a>
-<a title="CodeCli" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4a935d933954f92966a/maintainability" /></a>
+<a title="CodeCli" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/3cb373a64e81a2386ec7/maintainability" /></a>
 <a title="license" href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat-square"></a>
 </p>
 
