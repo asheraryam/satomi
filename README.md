@@ -1,9 +1,9 @@
 <h1 align="center">Satomi 聡美</h1>
 <p align="center">
-<a title="Release" href="https://github.com/stellarsdev/satomi/releases"><img src="https://img.shields.io/github/release/stellarsdev/satomi.svg?style=flat-square"></a>
-<a title="DavidDM" href="https://david-dm.org/stellarsdev/satomi"><img src="https://img.shields.io/david/stellarsdev/satomi.svg?style=flat-square"></a>
-<a title="TravisCI" href="https://travis-ci.org/stellarsdev/satomi"><img src="https://img.shields.io/travis/stellarsdev/satomi.svg?style=flat-square"></a>
-<a title="CodeCli" href="https://codeclimate.com/github/stellarsdev/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4a935d933954f92966a/maintainability" /></a>
+<a title="Release" href="https://github.com/envyist/satomi/releases"><img src="https://img.shields.io/github/release/envyist/satomi.svg?style=flat-square"></a>
+<a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat-square"></a>
+<a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat-square"></a>
+<a title="CodeCli" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4a935d933954f92966a/maintainability" /></a>
 <a title="license" href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat-square"></a>
 </p>
 
@@ -29,7 +29,7 @@ Thanks for your interest in my code, I have added these setup instructions to he
 ### Installing
 First you can either download the latest release or install straight from github through the console like so :
 ```
-git clone https://github.com/stellarsdev/satomi.git
+git clone https://github.com/envyist/satomi.git
 cd satomi/
 npm install
 ```
@@ -83,4 +83,4 @@ npm start
 ```
 
 ### License :
-Satomi is licensed under the [MIT License](https://github.com/stellarsdev/satomi/blob/master/LICENSE). If you use my work, give me credit and we're good! It's that simple!
+Satomi is licensed under the [MIT License](https://github.com/envyist/satomi/blob/master/LICENSE). If you use my work, give me credit and we're good! It's that simple!

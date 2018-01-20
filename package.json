@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "a fun discord bot to add some life to your discord server",
   "main": "src/satomi.js",
   "directories": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stellarsdev/satomi.git"
+    "url": "git+https://github.com/envyist/satomi.git"
   },
   "keywords": [
     "js",
@@ -24,19 +24,18 @@
     "eris",
     "sylphy",
     "satomi",
-    "stellars",
-    "stellarsdev"
+    "envyist"
   ],
-  "author": "stellarsdev @github",
+  "author": "envyist @github",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stellarsdev/satomi/issues"
+    "url": "https://github.com/envyist/satomi/issues"
   },
-  "homepage": "https://github.com/stellarsdev/satomi#readme",
+  "homepage": "https://github.com/envyist/satomi#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "chalk": "^2.3.0",
-    "eris": "^0.8.2",
+    "eris": "^0.8.3",
     "moment": "^2.20.1",
     "overwatch-js": "^1.6.1",
     "snekfetch": "^3.6.1",
@@ -47,7 +46,7 @@
   },
   "devDependencies": {
     "eslint": "^4.15.0",
-    "nodemon": "^1.14.9"
+    "nodemon": "^1.14.11"
   },
   "eslintConfig": {
     "parserOptions": {
