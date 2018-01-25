@@ -8,7 +8,7 @@ class Commands extends Command {
             cooldown: 0,
             options: { guildsOnly: true },
             usage: [
-                { name: 'category', displayName: 'category', type: 'string', optional: false, last: true }
+                { name: 'category', displayName: 'category', type: 'string', optional: true, last: true }
             ]
         })
     }
@@ -27,13 +27,12 @@ class Commands extends Command {
                 fields: [{
                     name: '------------------',
                     value: '`announce:` admins can make an announcement (it does @everyone)' +
-                    '\n`purge:` deletes a number of messages you give it' +
-                    '\n`star:` add a star to the starboard , also, uhhh, work in progess >.>'
+                    '\n`purge:` deletes a number of messages you give it'
                 }],
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
+                    text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'botinfo' || category == 'info') {
@@ -55,7 +54,7 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
+                    text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
         } else if (category == 'fun') {
@@ -77,52 +76,31 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
+                    text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        } else if (category == 'music') {
-            return responder.send(' ', {embed: {
-                color: 0xea9a94,
-                author: {
-                    name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
-                },
-                title: 'Music Commands~',
-                fields: [{
-                    name: '(only join/leave work, this is all work in progress >.<)',
-                    value: '`join:` satomi joins your current voice channel' +
-                    '\n`leave:` satomi leaves the voice channel shes in' +
-                    '\n`listenmoe:` plays the listen.moe stream in the voice channel' +
-                    '\n`play:` plays the audio from the link given' +
-                    '\n`pause:` pauses the current audio streaming (not for listen.moe)'
-                }],
-                timestamp: new Date(),
-                footer: {
-                    icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
-                }
-            }}).catch(this.logger.error);
-        } else if (category == 'owner') {
-            return responder.send(' ', {embed: {
-                color: 0xea9a94,
-                author: {
-                    name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
-                },
-                title: 'Owner Commands?!',
-                description: 'you really dont listen huh? you cant use these commands anyway :anger: BAKA!',
-                fields: [{
-                    name: '(i really shouldnt have this here but oh well, open source op)',
-                    value: '`eval:` it lets me test code in discord because it looks cool' +
-                    '\n`leaveserver:` i can take satomi from servers i dont want it in (i have logs owo)' +
-                    '\n`shutdown:` when i need to take the bot down for some maintenance or whatever~'
-                }],
-                timestamp: new Date(),
-                footer: {
-                    icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
-                }
-            }}).catch(this.logger.error);
+        // } else if (category == 'music') {
+        //     return responder.send(' ', {embed: {
+        //         color: 0xea9a94,
+        //         author: {
+        //             name: 'Satomi',
+        //             icon_url: `${client.user.avatarURL}`
+        //         },
+        //         title: 'Music Commands~',
+        //         fields: [{
+        //             name: '(only join/leave work, this is all work in progress >.<)',
+        //             value: '`join:` satomi joins your current voice channel' +
+        //             '\n`leave:` satomi leaves the voice channel shes in' +
+        //             '\n`listenmoe:` plays the listen.moe stream in the voice channel' +
+        //             '\n`play:` plays the audio from the link given' +
+        //             '\n`pause:` pauses the current audio streaming (not for listen.moe)'
+        //         }],
+        //         timestamp: new Date(),
+        //         footer: {
+        //             icon_url: client.user.avatarURL,
+        //             text: ' | created by envyist @github/twitter'
+        //         }
+        //     }}).catch(this.logger.error);
         } else if (category == 'utility' || category == 'util') {
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
@@ -143,7 +121,25 @@ class Commands extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github'
+                    text: ' | created by envyist @github/twitter'
+                }
+            }}).catch(this.logger.error);
+        } else {
+            return responder.send(' ', {embed: {
+                color: 0xea9a94,
+                author: {
+                    name: 'Satomi',
+                    icon_url: `${client.user.avatarURL}`
+                },
+                title: 'Please choose a category! :anger:',
+                fields: [{
+                    name: 'Categories',
+                    value: '- admin-info\n- botinfo\n- fun\n- musisc (not available)\n - utility'
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
         }

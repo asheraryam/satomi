@@ -17,9 +17,19 @@ class Osu extends Command {
 
     async handle ({ args, client, msg }, responder) {
 
-        if ( !(args.gameType == '0' || args.gameType == '1' || args.gameType == '2' || args.gameType == '3') ) {
-            return responder.send(`${msg.author.mention} :anger: osu! game types are: osu! standard = 0 | taiko = 1 | control the beat = 2 | mania = 3` +
-        '\n example use: `s.osu 0 cookiezi`');
+        if ( !(args.gameType == 'osu' || args.gameType == 'taiko' || args.gameType == 'ctb' || args.gameType == 'mania') ) {
+            return responder.send(`${msg.author.mention} :anger: osu! game types are: osu | taiko | ctb (control the beat) | mania` +
+        '\n example use: `s.osu osu cookiezi`');
+        }
+
+        if (args.gameType === 'osu') {
+            args.gameType.replace('osu', '0');
+        } else if (args.gameType === 'taiko') {
+            args.gameType.replace('taiko', '1');
+        } else if (args.gameType === 'ctb') {
+            args.gameType.replace('ctb', '2');
+        } else if (args.gameType === 'mania') {
+            args.gameType.replace('mania', '3');
         }
 
         const gameType = args.gameType;

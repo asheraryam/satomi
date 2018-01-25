@@ -43,7 +43,7 @@ class Help extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: `${client.user.avatarURL}`,
-                    text: 'Satomi | created by envyist @github'
+                    text: 'Satomi | created by envyist @github/twitter'
                 }}}).catch(this.logger.error);
         } else if (args.commands == 'commands') {
             return responder.send(`${msg.author.mention}`, {embed: {
@@ -71,7 +71,7 @@ class Help extends Command {
                 timestamp: new Date(),
                 footer: {
                     icon_url: `${client.user.avatarURL}`,
-                    text: 'Satomi | created by envyist @github'
+                    text: 'Satomi | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
         }

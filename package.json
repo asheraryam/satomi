@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "a fun discord bot to add some life to your discord server",
   "main": "src/satomi.js",
   "directories": {
@@ -26,7 +26,7 @@
     "satomi",
     "envyist"
   ],
-  "author": "envyist @github",
+  "author": "envyist @github/twitter",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/envyist/satomi/issues"
@@ -45,7 +45,7 @@
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
     "nodemon": "^1.14.11"
   },
   "eslintConfig": {

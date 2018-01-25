@@ -6,7 +6,7 @@ class LeaveServer extends Command {
         super(...args, {
             name: 'leaveserver',
             group: 'owner',
-            cooldown: 5,
+            cooldown: 0,
             options: { guildsOnly: true },
             usage: [
                 { name: 'server', displayName: 'server', type: 'string', optional: false, last: true }
@@ -18,13 +18,15 @@ class LeaveServer extends Command {
         if (msg.author.id === masterkeys.ownerID) {
             const server = args.server; //id of the server
 
-            return client.guilds.get(server).leave.then(() => { return responder.send(' ', {embed: {
-                color: 0xea9a94,
-                title: `I have successfully left ${server}!`
-            }})}).catch(this.logger.error).then((error) => { return responder.send(' ', {embed: {
-                color: 0xff4b4b,
-                title: `Error leaving ${server}`,
-                description: `${error}`
+            return client.guilds.get(server).leave.then(() => { 
+                return responder.send(' ', {embed: {
+                    color: 0xea9a94,
+                    title: `I have successfully left ${server}!`
+            }})}).catch(this.logger.error).then((error) => { 
+                return responder.send(' ', {embed: {
+                    color: 0xff4b4b,
+                    title: `Error leaving ${server}`,
+                    description: `${error}`
             }})});
         }
     }
