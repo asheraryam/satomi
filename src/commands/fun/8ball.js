@@ -15,8 +15,8 @@ class Eightball extends Command {
     }
 
     handle ({ args, client, msg }, responder) {
-        const question = args.question
-        const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)]
+        const question = args.question;
+        const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)];
 
         return responder.send(' ', {embed: {
             color: 0xea9a94,

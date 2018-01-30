@@ -16,7 +16,7 @@ class LeaveServer extends Command {
 
     handle ({ args, client, msg }, responder) {
         if (msg.author.id === masterkeys.ownerID) {
-            const server = args.server; //id of the server
+            const server = args.server;
 
             return client.guilds.get(server).leave.then(() => { 
                 return responder.send(' ', {embed: {
@@ -28,7 +28,7 @@ class LeaveServer extends Command {
                     title: `Error leaving ${server}`,
                     description: `${error}`
             }})});
-        }
+        };
     }
 }
 

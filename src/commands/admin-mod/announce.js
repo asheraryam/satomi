@@ -14,9 +14,9 @@ class Announce extends Command {
     }
 
     handle ({ args, client, msg }, responder) {
-        const announcement = args.announcement
+        const announcement = args.announcement;
 
-        msg.delete()
+        msg.delete();
         return responder.send('@everyone', {embed:{
             color: 0xea9a94,
             title: ':postal_horn: Announcement!',

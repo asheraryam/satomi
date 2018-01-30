@@ -15,7 +15,7 @@ class Purge extends Command {
     }
 
     handle ({ args, client, msg }, responder) {
-        const limit = args.limit + 1
+        const limit = args.limit + 1;
 
         if (limit > 50) return responder.send(' ', {embed:{
             color: 0xff4b4b,

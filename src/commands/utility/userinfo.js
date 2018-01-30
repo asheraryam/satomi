@@ -18,7 +18,7 @@ class UserInfo extends Command {
     handle ({ args, client, msg }, responder) {
         if (msg.mentions.length === 0) {
             return responder.send(`${msg.author.mention}, Please mention a user~!`);
-        }
+        };
 
         const user = msg.channel.guild.members.get(msg.mentions[0].id);
 

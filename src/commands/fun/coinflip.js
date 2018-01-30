@@ -14,9 +14,9 @@ class Coinflip extends Command {
         const coins = [
             { name: 'heads! :eggplant:' },
             { name: 'tails! :peach:' }
-        ]
+        ];
 
-        const coin = coins[~~(Math.random() * coins.length)]
+        const coin = coins[~~(Math.random() * coins.length)];
 
         return responder.send(' ', {embed:{
             color: 0xea9a94,

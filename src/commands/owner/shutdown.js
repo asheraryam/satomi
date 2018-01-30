@@ -30,7 +30,7 @@ class Shutdown extends Command {
             } else {
                 return responder.send('Ok, I will not shut down~ :dango:');
             }
-        }
+        };
     }
 }
 

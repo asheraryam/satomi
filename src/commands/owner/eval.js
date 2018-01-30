@@ -30,7 +30,7 @@ class Eval extends Command {
                 this.logger.error;
                 return responder.send(`\`\`\`javascript\n${error}\`\`\``);
             }
-        }
+        };
     }
 }
 
