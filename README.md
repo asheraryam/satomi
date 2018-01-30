@@ -11,7 +11,7 @@
 
 Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. I hope to later add some exciting features in the future.
 
-If you don't mind, you can check Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
+If you don't mind, you can check out Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
 
 ## Satomi is built on :
 * [Node.js](https://nodejs.org/en/) : A Javascript runtime for scalable network applications
@@ -21,13 +21,13 @@ If you don't mind, you can check Satomi's trello here -> [Trello Link](https://t
 * [Nodemon](https://nodemon.io) : Runs your code while you work on it and will restart it after any saved changes
 
 ## Want to invite Satomi?
-As of right now, I am not completely done with Satomi's development. Im aiming for public use by version 8.0.0 or 9.0.0, as by then I hope to have most of the features I want on Satomi present. I also don't have a job currently to pay for a VPS to keep the bot online 24/7 >.>
+As of right now, I am not completely done with Satomi's development. Im aiming for public use by version 1.0.0, as by then I hope to have most of the features I want on Satomi present. I also don't have a job currently to pay for a VPS to keep the bot online 24/7 >.>
 
 ## Bot Usage :
 If you want to use this bot just for your own server, feel free to. But if I find my code being used by you under a different name or you claiming to be the owner of the bot/code, I'll personally deal you and your infringement of my license. **Keep in mind I will probably not allow this to occur once I make the bot available publicly and hosted by VPS.**
 
 ## Development :
-Thanks for your interest in my code, I have added these setup instructions to help get you started on tinkering with the code. (pay attention to the license I have below)
+Thanks for your interest in my code, I have added these setup instructions to help get you started on tinkering with the code. **Please pay attention to the license I have below.**
 
 ### Installing
 First you can either download the latest release or install straight from github through the console like so :
@@ -59,7 +59,7 @@ npm run lint
 * The regular script for this is : `eslint src --ext js` , which you can find in the package.json
 
 ## Hosting the Bot locally :
-This requires the set up of just 1 JSON file. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/).
+This requires the set up of just 1 JSON file. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/). **Refer to "Bot Usage", the same principles apply**
 
 *And if you don't want to use the Satomi name then you'll have to dabble more into the code to change the client name and the help commands as well as some other things too. This is a big burden if you have never coded in your life.*
 
@@ -77,7 +77,7 @@ For masterkeys.json...
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
 * You get the channel ID's the same way you did your ownerID. You right click on the channel and click "Copy ID", then paste it in this file.
 
-## Running the bot :
+### Running the bot :
 After setting up the JSON file, just open the batch file (SatomiStart.bat) and follow the instructions to get the bot online!
 
 or you can use this command in a console
@@ -85,5 +85,5 @@ or you can use this command in a console
 npm start
 ```
 
-### License :
+## License :
 Satomi is licensed under the [MIT License](https://github.com/envyist/satomi/blob/master/LICENSE). If you use my work, give me credit and we're good! It's that simple!
