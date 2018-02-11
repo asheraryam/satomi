@@ -4,6 +4,10 @@ checks:
     enabled: false
   similar-code:
     enabled: false
+  method-complexity:
+    enabled: false
+  method-lines:
+    enabled: false
 ratings:
   paths:
   - "**.js"
