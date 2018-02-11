@@ -1,19 +1,18 @@
+/* eslint-disable */
+
 const chalk = require('chalk');
 
 module.exports = {
 	priority: 5,
 	process: container => {
-    	const { client, msg, commands, logger, isPrivate, isCommand } = container;
-    	if (!isCommand) return Promise.resolve();
-    	logger.info(
-      	`${chalk.magenta.bold(
-        	!isPrivate
-        	? msg.channel.guild.name
-        	: '(in PMs)'
-      	)} > ${chalk.cyan.bold(msg.author.username)}: ` +
-      	`${chalk.green.bold(msg.cleanContent.replace(/\n/g, ' '))}`
-    	);
+		const { client, msg, commands, logger, isPrivate, isCommand } = container;
+		if (!isCommand) {
+			return Promise.resolve();
+		}
 
-    	return Promise.resolve(container);
+		logger.info(`${chalk.magenta.bold(!isPrivate ? msg.channel.guild.name : '(in PMs)')} > ${chalk.cyan.bold(msg.author.username)}: ` +
+			`${chalk.green.bold(msg.cleanContent.replace(/\n/g, ' '))}`);
+
+		return Promise.resolve(container);
 	}
 };

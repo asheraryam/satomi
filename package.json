@@ -1,14 +1,14 @@
 {
   "name": "satomi",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "a fun discord bot to add some life to your discord server",
-  "main": "src/satomi.js",
+  "main": "./src/satomi.js",
   "directories": {
-    "src": "src"
+    "lib": "./src"
   },
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint src --ext js",
+    "lint": "eslint src",
     "start": "node index.js",
     "devstart": "nodemon index.js"
   },
@@ -34,25 +34,25 @@
   "homepage": "https://github.com/envyist/satomi#readme",
   "dependencies": {
     "chalk": "^2.3.0",
-    "eris": "^0.8.3",
+    "eris": "^0.8.4",
     "moment": "^2.20.1",
     "overwatch-js": "^1.6.1",
-    "snekfetch": "^3.6.1",
-    "sylphy": "^0.4.4",
+    "snekfetch": "^3.6.4",
+    "sylphy": "^0.4.5",
     "urban": "^0.3.1",
     "winston": "^2.4.0",
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.16.0",
-    "nodemon": "^1.14.11"
+    "eslint": "^4.17.0",
+    "eslint-config-ch": "^0.2.0",
+    "nodemon": "^1.14.12"
   },
   "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 8
-    },
-    "env": {
-      "node": true
+    "extends": "ch",
+    "rules": {
+      "camelcase": "off",
+      "no-console": "off"
     }
   }
 }

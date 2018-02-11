@@ -10,10 +10,10 @@ class Shutdown extends Command {
             aliases: ['die'],
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    async handle ({ client, msg }, responder) {
         if (msg.author.id === masterkeys.ownerID) {
             const shutdown = await responder.dialog([{
                 prompt: 'Are you sure you want me to shut down? (y/n)',
@@ -30,7 +30,7 @@ class Shutdown extends Command {
             } else {
                 return responder.send('Ok, I will not shut down~ :dango:');
             }
-        };
+        }
     }
 }
 

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 //only used for the bot's main server
 
 const chalk = require('chalk');

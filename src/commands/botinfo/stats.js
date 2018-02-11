@@ -5,14 +5,14 @@ const pkg = require('../../../package.json');
 class Stats extends Command {
     constructor (...args) {
         super(...args, {
-            name:  'stats',
+            name: 'stats',
             group: 'botinfo',
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ client }, responder) {
         return responder.send(' ', {embed: {
             color: 0xea9a94,
             author: {

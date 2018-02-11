@@ -10,7 +10,7 @@ class Help extends Command {
             usage: [
                 { name: 'commands', displayName: 'commands', type: 'string', optional: true, last: true }
             ]
-        })
+        });
     }
 
     handle ({ args, client, msg }, responder) {
@@ -38,14 +38,14 @@ class Help extends Command {
                 },
                 {
                     name: 'No NSFW Commands?',
-                    value: 'I dont think Ill be adding these types of commands to Satomi'
+                    value: 'They are no NSFW commands as of right now'
                 }],
                 timestamp: new Date(),
                 footer: {
                     icon_url: `${client.user.avatarURL}`,
                     text: 'Satomi | created by envyist @github/twitter'
                 }}}).catch(this.logger.error);
-        } else if (args.commands == 'commands') {
+        } else if (args.commands === 'commands') {
             return responder.send(`${msg.author.mention}`, {embed: {
                 title: 'Satomi Commands!',
                 description: 'Prefix: s. | type s.help for more help',

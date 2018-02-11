@@ -10,10 +10,10 @@ class Extended extends Command {
             usage: [
                 { name: 'command', displayName: 'command', type: 'string', optional: true, last: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args, client }, responder) {
         const command = args.command;
         const footerText = ' | created by envyist @github/twitter';
 
@@ -211,7 +211,7 @@ class Extended extends Command {
                 },
                 {
                     name: 'Example',
-                    value: 's.choose pizza, chinese, koreanbbq',
+                    value: 's.choose pizza, poutine, koreanbbq',
                     inline: true
                 }],
                 timestamp: new Date(),
@@ -310,7 +310,7 @@ class Extended extends Command {
                 }
             }}).catch(this.logger.error);
         } else if (command === 'osu') {
-            return responder.send(' ',{embed: {
+            return responder.send(' ', { embed: {
                 color: 0xea9a94,
                 title: 'Extended Help for Osu (utility)',
                 description: 'Posts an image of Osu profile info',
@@ -401,12 +401,12 @@ class Extended extends Command {
                 description: 'Shows info about a user',
                 fields: [{
                     name: 'Usage',
-                    value: 's.userinfo @user',
+                    value: 's.userinfo or s.userinfo @user',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.userinfo @Satomi',
+                    value: 's.userinfo or s.userinfo @Satomi',
                     inline: true
                 },
                 {

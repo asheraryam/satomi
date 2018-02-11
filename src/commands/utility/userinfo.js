@@ -12,15 +12,11 @@ class UserInfo extends Command {
             usage: [
                 { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
-        if (msg.mentions.length === 0) {
-            return responder.send(`${msg.author.mention}, Please mention a user~!`);
-        };
-
-        const user = msg.channel.guild.members.get(msg.mentions[0].id);
+    handle ({ msg }, responder) {
+        const user = msg.channel.guild.members.get(msg.member.id) || msg.channel.guild.members.get(msg.mentions[0].id);
 
         return responder.send(' ', {embed: {
             title: 'User Information',
@@ -51,7 +47,9 @@ class UserInfo extends Command {
             },
             {
                 name: 'Roles',
-                value: `${user.roles.map(roleid => {return msg.channel.guild.roles.get(roleid).name}).join(', ') || 'None'}`,
+                value: `${user.roles.map(roleid => {
+                    return msg.channel.guild.roles.get(roleid).name;
+                }).join(', ') || 'None'}`,
                 inline: false
             },
             {

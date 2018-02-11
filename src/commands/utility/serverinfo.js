@@ -9,10 +9,10 @@ class ServerInfo extends Command {
             aliases: ['server'],
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ client, msg }, responder) {
         const server = msg.channel.guild;
 
         return responder.send(' ', {
@@ -29,20 +29,20 @@ class ServerInfo extends Command {
                 },
                 fields: [{
                     name: 'Members Info',
-                    value: 'Members: ' + server.memberCount + 
+                    value: 'Members: ' + server.memberCount +
                     '\nRoles: ' + Object.keys(`${server.roles}`).length +
                     '\nBans: ' + Object.keys(server.getBans).length,
                     inline: true
                 },
                 {
                     name: 'Channels',
-                    value:'Text & Voice: ' + Object.keys(`${server.channels}`).length + '\nAFK Voice: ' + `<#${server.afkChannelID}>`,
+                    value: 'Text & Voice: ' + Object.keys(`${server.channels}`).length + '\nAFK Voice: ' + `<#${server.afkChannelID}>`,
                     inline: true
                 },
                 {
                     name: 'Other Info',
-                    value: 'Shard Number: ' + Object.keys(server.shard).length + 
-                    '\nRegion: ' + server.region + 
+                    value: 'Shard Number: ' + Object.keys(server.shard).length +
+                    '\nRegion: ' + server.region +
                     '\nEmojis: ' + Object.keys(server.emojis).length,
                     inline: true
                 },

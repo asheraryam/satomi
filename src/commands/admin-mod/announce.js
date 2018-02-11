@@ -10,14 +10,14 @@ class Announce extends Command {
             usage: [
                 { name: 'announcement', displayName: 'announcement', type: 'string', optional: 'false', last: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args, msg }, responder) {
         const announcement = args.announcement;
 
         msg.delete();
-        return responder.send('@everyone', {embed:{
+        return responder.send('@everyone', { embed: {
             color: 0xea9a94,
             title: ':postal_horn: Announcement!',
             description: `${announcement}`,

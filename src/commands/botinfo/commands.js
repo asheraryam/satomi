@@ -10,13 +10,13 @@ class Commands extends Command {
             usage: [
                 { name: 'category', displayName: 'category', type: 'string', optional: true, last: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args, client }, responder) {
         const category = args.category;
 
-        if (category == 'admin-mod' || category == 'admin' || category == 'mod') {
+        if (category === 'admin-mod' || category === 'admin' || category === 'mod') {
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
                 author: {
@@ -35,7 +35,7 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        } else if (category == 'botinfo' || category == 'info') {
+        } else if (category === 'botinfo' || category === 'info') {
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
                 author: {
@@ -57,7 +57,7 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        } else if (category == 'fun') {
+        } else if (category === 'fun') {
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
                 author: {
@@ -68,9 +68,9 @@ class Commands extends Command {
                 fields: [{
                     name: '------------------',
                     value: '`8ball:` ask a question and satomi returns an 8ball answer~' +
+                    '\n`choose`: chooses between the options you give satomi' +
                     '\n`coinflip`: flips heads or tails' +
-                    '\n`hug:` @ someone to send them a hug uwu' +
-                    '\n`owo:` owo, whats this?' +
+                    '\n`hug:` @ someone to send them a hug' +
                     '\n`urban:` searches urban dictionary for your word or a random one'
                 }],
                 timestamp: new Date(),
@@ -79,29 +79,7 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        // } else if (category == 'music') {
-        //     return responder.send(' ', {embed: {
-        //         color: 0xea9a94,
-        //         author: {
-        //             name: 'Satomi',
-        //             icon_url: `${client.user.avatarURL}`
-        //         },
-        //         title: 'Music Commands~',
-        //         fields: [{
-        //             name: '(only join/leave work, this is all work in progress >.<)',
-        //             value: '`join:` satomi joins your current voice channel' +
-        //             '\n`leave:` satomi leaves the voice channel shes in' +
-        //             '\n`listenmoe:` plays the listen.moe stream in the voice channel' +
-        //             '\n`play:` plays the audio from the link given' +
-        //             '\n`pause:` pauses the current audio streaming (not for listen.moe)'
-        //         }],
-        //         timestamp: new Date(),
-        //         footer: {
-        //             icon_url: client.user.avatarURL,
-        //             text: ' | created by envyist @github/twitter'
-        //         }
-        //     }}).catch(this.logger.error);
-        } else if (category == 'utility' || category == 'util') {
+        } else if (category === 'utility' || category === 'util') {
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
                 author: {
@@ -115,7 +93,7 @@ class Commands extends Command {
                     '\n`osu:` displays an image sig of an osu account' +
                     '\n`overwatch:` shows overwatch stats from the given player' +
                     '\n`serverinfo:` shows info about the server' +
-                    '\n`userinfo:` @ a user and it shows info about a user' +
+                    '\n`userinfo:` use it plain or @ a user and it shows info about a user' +
                     '\n`weather:` displays weather info about a city'
                 }],
                 timestamp: new Date(),
@@ -134,7 +112,7 @@ class Commands extends Command {
                 title: 'Please choose a category! :anger:',
                 fields: [{
                     name: 'Categories',
-                    value: '- admin-info\n- botinfo\n- fun\n- musisc (not available)\n - utility'
+                    value: '- admin-info\n- botinfo\n- fun\n- music (not available)\n- utility'
                 }],
                 timestamp: new Date(),
                 footer: {

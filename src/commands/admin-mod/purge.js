@@ -11,20 +11,23 @@ class Purge extends Command {
             usage: [
                 { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 50 }
             ]
-        })
+        });
     }
 
     handle ({ args, client, msg }, responder) {
         const limit = args.limit + 1;
 
-        if (limit > 50) return responder.send(' ', {embed:{
-            color: 0xff4b4b,
-            description: ':x: Message count too high! Max is 50'
-        }});
+        if (limit > 50) {
+            return responder.send(' ', { embed: {
+                color: 0xff4b4b,
+                description: ':x: Message count too high! Max is 50'
+            }});
+        }
 
         client.purgeChannel(msg.channel.id, limit)
-        .catch(err => responder.send(' ', {embed: {
-            description: `There was an error trying to purge: ${error}`}}));
+        .catch(error => responder.send(' ', {embed: {
+            description: `There was an error trying to purge: ${error}`
+        }}));
 
     }
 }

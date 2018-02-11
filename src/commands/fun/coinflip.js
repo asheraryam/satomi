@@ -7,10 +7,10 @@ class Coinflip extends Command {
             group: 'fun',
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ msg }, responder) {
         const coins = [
             { name: 'heads! :eggplant:' },
             { name: 'tails! :peach:' }
@@ -18,7 +18,7 @@ class Coinflip extends Command {
 
         const coin = coins[~~(Math.random() * coins.length)];
 
-        return responder.send(' ', {embed:{
+        return responder.send(' ', { embed: {
             color: 0xea9a94,
             title: `${msg.author.username} flipped a coin!`,
             description: 'and it landed on... ' + coin.name,

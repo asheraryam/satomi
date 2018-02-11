@@ -8,10 +8,10 @@ class Avatar extends Command {
             aliases: ['profilepicture', 'profilepic'],
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ msg }, responder) {
         const user = msg.mentions[0] || msg.author;
         const avatarURL = user.dynamicAvatarURL('png', 256);
 

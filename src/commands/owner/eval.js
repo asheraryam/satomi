@@ -1,5 +1,6 @@
 const { Command } = require('sylphy');
 const masterkeys = require('../../../masterkeys.json');
+const util = require('util');
 
 class Eval extends Command {
     constructor(...args) {
@@ -11,26 +12,26 @@ class Eval extends Command {
             usage: [
                 { name: 'file', displayName: 'file', type: 'string', optional: false, last: true }
             ]
-        })
+        });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    async handle ({ msg }, responder) {
         if (msg.author.id === masterkeys.ownerID) {
             const file = msg.content.substring(`${masterkeys.prefix}eval`.length);
 
-            const code = await eval(file);
+            var code = await eval(file);
 
             try {
                 if (code.toString() === '[object Object]') {
                     code = util.inpect(code);
                 }
-            
+
                 // return responder.send('```javascript' + `\n\u200b${code.toString()}` + '\n```')
             } catch(error) {
                 this.logger.error;
                 return responder.send(`\`\`\`javascript\n${error}\`\`\``);
             }
-        };
+        }
     }
 }
 

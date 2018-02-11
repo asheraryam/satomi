@@ -7,13 +7,13 @@ class Ping extends Command {
             group: 'botinfo',
             cooldown: 0,
             options: { guildsOnly: true }
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ msg }, responder) {
         return responder.send(' ', {embed: {
             color: 0xea9a94,
-            description: `${msg.author.mention} | **Pong! - ${msg.channel.guild.shard.latency} ms** :dango:`,
+            description: `${msg.author.mention} | **Pong! - ${msg.channel.guild.shard.latency} ms** :dango:`
         }}).catch(this.logger.error);
     }
 }

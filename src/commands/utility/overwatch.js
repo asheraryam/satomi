@@ -1,3 +1,5 @@
+/* eslint quotes: 0 */
+
 const { Command } = require('sylphy');
 const owjs = require('overwatch-js');
 
@@ -15,23 +17,23 @@ class Overwatch extends Command {
                 { name: 'region', displayName: 'region', type: 'string', optional: false },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args }, responder) {
         const type = args.type; //profile, competitive, quickplay
         const platform = args.platform; //pc, xbl, psn
         const region = args.region; // na, eu, kr, cn
         const player = args.player.replace('#', '-'); //case sensitive
 
-        if (type == 'profile' || type == 'pf' || type == 'p') {
+        if (type === 'profile' || type === 'pf' || type === 'p') {
             owjs.getOverall(platform, region, player).then(data => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Overwatch Profile Info for: ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {
-                        url: `${!data.profile.avatar ?  `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
+                        url: `${!data.profile.avatar ? `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
                     },
                     fields: [{
                         name: 'Nickname',
@@ -60,17 +62,19 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
-                .catch(this.logger.error);
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
+                    return responder.error('Profile not found please check your input (player names are case sensitive!)')
+                    .catch(this.logger.error);
+                }
             });
-        } else if (type == 'competitive' || type == 'comp' || type == 'c') {
+        } else if (type === 'competitive' || type === 'comp' || type === 'c') {
             owjs.getOverall(platform, region, player).then(data => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Competitive Overwatch Info for ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {
-                        url: `${!data.profile.avatar ?  `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
+                        url: `${!data.profile.avatar ? `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
                     },
                     fields: [{
                         name: 'General Competitive Stats',
@@ -127,17 +131,19 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
-                .catch(this.logger.error);
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
+                    return responder.error('Profile not found please check your input (player names are case sensitive!)')
+                    .catch(this.logger.error);
+                }
             });
-        } else if (type == 'quickplay' || type == 'quick' || type == 'q') {
+        } else if (type === 'quickplay' || type === 'quick' || type === 'q') {
             owjs.getOverall(platform, region, player).then(data => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Overwatch Quickplay Info for ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {
-                        url: `${!data.profile.avatar ?  `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
+                        url: `${!data.profile.avatar ? `` : ''}${data.profile.avatar ? data.profile.avatar : ''}`
                     },
                     fields: [{
                         name: 'General Quickplay Stats',
@@ -194,8 +200,10 @@ class Overwatch extends Command {
                     timestamp: new Date()
                 }}).catch(this.logger.error);
             }).catch(err => {
-                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) return responder.error(`Profile not found please check your input (player names are case sensitive!)`)
-                .catch(this.logger.error);
+                if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
+                    return responder.error('Profile not found please check your input (player names are case sensitive!)')
+                    .catch(this.logger.error);
+                }
             });
         }
     }

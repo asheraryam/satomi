@@ -12,15 +12,15 @@ class Osu extends Command {
                 { name: 'gameType', displayName: 'gameType', type: 'string', optional: true },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }
             ]
-        })
+        });
     }
 
     async handle ({ args, client, msg }, responder) {
 
-        if ( !(args.gameType == 'osu' || args.gameType == 'taiko' || args.gameType == 'ctb' || args.gameType == 'mania') ) {
+        if ( !(args.gameType === 'osu' || args.gameType === 'taiko' || args.gameType === 'ctb' || args.gameType === 'mania') ) {
             return responder.send(`${msg.author.mention} :anger: osu! game types are: osu | taiko | ctb (control the beat) | mania` +
         '\n example use: `s.osu osu cookiezi`');
-        };
+        }
 
         if (args.gameType === 'osu') {
             args.gameType.replace('osu', '0');
@@ -30,7 +30,7 @@ class Osu extends Command {
             args.gameType.replace('ctb', '2');
         } else if (args.gameType === 'mania') {
             args.gameType.replace('mania', '3');
-        };
+        }
 
         const gameType = args.gameType;
         const player = args.player;
@@ -40,10 +40,7 @@ class Osu extends Command {
         return client.createMessage(msg.channel.id, ' ', {
             file: data.body,
             name: `osusig-${player}.png`
-        })
-        .catch(error => {
-                this.logger.error;
-        });
+        }).catch(this.logger.error);
     }
 }
 

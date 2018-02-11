@@ -11,10 +11,10 @@ class Eightball extends Command {
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true}
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args }, responder) {
         const question = args.question;
         const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)];
 

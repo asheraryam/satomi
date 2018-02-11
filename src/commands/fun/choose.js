@@ -10,18 +10,21 @@ class Choose extends Command {
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true }
             ]
-        })
+        });
     }
 
-    handle({ args, client, msg }, responder) {
+    handle({ args }, responder) {
         const question = args.question;
+
         let bothQs = question.split(', ');
+
         for (let i = 0; i < bothQs.length; i++) {
             bothQs[i] = bothQs[i].trim();
-        };
+        }
+
         const answer = bothQs[~~(Math.random() * bothQs.length)];
 
-        return responder.send(' ', {embed: {
+        return responder.send(' ', { embed: {
             color: 0xea9a94,
             title: ':question: Your Question: ' + question.replace(', ', ' or '),
             description: 'I choose... ' + answer + ' :sunglasses:',

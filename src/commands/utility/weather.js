@@ -10,25 +10,26 @@ class Weather extends Command {
             cooldown: 0,
             options: { guildsOnly: true },
             usage: [
-                { name: 'city', displayName: 'city', type: 'string', optional: false },
-                { name: 'tempunit', displayName: 'tempunit', type: 'string', optional: true, last: true }
+                { name: 'city', displayName: 'city', type: 'string', optional: false, last: true },
+                { name: 'tempunit', displayName: 'tempunit', type: 'string', optional: true }
             ]
-        })
+        });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args }, responder) {
         const city = args.city;
         const tempunit = args.tempunit;
 
         weather(city, tempunit).then(info => {
             const url = info.item.link;
-            const imageurl = info.item.description;
-            if (info === null) return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
+            if (info === null) {
+                return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
+            }
 
             return responder.send(' ', {embed: {
                 color: 0xea9a94,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
-                url: url.substr(url.lastIndexOf("*") + 1),
+                url: url.substr(url.lastIndexOf('*') + 1),
                 thumbnail: {
                     url: info.item.description.slice(19, 56)
                 },
