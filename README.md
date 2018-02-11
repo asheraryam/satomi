@@ -1,10 +1,10 @@
 <h1 align="center">Satomi 聡美</h1>
 <p align="center">
-<a title="Release" href="https://github.com/envyist/satomi/releases"><img src="https://img.shields.io/github/release/envyist/satomi.svg?style=flat"></a>
-<a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat"></a>
-<a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat"></a>
-<a title="CodeCli" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/3cb373a64e81a2386ec7/maintainability" /></a>
-<a title="license" href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT%20License-blue.svg?style=flat"></a>
+    <a title="CodeClimate" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/3cb373a64e81a2386ec7/maintainability" alt="CodeClimate" /></a>
+    <a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat" alt="TravisCI" /></a>
+    <br>
+    <a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat" alt="DavidDM" /></a>
+    <a title="license" href="https://github.com/envyist/satomi/blob/master/LICENSE"><img src="https://img.shields.io/github/license/envyist/satomi.svg" alt="License" /></a>
 </p>
 
 -------------------
@@ -13,7 +13,7 @@ Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. I
 
 If you don't mind, you can check out Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
 
-## Satomi is built on :
+## Satomi is built on...
 * [Node.js](https://nodejs.org/en/) : A Javascript runtime for scalable network applications
 * [Eris](https://github.com/abalabahaha/eris) : A Discord JavaScript Library for Node.js
 * [Sylphy](https://github.com/pyraxo/sylphy) : A framework for Eris allowing easy implementation of commands
@@ -23,10 +23,10 @@ If you don't mind, you can check out Satomi's trello here -> [Trello Link](https
 ## Want to invite Satomi?
 As of right now, I am not completely done with Satomi's development. Im aiming for public use by version 1.0.0, as by then I hope to have most of the features I want on Satomi present. I also don't have a job currently to pay for a VPS to keep the bot online 24/7 >.>
 
-## Bot Usage :
+## Bot Usage
 If you want to use this bot just for your own server, feel free to. But if I find my code being used by you under a different name or you claiming to be the owner of the bot/code, I'll personally deal you and your infringement of my license. **Keep in mind I will probably not allow this to occur once I make the bot available publicly and hosted by VPS.**
 
-## Development :
+## Development
 Thanks for your interest in my code, I have added these setup instructions to help get you started on tinkering with the code. **Please pay attention to the license I have below.**
 
 ### Installing
@@ -56,7 +56,7 @@ ESLint is used for this bot with no exeptions for the linter. You can lint the c
 npm run lint
 ```
 * This script will look through the "src" directory and make sure the files meet the ecma requirement(s)
-* The regular script for this is : `eslint src --ext js` , which you can find in the package.json
+* The regular script for this is : `eslint src` , which you can find in the package.json
 
 ## Hosting the Bot locally :
 This requires the set up of just 1 JSON file. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/). **Refer to "Bot Usage", the same principles apply**
@@ -85,5 +85,9 @@ or you can use this command in a console
 npm start
 ```
 
-## License :
-Satomi is licensed under the [MIT License](https://github.com/envyist/satomi/blob/master/LICENSE). If you use my work, give me credit and we're good! It's that simple!
+## License/Author
+**Satomi** © [Christopher House/Envyist](https://github.com/envyist), Released under the [MIT License](https://github.com/envyist/satomi/blob/master/LICENSE)
+
+Created and maintained by Christopher House/Envyist.
+
+> Website - [envyist.github.io](https://envyist.github.io) | Github - [envyist](https://github.com/envyist) | Twitter - [@envyist](https://twitter.com/envyist)
