@@ -20,7 +20,7 @@ class LeaveServer extends Command {
 
             return client.guilds.get(server).leave.then(() => {
                 return responder.send(' ', { embed: {
-                    color: 0xea9a94,
+                    color: 0xffd7ee,
                     title: `I have successfully left ${server}!`
                 }});
             }).catch(this.logger.error).then((error) => {

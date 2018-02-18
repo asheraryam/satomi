@@ -18,7 +18,7 @@ class Commands extends Command {
 
         if (category === 'admin-mod' || category === 'admin' || category === 'mod') {
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: `${client.user.avatarURL}`
@@ -27,7 +27,9 @@ class Commands extends Command {
                 fields: [{
                     name: '------------------',
                     value: '`announce:` admins can make an announcement (it does @everyone)' +
-                    '\n`purge:` deletes a number of messages you give it'
+                    '\n`purge:` deletes a number of messages you give it' +
+                    '\n`ban:` bans a member from the server (deletes 7 days of messages)' +
+                    '\n`kick:` kicks a user from the server'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -37,7 +39,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'botinfo' || category === 'info') {
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: `${client.user.avatarURL}`
@@ -59,7 +61,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'fun') {
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: `${client.user.avatarURL}`
@@ -81,7 +83,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'utility' || category === 'util') {
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: `${client.user.avatarURL}`
@@ -104,7 +106,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else {
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: `${client.user.avatarURL}`

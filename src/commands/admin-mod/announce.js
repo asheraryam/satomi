@@ -18,7 +18,7 @@ class Announce extends Command {
 
         msg.delete();
         return responder.send('@everyone', { embed: {
-            color: 0xea9a94,
+            color: 0xffd7ee,
             title: ':postal_horn: Announcement!',
             description: `${announcement}`,
             timestamp: new Date()

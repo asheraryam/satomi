@@ -11,7 +11,7 @@ module.exports = satomi = {
         guildCreate: 'newGuild'
     },
     newGuild: (guild, satomi) => satomi.createMessage(masterkeys.botLog, {embed: {
-        color: 0xea9a94,
+        color: 0xffd7ee,
         author: {
             name: `${guild.name} (${guild.id})`,
             icon_url: `${guild.iconURL}`

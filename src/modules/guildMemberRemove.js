@@ -11,7 +11,7 @@ module.exports = satomi = {
         guildMemberRemove: 'memberRemove'
     },
     memberRemove: (guild, member, satomi) => satomi.createMessage(masterkeys.memberLog, {embed: {
-        color: 0xea9a94,
+        color: 0xffd7ee,
         author: {
             name: `${guild.name} (${guild.id})`,
             icon_url: `${guild.iconURL}`

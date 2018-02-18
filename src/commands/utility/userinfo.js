@@ -16,12 +16,16 @@ class UserInfo extends Command {
     }
 
     handle ({ msg }, responder) {
-        const user = msg.channel.guild.members.get(msg.member.id) || msg.channel.guild.members.get(msg.mentions[0].id);
+        if (msg.mentions.length > 0) {
+            var user = msg.channel.guild.members.get(msg.mentions[0].id);
+        } else {
+            user = msg.channel.guild.members.get(msg.member.id);
+        }
 
         return responder.send(' ', {embed: {
             title: 'User Information',
-            description: `${user.username}#${user.discriminator} || Bot? ${user.bot}`,
-            color: 0xea9a94,
+            description: `${user.username}#${user.discriminator} --- Bot? ${user.bot}`,
+            color: 0xffd7ee,
             thumbnail: {
                 url: user.avatarURL
             },

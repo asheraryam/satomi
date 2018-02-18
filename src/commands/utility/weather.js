@@ -27,7 +27,7 @@ class Weather extends Command {
             }
 
             return responder.send(' ', {embed: {
-                color: 0xea9a94,
+                color: 0xffd7ee,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf('*') + 1),
                 thumbnail: {

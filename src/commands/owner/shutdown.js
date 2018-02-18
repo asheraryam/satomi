@@ -23,7 +23,7 @@ class Shutdown extends Command {
             if (shutdown.choice === 'y') {
                 console.log(chalk.cyan('Satomi has shut down'));
                 return responder.send(' ', {embed: {
-                    color: 0xea9a94,
+                    color: 0xffd7ee,
                     title: ':zzz: Satomi has shut down...'}})
                 .then(client.disconnect())
                 .catch(this.logger.error);
