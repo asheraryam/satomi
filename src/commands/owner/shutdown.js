@@ -9,7 +9,7 @@ class Shutdown extends Command {
             group: 'owner',
             aliases: ['die'],
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 
@@ -25,8 +25,8 @@ class Shutdown extends Command {
                 return responder.send(' ', {embed: {
                     color: 0xffd7ee,
                     title: ':zzz: Satomi has shut down...'}})
-                .then(client.disconnect())
-                .catch(this.logger.error);
+                    .then(client.disconnect())
+                    .catch(this.logger.error);
             } else {
                 return responder.send('Ok, I will not shut down~ :dango:');
             }

@@ -8,7 +8,7 @@ class UserInfo extends Command {
             group: 'utility',
             aliases: ['user'],
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }
             ]
@@ -51,7 +51,7 @@ class UserInfo extends Command {
             },
             {
                 name: 'Roles',
-                value: `${user.roles.map(roleid => {
+                value: `${user.roles.map((roleid) => {
                     return msg.channel.guild.roles.get(roleid).name;
                 }).join(', ') || 'None'}`,
                 inline: false

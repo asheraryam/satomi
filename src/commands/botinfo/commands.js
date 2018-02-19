@@ -6,7 +6,7 @@ class Commands extends Command {
             name: 'commands',
             group: 'botinfo',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'category', displayName: 'category', type: 'string', optional: true, last: true }
             ]
@@ -70,8 +70,9 @@ class Commands extends Command {
                 fields: [{
                     name: '------------------',
                     value: '`8ball:` ask a question and satomi returns an 8ball answer~' +
-                    '\n`choose`: chooses between the options you give satomi' +
-                    '\n`coinflip`: flips heads or tails' +
+                    '\n`advice:` gives you some advice on life~' +
+                    '\n`choose:` chooses between the options you give satomi' +
+                    '\n`coinflip:` flips heads or tails' +
                     '\n`hug:` @ someone to send them a hug' +
                     '\n`urban:` searches urban dictionary for your word or a random one'
                 }],

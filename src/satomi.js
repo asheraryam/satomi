@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const logger = new (winston.Logger)({
     transports: [
-        new(winston.transports.Console)({
+        new (winston.transports.Console)({
             level: 'silly',
             colorize: true,
             timestamp: () => `[${chalk.magenta(moment().format('YYYY MMM Do, h:mm:ss a'))}]`
@@ -73,6 +73,8 @@ satomi.on('shardResume', (id) => {
     satomi.logger.info(chalk.green.bold(`Shard "${id}" has resumed`));
 });
 
-satomi.on('error', err => satomi.logger.error(err));
+satomi.on('error', (err) => {
+    satomi.logger.error(err);
+});
 
 satomi.run();

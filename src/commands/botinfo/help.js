@@ -6,7 +6,7 @@ class Help extends Command {
             name: 'help',
             group: 'botinfo',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'commands', displayName: 'commands', type: 'string', optional: true, last: true }
             ]

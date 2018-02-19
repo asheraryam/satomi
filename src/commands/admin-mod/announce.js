@@ -6,7 +6,7 @@ class Announce extends Command {
             name: 'announce',
             group: 'admin-mod',
             cooldown: 0,
-            options: { guildsOnly: true, requirements: { permissions: { administrator: true }}},
+            options: { guildOnly: true, requirements: { permissions: { administrator: true }}},
             usage: [
                 { name: 'announcement', displayName: 'announcement', type: 'string', optional: 'false', last: true }
             ]

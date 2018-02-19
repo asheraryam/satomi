@@ -7,7 +7,7 @@ class Purge extends Command {
             group: 'admin-mod',
             aliases: ['clear', 'delete'],
             cooldown: 0,
-            options: { guildsOnly: true, requirements: { permissions: { manageMessages: true }}},
+            options: { guildOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
                 { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 50 }
             ]
@@ -24,10 +24,12 @@ class Purge extends Command {
             }});
         }
 
-        client.purgeChannel(msg.channel.id, limit)
-        .catch(error => responder.send(' ', {embed: {
-            description: `There was an error trying to purge: ${error}`
-        }}));
+        client.purgeChannel(msg.channel.id, limit).catch((error) => {
+            responder.send(' ', {embed: {
+                color: 0xff4b4b,
+                description: `There was an error trying to purge: ${error}`
+            }});
+        });
 
     }
 }

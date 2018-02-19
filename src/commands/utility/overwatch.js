@@ -10,7 +10,7 @@ class Overwatch extends Command {
             group: 'utility',
             aliases: ['ow'],
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'type', displayName: 'type', type: 'string', optional: false },
                 { name: 'platform', displayName: 'platform', type: 'string', optional: false },
@@ -27,7 +27,7 @@ class Overwatch extends Command {
         const player = args.player.replace('#', '-'); //case sensitive
 
         if (type === 'profile' || type === 'pf' || type === 'p') {
-            owjs.getOverall(platform, region, player).then(data => {
+            owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Overwatch Profile Info for: ${player}`,
@@ -61,14 +61,14 @@ class Overwatch extends Command {
                     }],
                     timestamp: new Date()
                 }}).catch(this.logger.error);
-            }).catch(err => {
+            }).catch((err) => {
                 if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
                     return responder.error('Profile not found please check your input (player names are case sensitive!)')
                     .catch(this.logger.error);
                 }
             });
         } else if (type === 'competitive' || type === 'comp' || type === 'c') {
-            owjs.getOverall(platform, region, player).then(data => {
+            owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Competitive Overwatch Info for ${player}`,
@@ -130,14 +130,14 @@ class Overwatch extends Command {
                     }],
                     timestamp: new Date()
                 }}).catch(this.logger.error);
-            }).catch(err => {
+            }).catch((err) => {
                 if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
                     return responder.error('Profile not found please check your input (player names are case sensitive!)')
                     .catch(this.logger.error);
                 }
             });
         } else if (type === 'quickplay' || type === 'quick' || type === 'q') {
-            owjs.getOverall(platform, region, player).then(data => {
+            owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
                     color: 0xf99e1a,
                     title: `Overwatch Quickplay Info for ${player}`,
@@ -199,7 +199,7 @@ class Overwatch extends Command {
                     }],
                     timestamp: new Date()
                 }}).catch(this.logger.error);
-            }).catch(err => {
+            }).catch((err) => {
                 if (err.message && err.message.includes('PROFILE_NOT_FOUND')) {
                     return responder.error('Profile not found please check your input (player names are case sensitive!)')
                     .catch(this.logger.error);

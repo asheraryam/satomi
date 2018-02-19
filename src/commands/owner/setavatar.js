@@ -8,7 +8,7 @@ class SetAvatar extends Command {
             name: 'setavatar',
             group: 'owner',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'url', displayName: 'url', type: 'string', optional: true, last: true }
             ]

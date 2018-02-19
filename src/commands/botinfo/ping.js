@@ -6,7 +6,7 @@ class Ping extends Command {
             name: 'ping',
             group: 'botinfo',
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 

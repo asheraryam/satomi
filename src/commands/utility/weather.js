@@ -8,7 +8,7 @@ class Weather extends Command {
             group: 'utility',
             aliases: ['w'],
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'city', displayName: 'city', type: 'string', optional: false, last: true },
                 { name: 'tempunit', displayName: 'tempunit', type: 'string', optional: true }
@@ -20,7 +20,7 @@ class Weather extends Command {
         const city = args.city;
         const tempunit = args.tempunit;
 
-        weather(city, tempunit).then(info => {
+        weather(city, tempunit).then((info) => {
             const url = info.item.link;
             if (info === null) {
                 return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);

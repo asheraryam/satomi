@@ -7,7 +7,7 @@ class Eightball extends Command {
             name: '8ball',
             group: 'fun',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true}
             ]

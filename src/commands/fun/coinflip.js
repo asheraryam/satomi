@@ -6,7 +6,7 @@ class Coinflip extends Command {
             name: 'coinflip',
             group: 'fun',
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 

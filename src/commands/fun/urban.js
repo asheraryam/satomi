@@ -7,7 +7,7 @@ class Urban extends Command {
             name: 'urban',
             group: 'fun',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'word', displayName: 'word', type: 'string', optional: true, last: true }
             ]

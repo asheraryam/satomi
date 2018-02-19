@@ -6,7 +6,7 @@ class Hug extends Command {
             name: 'hug',
             group: 'fun',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'user', displayName: 'user', type: 'member', optional: false }
             ]

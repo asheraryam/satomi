@@ -7,7 +7,7 @@ class LeaveServer extends Command {
             name: 'leaveserver',
             group: 'owner',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'server', displayName: 'server', type: 'string', optional: false, last: true }
             ]

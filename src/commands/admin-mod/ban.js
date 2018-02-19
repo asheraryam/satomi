@@ -6,7 +6,7 @@ class Ban extends Command {
             name: 'ban',
             group: 'admin-mod',
             cooldown: 0,
-            options: { guildsOnly: true, requirements: { permissions: { administrator: true }}},
+            options: { guildOnly: true, requirements: { permissions: { administrator: true }}},
             usage: [
                 { name: 'member', displayName: 'member', type: 'string', optional: false },
                 { name: 'reason', displayName: 'reason', type: 'string', optional: true, last: true}

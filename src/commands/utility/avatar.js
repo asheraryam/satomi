@@ -7,7 +7,7 @@ class Avatar extends Command {
             group: 'utility',
             aliases: ['profilepicture', 'profilepic'],
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 
@@ -15,7 +15,7 @@ class Avatar extends Command {
         const user = msg.mentions[0] || msg.author;
         const avatarURL = user.dynamicAvatarURL('png', 256);
 
-        return responder.format('emoji:camera').send(`${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`)
+        return responder.send(`:camera: ${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`)
         .catch(this.logger.error);
     }
 }

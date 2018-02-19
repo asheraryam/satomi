@@ -6,7 +6,7 @@ class Extended extends Command {
             name: 'extended',
             group: 'botinfo',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'command', displayName: 'command', type: 'string', optional: true, last: true }
             ]
@@ -233,6 +233,27 @@ class Extended extends Command {
                 {
                     name: 'Example',
                     value: 's.8ball are traps gay?',
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            }}).catch(this.logger.error);
+        } else if (command === 'advice') {
+            return responder.send(' ', {embed: {
+                color: 0xffd7ee,
+                title: 'Extended Help for Advice (fun)',
+                description: 'Gives you advice',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.advice',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.advice',
                     inline: true
                 }],
                 timestamp: new Date(),

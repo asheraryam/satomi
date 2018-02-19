@@ -7,7 +7,7 @@ class Osu extends Command {
             name: 'osu',
             group: 'utility',
             cooldown: 0,
-            options: { guildsOnly: true },
+            options: { guildOnly: true },
             usage: [
                 { name: 'gameType', displayName: 'gameType', type: 'string', optional: true },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }

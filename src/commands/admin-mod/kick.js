@@ -6,7 +6,7 @@ class Kick extends Command {
             name: 'kick',
             group: 'admin-mod',
             cooldown: 0,
-            options: { guildsOnly: true, requirements: { permissions: { manageMessages: true }}},
+            options: { guildOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
                 { name: 'member', displayName: 'member', type: 'string', optional: false },
                 { name: 'reason', displayName: 'reason', type: 'string', optional: true, last: true }

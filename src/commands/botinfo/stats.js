@@ -8,7 +8,7 @@ class Stats extends Command {
             name: 'stats',
             group: 'botinfo',
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 

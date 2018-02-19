@@ -8,7 +8,7 @@ class ServerInfo extends Command {
             group: 'utility',
             aliases: ['server'],
             cooldown: 0,
-            options: { guildsOnly: true }
+            options: { guildOnly: true }
         });
     }
 
