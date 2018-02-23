@@ -5,7 +5,7 @@ class Hug extends Command {
         super (...args, {
             name: 'hug',
             group: 'fun',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'user', displayName: 'user', type: 'member', optional: false }

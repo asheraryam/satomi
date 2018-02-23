@@ -6,7 +6,7 @@ class Purge extends Command {
             name: 'purge',
             group: 'admin-mod',
             aliases: ['clear', 'delete'],
-            cooldown: 0,
+            cooldown: 2,
             options: { guildOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
                 { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 50 }

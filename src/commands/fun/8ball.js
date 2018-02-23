@@ -6,7 +6,7 @@ class Eightball extends Command {
         super (...args, {
             name: '8ball',
             group: 'fun',
-            cooldown: 0,
+            cooldown: 3,
             options: { guildOnly: true },
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true}

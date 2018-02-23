@@ -7,11 +7,11 @@ class Weather extends Command {
             name: 'weather',
             group: 'utility',
             aliases: ['w'],
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'city', displayName: 'city', type: 'string', optional: false, last: true },
-                { name: 'tempunit', displayName: 'tempunit', type: 'string', optional: true }
+                { name: 'tempunit', displayName: 'tempunit', type: 'string', choices: ['f', 'c'], optional: true }
             ]
         });
     }

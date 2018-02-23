@@ -6,7 +6,7 @@ class Urban extends Command {
         super (...args, {
             name: 'urban',
             group: 'fun',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'word', displayName: 'word', type: 'string', optional: true, last: true }

@@ -5,7 +5,7 @@ class Kick extends Command {
         super(...args, {
             name: 'kick',
             group: 'admin-mod',
-            cooldown: 0,
+            cooldown: 2,
             options: { guildOnly: true, requirements: { permissions: { manageMessages: true }}},
             usage: [
                 { name: 'member', displayName: 'member', type: 'string', optional: false },
@@ -14,7 +14,7 @@ class Kick extends Command {
         });
     }
 
-    handle({ args, client, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
         if (msg.mentions.length === 0) {
             return responder.send(msg.author.mention + ', Please mention a user to kick~! :anger:');
         }

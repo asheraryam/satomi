@@ -6,7 +6,7 @@ class Advice extends Command {
         super(...args, {
             name: 'advice',
             group: 'fun',
-            cooldown: 0,
+            cooldown: 2,
             options: { guildOnly: true }
         });
     }

@@ -7,7 +7,7 @@ class UserInfo extends Command {
             name: 'userinfo',
             group: 'utility',
             aliases: ['user'],
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }

@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "a fun discord bot to add some life to your discord server",
   "main": "./src/satomi.js",
   "directories": {
@@ -33,11 +33,14 @@
   },
   "homepage": "https://github.com/envyist/satomi#readme",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "chalk": "^2.3.1",
+    "dotenv-safe": "^5.0.1",
     "eris": "^0.8.4",
+    "longjohn": "^0.2.12",
     "moment": "^2.20.1",
     "overwatch-js": "^1.6.1",
+    "pm2": "^2.10.1",
     "snekfetch": "^3.6.4",
     "sylphy": "^0.4.5",
     "urban": "^0.3.1",
@@ -45,9 +48,9 @@
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.18.0",
+    "eslint": "^4.18.1",
     "eslint-config-ch": "^0.4.0",
-    "nodemon": "^1.15.0"
+    "nodemon": "^1.15.1"
   },
   "eslintConfig": {
     "extends": "ch",

@@ -7,7 +7,7 @@ class Stats extends Command {
         super(...args, {
             name: 'stats',
             group: 'botinfo',
-            cooldown: 0,
+            cooldown: 10,
             options: { guildOnly: true }
         });
     }

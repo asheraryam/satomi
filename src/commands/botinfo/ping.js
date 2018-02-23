@@ -5,7 +5,7 @@ class Ping extends Command {
         super(...args, {
             name: 'ping',
             group: 'botinfo',
-            cooldown: 0,
+            cooldown: 10,
             options: { guildOnly: true }
         });
     }

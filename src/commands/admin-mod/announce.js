@@ -5,7 +5,7 @@ class Announce extends Command {
         super(...args, {
             name: 'announce',
             group: 'admin-mod',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true, requirements: { permissions: { administrator: true }}},
             usage: [
                 { name: 'announcement', displayName: 'announcement', type: 'string', optional: 'false', last: true }

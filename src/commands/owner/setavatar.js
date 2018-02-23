@@ -1,6 +1,6 @@
 const { Command } = require('sylphy');
 const request = require('request');
-const masterkeys = require('../../../masterkeys.json');
+//const masterkeys = require('../../../masterkeys.json');
 
 class SetAvatar extends Command {
     constructor(...args) {
@@ -15,8 +15,8 @@ class SetAvatar extends Command {
         });
     }
 
-    handle({ args, client, msg }, responder) {
-        if (msg.author.id !== masterkeys.ownerID) {
+    handle ({ args, client, msg }, responder) {
+        if (msg.author.id !== process.env.OWNER) {
             return;
         }
 

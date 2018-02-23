@@ -5,7 +5,7 @@ class Choose extends Command {
         super(...args, {
             name: 'choose',
             group: 'fun',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'question', displayName: 'question', type: 'string', optional: false, last: true }
@@ -13,7 +13,7 @@ class Choose extends Command {
         });
     }
 
-    handle({ args }, responder) {
+    handle ({ args }, responder) {
         const question = args.question;
 
         let bothQs = question.split(', ');

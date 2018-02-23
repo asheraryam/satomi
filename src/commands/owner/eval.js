@@ -16,21 +16,23 @@ class Eval extends Command {
     }
 
     async handle ({ msg }, responder) {
-        if (msg.author.id === masterkeys.ownerID) {
-            const file = msg.content.substring(`${masterkeys.prefix}eval`.length);
+        if (msg.author.id !== process.env.OWNER) {
+            return;
+        }
 
-            var code = await eval(file);
+        const file = msg.content.substring(`${masterkeys.prefix}eval`.length);
 
-            try {
-                if (code.toString() === '[object Object]') {
-                    code = util.inpect(code);
-                }
+        var code = await eval(file);
 
-                // return responder.send('```javascript' + `\n\u200b${code.toString()}` + '\n```')
-            } catch (error) {
-                this.logger.error;
-                return responder.send(`\`\`\`javascript\n${error}\`\`\``);
+        try {
+            if (code.toString() === '[object Object]') {
+                code = util.inpect(code);
             }
+
+        // return responder.send('```javascript' + `\n\u200b${code.toString()}` + '\n```')
+        } catch (error) {
+            this.logger.error;
+            return responder.send(`\`\`\`javascript\n${error}\`\`\``);
         }
     }
 }

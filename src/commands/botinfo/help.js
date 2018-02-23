@@ -5,7 +5,7 @@ class Help extends Command {
         super (...args, {
             name: 'help',
             group: 'botinfo',
-            cooldown: 0,
+            cooldown: 2,
             options: { guildOnly: true },
             usage: [
                 { name: 'commands', displayName: 'commands', type: 'string', optional: true, last: true }
@@ -15,13 +15,13 @@ class Help extends Command {
 
     handle ({ args, client, msg }, responder) {
         if (args.commands !== 'commands') {
-            return responder.send(`${msg.author.mention}`, {embed: {
+            return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi, Help!',
                 description: 'hopefully this command solves your question(s), every minute, the status changes ~',
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 fields: [{
                     name: 'Source Code',
@@ -35,31 +35,27 @@ class Help extends Command {
                     name: 'Commands',
                     value: '`s.help commands:` will return with all commands available' +
                     '\n`s.extended insert_command_here:` shows extended info about a command (WIP)'
-                },
-                {
-                    name: 'No NSFW Commands?',
-                    value: 'They are no NSFW commands as of right now'
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: `${client.user.avatarURL}`,
+                    icon_url: client.user.avatarURL,
                     text: 'Satomi | created by envyist @github/twitter'
                 }}}).catch(this.logger.error);
         } else if (args.commands === 'commands') {
-            return responder.send(`${msg.author.mention}`, {embed: {
+            return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi Commands!',
                 description: 'Prefix: s. | type s.help for more help',
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 fields: [{
                     name: 'Command Categories',
-                    value: '`admin-Mod:` restricted commands for mods and admins of a server.' +
+                    value: '`admin-mod:` restricted commands for mods and admins of a server.' +
                     '\n`botinfo:` shows info about the bot.' +
                     '\n`fun:` include games and other fun commands.' +
-                    '\n`music:` commands that let satomi play audio in a voice channel.' +
+                    '\n`nsfw:` for all your naughty desires.' +
                     '\n`owner:` these commands are not avaiable publicly, only stellars can use them' +
                     '\n`utility:` commands with search functionality for games and discord servers.'
                 },
@@ -70,7 +66,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: `${client.user.avatarURL}`,
+                    icon_url: client.user.avatarURL,
                     text: 'Satomi | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);

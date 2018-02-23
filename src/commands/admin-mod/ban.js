@@ -5,7 +5,7 @@ class Ban extends Command {
         super(...args, {
             name: 'ban',
             group: 'admin-mod',
-            cooldown: 0,
+            cooldown: 2,
             options: { guildOnly: true, requirements: { permissions: { administrator: true }}},
             usage: [
                 { name: 'member', displayName: 'member', type: 'string', optional: false },
@@ -14,7 +14,7 @@ class Ban extends Command {
         });
     }
 
-    handle({ args, client, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
         if (msg.mentions.length === 0) {
             return responder.send(msg.author.mention + ', Please mention a user to ban~! :anger:');
         }

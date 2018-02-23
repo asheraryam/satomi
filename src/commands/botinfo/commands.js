@@ -5,7 +5,7 @@ class Commands extends Command {
         super (...args, {
             name: 'commands',
             group: 'botinfo',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'category', displayName: 'category', type: 'string', optional: true, last: true }
@@ -21,7 +21,7 @@ class Commands extends Command {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 title: 'Admin and Mod Commands~',
                 fields: [{
@@ -29,7 +29,8 @@ class Commands extends Command {
                     value: '`announce:` admins can make an announcement (it does @everyone)' +
                     '\n`purge:` deletes a number of messages you give it' +
                     '\n`ban:` bans a member from the server (deletes 7 days of messages)' +
-                    '\n`kick:` kicks a user from the server'
+                    '\n`kick:` kicks a user from the server' +
+                    '\n`setnsfw:` makes the channel a nsfw channel'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -42,7 +43,7 @@ class Commands extends Command {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 title: 'Bot Info Commands~',
                 fields: [{
@@ -64,7 +65,7 @@ class Commands extends Command {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 title: 'Fun Commands~',
                 fields: [{
@@ -82,18 +83,43 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
+        } else if (category === 'nsfw') {
+            return responder.send(' ', {embed: {
+                color: 0xffd7ee,
+                author: {
+                    name: 'Satomi',
+                    icon_url: client.user.avatarURL
+                },
+                title: 'NSFW Commands~',
+                fields: [{
+                    name: '------------------',
+                    value: '`ass:` ' +
+                    '\n`boobs:` ' +
+                    '\n`danbooru:` ' +
+                    '\n`gelbooru:` ' +
+                    '\n`konachan:` ' +
+                    '\n`yandere:` ' +
+                    '\n`e621:` '
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: ' | created by envyist @github/twitter'
+                }
+            }}).catch(this.logger.error);
         } else if (category === 'utility' || category === 'util') {
             return responder.send(' ', {embed: {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 title: 'Utility Commands~',
                 fields: [{
                     name: '------------------',
                     value: '`avatar:` @ a user and it shows their current avatar' +
-                    '\n`osu:` displays an image sig of an osu account' +
+                    '\n`catgirl:` shows catgirl images from neko.brussell and neko.life' +
+                    '\n`osu:` displays an image sig of a osu account' +
                     '\n`overwatch:` shows overwatch stats from the given player' +
                     '\n`serverinfo:` shows info about the server' +
                     '\n`userinfo:` use it plain or @ a user and it shows info about a user' +
@@ -110,12 +136,12 @@ class Commands extends Command {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
-                    icon_url: `${client.user.avatarURL}`
+                    icon_url: client.user.avatarURL
                 },
                 title: 'Please choose a category! :anger:',
                 fields: [{
                     name: 'Categories',
-                    value: '- admin-info\n- botinfo\n- fun\n- music (not available)\n- utility'
+                    value: '- admin-info\n- botinfo\n- nsfw\n- fun\n- utility'
                 }],
                 timestamp: new Date(),
                 footer: {

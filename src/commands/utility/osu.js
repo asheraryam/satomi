@@ -6,7 +6,7 @@ class Osu extends Command {
         super (...args, {
             name: 'osu',
             group: 'utility',
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'gameType', displayName: 'gameType', type: 'string', optional: true },

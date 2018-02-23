@@ -9,7 +9,7 @@ class Overwatch extends Command {
             name: 'overwatch',
             group: 'utility',
             aliases: ['ow'],
-            cooldown: 0,
+            cooldown: 5,
             options: { guildOnly: true },
             usage: [
                 { name: 'type', displayName: 'type', type: 'string', optional: false },
