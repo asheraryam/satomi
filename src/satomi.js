@@ -28,7 +28,7 @@ const logger = new (winston.Logger)({
 const satomi = new Client({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    //admins: (process.env['ADMINS']).split(', '),
+    //admins: (process.env['ADMINS']),
     modules: resolve('modules'),
     messageLimit: 0,
     getAllUsers: true,

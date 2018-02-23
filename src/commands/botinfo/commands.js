@@ -107,14 +107,14 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        } else if (category === 'utility' || category === 'util') {
+        } else if (category === 'search') {
             return responder.send(' ', {embed: {
                 color: 0xffd7ee,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
                 },
-                title: 'Utility Commands~',
+                title: 'Search Commands~',
                 fields: [{
                     name: '------------------',
                     value: '`avatar:` @ a user and it shows their current avatar' +
@@ -141,7 +141,7 @@ class Commands extends Command {
                 title: 'Please choose a category! :anger:',
                 fields: [{
                     name: 'Categories',
-                    value: '- admin-info\n- botinfo\n- nsfw\n- fun\n- utility'
+                    value: '- admin-info\n- botinfo\n- nsfw\n- fun\n- search'
                 }],
                 timestamp: new Date(),
                 footer: {
