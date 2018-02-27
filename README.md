@@ -60,26 +60,33 @@ npm run lint
 * The regular script for this is : `eslint src` , which you can find in the package.json
 
 ## Hosting the Bot locally :
-This requires the set up of just 1 JSON file. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/). **Refer to "Bot Usage", the same principles apply**
+This requires the set up of just 2 env files. You also need an IDE to configure all of this and download all dependencies I have listed in package.json. I recommend using [Visual Studio Code](https://code.visualstudio.com/). You also need to download [Node.js](https://nodejs.org/en/) to be able to run the bot and download its dependencies with [npm](https://www.npmjs.com/). **Refer to "Bot Usage", the same principles apply**
 
 *And if you don't want to use the Satomi name then you'll have to dabble more into the code to change the client name and the help commands as well as some other things too. This is a big burden if you have never coded in your life.*
 
-For masterkeys.json...
-```
-{
-    "token": "BOT_TOKEN",
-    "prefix": "s.", (this can be changed if you want)
-    "ownerID": "OWNER_ID",
-    "botLog": "CHANNEL_ID",
-    "memberLog": "CHANNEL_ID"
-}
+For .env (and for .env.example, have the values empty while .env has the values defined)...
+```env
+# Bot Masterkeys
+CLIENT_TOKEN=
+CLIENT_PREFIX=s.
+OWNER=
+ADMINS=
+
+# Sharding
+# PROCESS_COUNT=
+# SHARDS_PER_PROCESS=
+
+# Host Server Logging
+BOT_LOG=
+MEMBER_LOG=
 ```
 * You get your bot token from [here](https://discordapp.com/developers/applications/me), you need to create an application and then create a bot user. After, you need to invite the bot to your/a discord server to use its commands. (There are tutorials on how to do this if you are confused)
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
 * You get the channel ID's the same way you did your ownerID. You right click on the channel and click "Copy ID", then paste it in this file.
+* As of version 0.9.0, Satomi uses `.env` for holding keys instead of a json file. However, if you do not like using `.env`, you can easily switch the code to use a json file.
 
 ### Running the bot :
-After setting up the JSON file, just open the batch file (SatomiStart.bat) and follow the instructions to get the bot online!
+After setting up the env files, just open the batch file (SatomiStart.bat) and follow the instructions to get the bot online!
 
 or you can use this command in a console
 ```
