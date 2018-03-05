@@ -94,7 +94,7 @@ npm start
 ```
 
 ## License/Author
-**Satomi** © [Christopher House/Envyist](https://github.com/envyist), Released under the [MIT License](https://github.com/envyist/satomi/blob/master/LICENSE)
+**Satomi** © [Christopher House/Envyist](https://github.com/envyist), Released under the [AGPL-3.0 License](https://github.com/envyist/satomi/blob/master/LICENSE)
 
 Created and maintained by Christopher House/Envyist.
 
