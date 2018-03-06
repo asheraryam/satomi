@@ -1,6 +1,6 @@
 const { Command } = require('sylphy');
 const chalk = require('chalk');
-//const masterkeys = require('../../../masterkeys.json');
+// const masterkeys = require('../../../masterkeys.json');
 
 class Shutdown extends Command {
     constructor (...args) {

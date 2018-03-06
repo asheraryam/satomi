@@ -49,7 +49,7 @@ class Commands extends Command {
                 fields: [{
                     name: '------------------',
                     value: '`commands:` see `s.help` for info' +
-                    '\n`extended:` displays more info about a command (work in progress)' +
+                    '\n`extended:` displays more info about a command' +
                     '\n`help:` contains links and info to help ease problems with satomi' +
                     '\n`ping:` shows the current ping the bot has to discord servers/api' +
                     '\n`stats:` shows stats about satomi~'
@@ -98,8 +98,10 @@ class Commands extends Command {
                     '\n`danbooru:` ' +
                     '\n`gelbooru:` ' +
                     '\n`konachan:` ' +
-                    '\n`yandere:` ' +
-                    '\n`e621:` '
+                    '\n`rule34:` ' +
+                    '\n`tbib:` '+
+                    '\n`xbooru:` ' +
+                    '\n`yandere:` '
                 }],
                 timestamp: new Date(),
                 footer: {

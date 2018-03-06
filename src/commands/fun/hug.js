@@ -1,4 +1,5 @@
 const { Command } = require('sylphy');
+const axios = require('axios');
 
 class Hug extends Command {
     constructor (...args) {
@@ -13,7 +14,7 @@ class Hug extends Command {
         });
     }
 
-    handle ({ client, msg }, responder) {
+    async handle ({ client, msg }, responder) {
         if (msg.mentions.length === 0) {
             return responder.send(`${msg.author.mention}, Please mention a user to hug~! owo`);
         }
@@ -26,7 +27,19 @@ class Hug extends Command {
             return responder.send(`${msg.author.mention} Im sorry but, you can't hug yourself :confused:`);
         }
 
-        return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`).catch(this.logger.error);
+        const res = await axios.get('https://nekos.life/api/v2/img/hug', {
+            headers: {
+                'User-Agent': 'Satomi - (https://github.com/envyist/satomi)'
+            }
+        }).catch(this.logger.error);
+
+        return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, {embed: {
+            color: 0xffd7ee,
+            image: {
+                url: res.data.url
+            },
+            timestamp: new Date()
+        }}).catch(this.logger.error);
     }
 }
 

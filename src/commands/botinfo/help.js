@@ -8,13 +8,13 @@ class Help extends Command {
             cooldown: 2,
             options: { guildOnly: true },
             usage: [
-                { name: 'commands', displayName: 'commands', type: 'string', optional: true, last: true }
+                { name: 'categories', displayName: 'categories', type: 'string', optional: true, last: true }
             ]
         });
     }
 
     handle ({ args, client, msg }, responder) {
-        if (args.commands !== 'commands') {
+        if (args.categories !== 'categories') {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi, Help!',
                 description: 'hopefully this command solves your question(s), every minute, the status changes ~',
@@ -33,15 +33,15 @@ class Help extends Command {
                 },
                 {
                     name: 'Commands',
-                    value: '`s.help commands:` will return with all commands available' +
-                    '\n`s.extended insert_command_here:` shows extended info about a command (WIP)'
+                    value: '`s.help categories:` will return with all command categories available' +
+                    '\n`s.extended command_name:` shows extended info about a command'
                 }],
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
                     text: 'Satomi | created by envyist @github/twitter'
                 }}}).catch(this.logger.error);
-        } else if (args.commands === 'commands') {
+        } else if (args.categories === 'categories') {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi Commands!',
                 description: 'Prefix: s. | type s.help for more help',
@@ -57,11 +57,11 @@ class Help extends Command {
                     '\n`fun:` include games and other fun commands.' +
                     '\n`nsfw:` for all your naughty desires.' +
                     '\n`owner:` these commands are not avaiable publicly, only stellars can use them' +
-                    '\n`utility:` commands with search functionality for games and discord servers.'
+                    '\n`search:` commands with search functionality for games and discord servers.'
                 },
                 {
                     name: 'How to use?',
-                    value: '`s.commands categoryName` will return with the commands in that category' +
+                    value: '`s.commands category_name` will return with the commands in that category' +
                     '\n example: `s.commands fun`'
                 }],
                 timestamp: new Date(),

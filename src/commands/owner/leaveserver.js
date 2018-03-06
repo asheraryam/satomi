@@ -1,5 +1,5 @@
 const { Command } = require('sylphy');
-//const masterkeys = require('../../../masterkeys.json');
+// const masterkeys = require('../../../masterkeys.json');
 
 class LeaveServer extends Command {
     constructor(...args) {

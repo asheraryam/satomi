@@ -14,9 +14,7 @@ const statuses = [
     { type: 3, name: 'anime' },
     { type: 0, name: 'the piano' },
     { type: 0, name: 'with the best girl <3' },
-    { type: 2, name: 'lofi hip-hop' },
     { type: 0, name: 'with cute girls' },
-    { type: 2, name: 'classical music' },
     { type: 0, name: 'the violin' }
 ];
 

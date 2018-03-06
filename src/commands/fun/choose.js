@@ -26,7 +26,7 @@ class Choose extends Command {
 
         return responder.send(' ', { embed: {
             color: 0xffd7ee,
-            title: ':question: Your Question: ' + question.replace(', ', ' or '),
+            title: ':question: Your Question: ' + question,
             description: 'I choose... ' + answer + ' :sunglasses:',
             timestamp: new Date()
         }}).catch(this.logger.error);

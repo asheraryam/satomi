@@ -8,9 +8,17 @@ const nonos = [
     { no: 'shotacon' },
     { no: 'shotacons' },
     { no: 'child' },
+    { no: 'children' },
     { no: 'young' },
     { no: 'gore' },
     { no: 'vore' },
+    { no: 'scat' },
+    { no: 'poop' },
+    { no: 'pee' },
+    { no: 'peeing' },
+    { no: 'piss' },
+    { no: 'pissing' },
+    { no: 'yellow shower' },
     { no: 'blood' },
     { no: 'period' }
 ];

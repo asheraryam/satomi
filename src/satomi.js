@@ -3,14 +3,14 @@ const chalk = require('chalk');
 const winston = require('winston');
 const moment = require('moment');
 const statusList = require('./assets/statusList.js');
-//const masterkeys = require('../masterkeys.json');
+// const masterkeys = require('../masterkeys.json');
 const path = require('path');
 const fs = require('fs');
 
-//const processID = parseInt(process.env['PROCESS_ID'], 10);
-//const processShards = parseInt(process.env['SHARDS_PER_PROCESS'], 10);
-//const firstShardID = processID * processShards;
-//const lastShardID = firstShardID + processShards - 1;
+// const processID = parseInt(process.env['PROCESS_ID'], 10);
+// const processShards = parseInt(process.env['SHARDS_PER_PROCESS'], 10);
+// const firstShardID = processID * processShards;
+// const lastShardID = firstShardID + processShards - 1;
 
 const resolve = (str) => path.join('src', str);
 
@@ -19,7 +19,7 @@ const logger = new (winston.Logger)({
         new (winston.transports.Console)({
             level: 'silly',
             colorize: true,
-            //label: processShards > 1 ? `C ${firstShardID}-${lastShardID}` : `C ${processID}`,
+            // label: processShards > 1 ? `C ${firstShardID}-${lastShardID}` : `C ${processID}`,
             timestamp: () => `[${chalk.magenta(moment().format('YYYY MMM Do, h:mm:ss a'))}]`
         })
     ]
@@ -28,14 +28,14 @@ const logger = new (winston.Logger)({
 const satomi = new Client({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    //admins: (process.env['ADMINS']),
+    // admins: (process.env['ADMINS']),
     modules: resolve('modules'),
     messageLimit: 0,
     getAllUsers: true,
     disableEveryone: false,
     maxShards: 'auto',
-    //firstShardID,
-    //lastShardID,
+    // firstShardID,
+    // lastShardID,
     autoreconnect: true
 });
 
@@ -80,9 +80,7 @@ satomi.on('shardDisconnect', (id) => satomi.logger.info(chalk.red.bold(`Shard "$
 
 satomi.on('shardResume', (id) => satomi.logger.info(chalk.green.bold(`Shard "${id}" has resumed`)));
 
-satomi.on('error', (err) => {
-    satomi.logger.error(err);
-});
+satomi.on('error', (err) => satomi.logger.error(err));
 
 satomi.run();
 

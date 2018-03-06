@@ -1,6 +1,6 @@
 const { Command } = require('sylphy');
 const request = require('request');
-//const masterkeys = require('../../../masterkeys.json');
+// const masterkeys = require('../../../masterkeys.json');
 
 class SetAvatar extends Command {
     constructor(...args) {
