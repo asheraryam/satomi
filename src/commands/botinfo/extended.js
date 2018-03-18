@@ -363,6 +363,27 @@ class Extended extends Command {
                     text: footerText
                 }
             }}).catch(this.logger.error);
+        } else if (command === 'ratewaifu') {
+            return responder.send(' ', {embed: {
+                color: 0xffd7ee,
+                title: 'Extended Help for RateWaifu (fun)',
+                description: 'Rate a fellow waifu~',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.ratewaifu @user',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.ratewaifu @Satomi',
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            }}).catch(this.logger.error);
         } else if (command === 'urban') {
             return responder.send(' ', {embed: {
                 color: 0xffd7ee,
@@ -551,12 +572,12 @@ class Extended extends Command {
                 description: 'Displays weather info from Yahoo!Weather',
                 fields: [{
                     name: 'Usage',
-                    value: 's.weather <city> <tempScale>',
+                    value: 's.weather <tempScale> <city>',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.weather LosAngeles f or s.weather LosAngeles',
+                    value: 's.weather f Los Angeles or s.weather Los Angeles',
                     inline: true
                 },
                 {

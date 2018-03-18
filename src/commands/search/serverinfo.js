@@ -41,7 +41,7 @@ class ServerInfo extends Command {
                 },
                 {
                     name: 'Other Info',
-                    value: 'Shard Number: ' + Object.keys(server.shard).length +
+                    value: 'Shard Number: ' + server.shard.id +
                     '\nRegion: ' + server.region +
                     '\nEmojis: ' + Object.keys(server.emojis).length,
                     inline: true

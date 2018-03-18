@@ -1,5 +1,5 @@
 const { Command } = require('sylphy');
-const masterkeys = require('../../../masterkeys.json');
+// const masterkeys = require('../../../masterkeys.json');
 const util = require('util');
 
 class Eval extends Command {
@@ -20,7 +20,7 @@ class Eval extends Command {
             return;
         }
 
-        const file = msg.content.substring(`${masterkeys.prefix}eval`.length);
+        const file = msg.content.substring(`${process.env.CLIENT_PREFIX}eval`.length);
 
         var code = await eval(file);
 

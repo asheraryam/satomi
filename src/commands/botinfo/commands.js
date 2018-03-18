@@ -75,6 +75,7 @@ class Commands extends Command {
                     '\n`choose:` chooses between the options you give satomi' +
                     '\n`coinflip:` flips heads or tails' +
                     '\n`hug:` @ someone to send them a hug' +
+                    '\n`ratewaifu:` @ a waifu (or husbando) to rate~' +
                     '\n`urban:` searches urban dictionary for your word or a random one'
                 }],
                 timestamp: new Date(),
