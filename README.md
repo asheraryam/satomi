@@ -67,13 +67,13 @@ For .env (and for .env.example, have the values empty while .env has the values 
 ```env
 # Bot Masterkeys
 CLIENT_TOKEN=
-CLIENT_PREFIX=s.
-OWNER=
-ADMINS=
+CLIENT_PREFIX=
+OWNER_ID=
+ADMIN_IDS=
 
 # Sharding
-# PROCESS_COUNT=
-# SHARDS_PER_PROCESS=
+CLIENT_PROCESSES=
+CLIENT_SHARDS_PER_PROCESS=
 
 # Host Server Logging
 BOT_LOG=
