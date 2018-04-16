@@ -6,7 +6,6 @@
 
 const statuses = [
     { type: 0, name: 'type s.help for help~!' },
-    { type: 0, name: 'with my darling~' },
     { type: 3, name: 'you type' },
     { type: 0, name: 'the saxophone' },
     { type: 2, name: 'your voices' },

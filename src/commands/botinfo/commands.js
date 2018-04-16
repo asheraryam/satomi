@@ -16,14 +16,14 @@ class Commands extends Command {
     handle ({ args, client }, responder) {
         const category = args.category;
 
-        if (category === 'admin-mod' || category === 'admin' || category === 'mod') {
+        if (category === 'moderation' || category === 'mod') {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
                 },
-                title: 'Admin and Mod Commands~',
+                title: 'Moderation Commands~',
                 fields: [{
                     name: '------------------',
                     value: '`announce:` admins can make an announcement (it does @everyone)' +
@@ -40,7 +40,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'botinfo' || category === 'info') {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -62,7 +62,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'fun') {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -86,7 +86,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'nsfw') {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -112,7 +112,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'search') {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -136,7 +136,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else {
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -144,7 +144,7 @@ class Commands extends Command {
                 title: 'Please choose a category! :anger:',
                 fields: [{
                     name: 'Categories',
-                    value: '- admin-info\n- botinfo\n- nsfw\n- fun\n- search'
+                    value: '- botinfo\n- fun\n- moderation\n- nsfw\n- search'
                 }],
                 timestamp: new Date(),
                 footer: {

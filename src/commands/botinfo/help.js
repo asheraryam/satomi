@@ -18,7 +18,7 @@ class Help extends Command {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi, Help!',
                 description: 'hopefully this command solves your question(s), every minute, the status changes ~',
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -45,14 +45,14 @@ class Help extends Command {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi Commands!',
                 description: 'Prefix: s. | type s.help for more help',
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
                 },
                 fields: [{
                     name: 'Command Categories',
-                    value: '`admin-mod:` restricted commands for mods and admins of a server.' +
+                    value: '`moderation:` restricted commands for mods and admins of a server.' +
                     '\n`botinfo:` shows info about the bot.' +
                     '\n`fun:` include games and other fun commands.' +
                     '\n`nsfw:` for all your naughty desires.' +

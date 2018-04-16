@@ -3,13 +3,14 @@ const chalk = require('chalk');
 const winston = require('winston');
 const moment = require('moment');
 const statusList = require('./assets/statusList.js');
-// const masterkeys = require('../masterkeys.json');
 const path = require('path');
 
-const processID = parseInt(process.env.PROCESS_ID, 10);
-const processShards = parseInt(process.env.SHARDS_PER_PROCESS, 10);
+const processCount = parseInt(process.env.CLIENT_PROCESSES, 10);
+const processID = parseInt(process.env.PROCESS_ID, 10) % processCount;
+const processShards = parseInt(process.env.CLIENT_SHARDS_PER_PROCESS || 1, 10);
 const firstShardID = processID * processShards;
 const lastShardID = firstShardID + processShards - 1;
+const maxShards = processShards * processCount;
 
 const resolve = (str) => path.join('src', str);
 
@@ -27,12 +28,12 @@ const logger = new (winston.Logger)({
 const satomi = new Client({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    // admins: (process.env.ADMINS),
+    // admins: (process.env.ADMIN_IDS).split(', '),
     modules: resolve('modules'),
-    messageLimit: 150,
+    messageLimit: 0,
     getAllUsers: true,
     disableEveryone: false,
-    maxShards: processShards * parseInt(process.env.PROCESS_COUNT, 10),
+    maxShards: maxShards,
     firstShardID: firstShardID,
     lastShardID: lastShardID,
     autoreconnect: true

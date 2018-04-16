@@ -19,7 +19,7 @@ const ascii = () => {
     });
 };
 
-const cluster = new Crystal(path.join('src', 'satomi.js'), parseInt(process.env.PROCESS_COUNT, 10));
+const cluster = new Crystal(path.join('src', 'satomi.js'), parseInt(process.env.CLIENT_PROCESSES, 10));
 const timestamp = () => `[${chalk.grey(moment().format('HH:mm:ss'))}]`;
 
 cluster.on('clusterCreate', (id) => console.log(`${timestamp()} [MASTER]: CLUSTER ${chalk.cyan.bold(id)} ONLINE`));

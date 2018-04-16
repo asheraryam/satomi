@@ -1,5 +1,4 @@
 const { Command } = require('sylphy');
-// const masterkeys = require('../../../masterkeys.json');
 
 class LeaveServer extends Command {
     constructor(...args) {
@@ -15,7 +14,7 @@ class LeaveServer extends Command {
     }
 
     handle ({ args, client, msg }, responder) {
-        if (msg.author.id !== process.env.OWNER) {
+        if (msg.author.id !== process.env.OWNER_ID) {
             return;
         }
 
@@ -23,7 +22,7 @@ class LeaveServer extends Command {
 
         return client.guilds.get(server).leave.then(() => {
             return responder.send(' ', { embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 title: `I have successfully left ${server}!`
             }});
         }).catch(this.logger.error).then((error) => {

@@ -19,7 +19,7 @@ class Eightball extends Command {
         const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)];
 
         return responder.send(' ', {embed: {
-            color: 0xffd7ee,
+            color: 0x3b6784,
             title: ':question: Your Question: ' + question,
             description: ':8ball: Answer: ' + answer.name,
             timestamp: new Date()

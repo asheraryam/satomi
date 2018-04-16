@@ -11,7 +11,7 @@ module.exports = satomi = {
         guildMemberAdd: 'memberJoin'
     },
     memberJoin: (guild, member, satomi) => satomi.createMessage(masterkeys.memberLog, {embed: {
-        color: 0xffd7ee,
+        color: 0x3b6784,
         author: {
             name: `${guild.name} (${guild.id})`,
             icon_url: `${guild.iconURL}`

@@ -14,7 +14,7 @@ class Stats extends Command {
 
     handle ({ client }, responder) {
         return responder.send(' ', {embed: {
-            color: 0xffd7ee,
+            color: 0x3b6784,
             author: {
                 name: 'Satomi Stats~',
                 icon_url: `${client.user.avatarURL}`

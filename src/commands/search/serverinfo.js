@@ -23,7 +23,7 @@ class ServerInfo extends Command {
                     name: 'Server Information:',
                     icon_url: client.user.avatarURL
                 },
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 thumbnail: {
                     url: server.iconURL
                 },

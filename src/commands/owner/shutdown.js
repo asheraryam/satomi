@@ -1,6 +1,5 @@
 const { Command } = require('sylphy');
 const chalk = require('chalk');
-// const masterkeys = require('../../../masterkeys.json');
 
 class Shutdown extends Command {
     constructor (...args) {
@@ -14,7 +13,7 @@ class Shutdown extends Command {
     }
 
     async handle ({ client, msg }, responder) {
-        if (msg.author.id !== process.env.OWNER) {
+        if (msg.author.id !== process.env.OWNER_ID) {
             return;
         }
 
@@ -26,7 +25,7 @@ class Shutdown extends Command {
         if (shutdown.choice === 'y') {
             console.log(chalk.cyan('Satomi has shut down'));
             return responder.send(' ', {embed: {
-                color: 0xffd7ee,
+                color: 0x3b6784,
                 title: ':zzz: Satomi has shut down...'}})
                 .then(client.disconnect())
                 .catch(this.logger.error);
