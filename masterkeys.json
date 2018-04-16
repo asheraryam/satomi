@@ -1,7 +1,0 @@
-{
-    "token": "BOT_TOKEN",
-    "prefix": "s.",
-    "ownerID": "OWNER_ID",
-    "botLog": "CHANNEL_ID",
-    "memberLog": "CHANNEL_ID"
-}
