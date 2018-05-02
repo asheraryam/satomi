@@ -30,7 +30,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x3b6784,
+                    color: 0x98ffa6,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
@@ -45,7 +45,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x3b6784,
+                    color: 0x98ffa6,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url
@@ -67,7 +67,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x3b6784,
+                    color: 0x98ffa6,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
@@ -82,7 +82,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x3b6784,
+                    color: 0x98ffa6,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url

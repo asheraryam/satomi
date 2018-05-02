@@ -19,7 +19,7 @@ class Coinflip extends Command {
         const coin = coins[~~(Math.random() * coins.length)];
 
         return responder.send(' ', { embed: {
-            color: 0x3b6784,
+            color: 0x98ffa6,
             title: `${msg.author.username} flipped a coin!`,
             description: 'and it landed on... ' + coin.name,
             timestamp: new Date()

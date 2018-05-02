@@ -25,7 +25,7 @@ class UserInfo extends Command {
         return responder.send(' ', {embed: {
             title: 'User Information',
             description: `${user.username}#${user.discriminator} --- Bot? ${user.bot}`,
-            color: 0x3b6784,
+            color: 0x98ffa6,
             thumbnail: {
                 url: user.avatarURL
             },

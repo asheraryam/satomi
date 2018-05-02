@@ -25,7 +25,7 @@ class Shutdown extends Command {
         if (shutdown.choice === 'y') {
             console.log(chalk.cyan('Satomi has shut down'));
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 title: ':zzz: Satomi has shut down...'}})
                 .then(client.disconnect())
                 .catch(this.logger.error);

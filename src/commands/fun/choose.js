@@ -25,7 +25,7 @@ class Choose extends Command {
         const answer = bothQs[~~(Math.random() * bothQs.length)];
 
         return responder.send(' ', { embed: {
-            color: 0x3b6784,
+            color: 0x98ffa6,
             title: ':question: Your Question: ' + question,
             description: 'I choose... ' + answer + ' :sunglasses:',
             timestamp: new Date()

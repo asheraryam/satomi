@@ -2,7 +2,7 @@ const { Client } = require('sylphy');
 const chalk = require('chalk');
 const winston = require('winston');
 const moment = require('moment');
-const statusList = require('./assets/statusList.js');
+const statusList = require('./utils/core/statusList.js');
 const path = require('path');
 
 const processCount = parseInt(process.env.CLIENT_PROCESSES, 10);
@@ -28,7 +28,7 @@ const logger = new (winston.Logger)({
 const satomi = new Client({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    // admins: (process.env.ADMIN_IDS).split(', '),
+    admins: (process.env.ADMIN_IDS).split(', '),
     modules: resolve('modules'),
     messageLimit: 0,
     getAllUsers: true,

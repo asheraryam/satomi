@@ -12,7 +12,7 @@ class Ping extends Command {
 
     handle ({ msg }, responder) {
         return responder.send(' ', {embed: {
-            color: 0x3b6784,
+            color: 0x98ffa6,
             description: `${msg.author.mention} | **Pong! - ${msg.channel.guild.shard.latency} ms** :dango:`
         }}).catch(this.logger.error);
     }

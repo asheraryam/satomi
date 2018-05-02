@@ -18,7 +18,7 @@ class Commands extends Command {
 
         if (category === 'moderation' || category === 'mod') {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -40,7 +40,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'botinfo' || category === 'info') {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -62,7 +62,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'fun') {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -86,7 +86,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'nsfw') {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -112,7 +112,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'search') {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -136,7 +136,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else {
             return responder.send(' ', {embed: {
-                color: 0x3b6784,
+                color: 0x98ffa6,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
