@@ -15,7 +15,7 @@ class UserInfo extends Command {
         });
     }
 
-    handle ({ msg }, responder) {
+    handle ({ client, msg }, responder) {
         if (msg.mentions.length > 0) {
             var user = msg.channel.guild.members.get(msg.mentions[0].id);
         } else {
@@ -25,7 +25,7 @@ class UserInfo extends Command {
         return responder.send(' ', {embed: {
             title: 'User Information',
             description: `${user.username}#${user.discriminator} --- Bot? ${user.bot}`,
-            color: 0x98ffa6,
+            color: client.hexColor,
             thumbnail: {
                 url: user.avatarURL
             },

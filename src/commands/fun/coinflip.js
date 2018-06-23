@@ -10,7 +10,7 @@ class Coinflip extends Command {
         });
     }
 
-    handle ({ msg }, responder) {
+    handle ({ client, msg }, responder) {
         const coins = [
             { name: 'heads! :eggplant:' },
             { name: 'tails! :peach:' }
@@ -19,7 +19,7 @@ class Coinflip extends Command {
         const coin = coins[~~(Math.random() * coins.length)];
 
         return responder.send(' ', { embed: {
-            color: 0x98ffa6,
+            color: client.hexColor,
             title: `${msg.author.username} flipped a coin!`,
             description: 'and it landed on... ' + coin.name,
             timestamp: new Date()

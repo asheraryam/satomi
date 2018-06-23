@@ -17,8 +17,8 @@ class Help extends Command {
         if (args.categories !== 'categories') {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi, Help!',
-                description: 'hopefully this command solves your question(s), every minute, the status changes ~',
-                color: 0x98ffa6,
+                description: 'hopefully this command solves your question(s), every 2 minutes, the status changes ~',
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -45,7 +45,7 @@ class Help extends Command {
             return responder.send(msg.author.mention, {embed: {
                 title: 'Satomi Commands!',
                 description: 'Prefix: s. | type s.help for more help',
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL

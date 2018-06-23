@@ -19,7 +19,7 @@ class Extended extends Command {
 
         if (!command) {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Please specify a command for more help! :anger:',
                 description: 'see `s.commands` for the list',
                 timestamp: new Date(),
@@ -32,7 +32,7 @@ class Extended extends Command {
 
         if (command === 'announce') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Announce (moderation)',
                 description: 'This command is used to make announcements on a server',
                 fields: [{
@@ -53,7 +53,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'purge') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Purge (moderation)',
                 description: 'Deletes a set amount of messages in a channel',
                 fields: [{
@@ -79,7 +79,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'ban') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Ban (moderation)',
                 description: 'Bans a member from the server (deletes 7 days of messages)',
                 fields: [{
@@ -100,7 +100,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'kick') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Kick (moderation)',
                 description: 'Kicks a member from the server',
                 fields: [{
@@ -121,7 +121,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'setnsfw') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for SetNSFW (moderation)',
                 description: 'Changes a channel to enable NSFW content',
                 fields: [{
@@ -145,9 +145,30 @@ class Extended extends Command {
                     text: footerText
                 }
             }}).catch(this.logger.error);
+        } else if (command === 'poll') {
+            return responder.send(' ', {embed: {
+                color: client.hexColor,
+                title: 'Extended Help for Poll (moderation)',
+                description: 'Cast a poll for members',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.poll <topic/message>',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.poll Should we add more roles?',
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            }}).catch(this.logger.error);
         } else if (command === 'commands') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Commands (botinfo)',
                 description: 'Displays the list of commands Satomi has~',
                 fields: [{
@@ -172,7 +193,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'extended') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Extended (botinfo)',
                 description: 'Shows extended description of commands',
                 fields: [{
@@ -197,7 +218,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'help') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Help (botinfo)',
                 description: 'Displays useful information about Satomi',
                 fields: [{
@@ -218,7 +239,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'ping') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Ping (botinfo)',
                 description: 'Displays the bot\'s ping to Discord servers',
                 fields: [{
@@ -239,7 +260,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'stats') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Stats (botinfo)',
                 description: 'Displays stats about Satomi',
                 fields: [{
@@ -260,7 +281,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === '8ball') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for 8ball (fun)',
                 description: 'Ask a question and get an answer back',
                 fields: [{
@@ -281,7 +302,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'advice') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Advice (fun)',
                 description: 'Gives you advice',
                 fields: [{
@@ -302,7 +323,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'choose') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Choose (fun)',
                 description: 'Chooses a random word/phrase given',
                 fields: [{
@@ -323,7 +344,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'coinflip') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Coinflip (fun)',
                 description: 'Flips a coin',
                 fields: [{
@@ -344,7 +365,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'hug') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Hug (fun)',
                 description: 'Hug a fellow user~',
                 fields: [{
@@ -365,7 +386,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'ratewaifu') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for RateWaifu (fun)',
                 description: 'Rate a fellow waifu~',
                 fields: [{
@@ -386,7 +407,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'urban') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Urban (fun)',
                 description: 'Searches the Urban Dictionary or give a random word',
                 fields: [{
@@ -407,7 +428,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'avatar') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Avatar (search)',
                 description: 'Gets the avatar of a user',
                 fields: [{
@@ -432,7 +453,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'catgirl') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Catgirl (search)',
                 description: 'Sends an image of a catgirl',
                 fields: [{
@@ -457,7 +478,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'osu') {
             return responder.send(' ', { embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Osu (search)',
                 description: 'Posts an image of Osu profile info',
                 fields: [{
@@ -482,7 +503,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'overwatch') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Overwatch (search)',
                 description: 'Grabs Overwatch profile info **(usernames are case sensitive)**',
                 fields: [{
@@ -515,7 +536,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'serverinfo') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Serverinfo (search)',
                 description: 'Shows info about the server',
                 fields: [{
@@ -541,7 +562,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'userinfo') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Userinfo (search)',
                 description: 'Shows info about a user',
                 fields: [{
@@ -567,7 +588,7 @@ class Extended extends Command {
             }}).catch(this.logger.error);
         } else if (command === 'weather') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Extended Help for Weather (search)',
                 description: 'Displays weather info from Yahoo!Weather',
                 fields: [{

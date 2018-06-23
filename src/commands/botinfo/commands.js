@@ -18,7 +18,7 @@ class Commands extends Command {
 
         if (category === 'moderation' || category === 'mod') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -30,7 +30,8 @@ class Commands extends Command {
                     '\n`purge:` deletes a number of messages you give it' +
                     '\n`ban:` bans a member from the server (deletes 7 days of messages)' +
                     '\n`kick:` kicks a user from the server' +
-                    '\n`setnsfw:` makes the channel a nsfw channel'
+                    '\n`setnsfw:` makes the channel a nsfw channel' +
+                    '\n`vote:` Cast a vote for members'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -40,7 +41,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'botinfo' || category === 'info') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -62,7 +63,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else if (category === 'fun') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -84,35 +85,35 @@ class Commands extends Command {
                     text: ' | created by envyist @github/twitter'
                 }
             }}).catch(this.logger.error);
-        } else if (category === 'nsfw') {
-            return responder.send(' ', {embed: {
-                color: 0x98ffa6,
-                author: {
-                    name: 'Satomi',
-                    icon_url: client.user.avatarURL
-                },
-                title: 'NSFW Commands~',
-                fields: [{
-                    name: '------------------',
-                    value: '`ass:` ' +
-                    '\n`boobs:` ' +
-                    '\n`danbooru:` ' +
-                    '\n`gelbooru:` ' +
-                    '\n`konachan:` ' +
-                    '\n`rule34:` ' +
-                    '\n`tbib:` '+
-                    '\n`xbooru:` ' +
-                    '\n`yandere:` '
-                }],
-                timestamp: new Date(),
-                footer: {
-                    icon_url: client.user.avatarURL,
-                    text: ' | created by envyist @github/twitter'
-                }
-            }}).catch(this.logger.error);
+        // } else if (category === 'nsfw') {
+        //     return responder.send(' ', {embed: {
+        //         color: client.hexColor,
+        //         author: {
+        //             name: 'Satomi',
+        //             icon_url: client.user.avatarURL
+        //         },
+        //         title: 'NSFW Commands~',
+        //         fields: [{
+        //             name: '------------------',
+        //             value: '`ass:` ' +
+        //             '\n`boobs:` ' +
+        //             '\n`danbooru:` ' +
+        //             '\n`gelbooru:` ' +
+        //             '\n`konachan:` ' +
+        //             '\n`rule34:` ' +
+        //             '\n`tbib:` '+
+        //             '\n`xbooru:` ' +
+        //             '\n`yandere:` '
+        //         }],
+        //         timestamp: new Date(),
+        //         footer: {
+        //             icon_url: client.user.avatarURL,
+        //             text: ' | created by envyist @github/twitter'
+        //         }
+        //     }}).catch(this.logger.error);
         } else if (category === 'search') {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL
@@ -136,7 +137,7 @@ class Commands extends Command {
             }}).catch(this.logger.error);
         } else {
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 author: {
                     name: 'Satomi',
                     icon_url: client.user.avatarURL

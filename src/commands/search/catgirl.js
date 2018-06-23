@@ -14,9 +14,9 @@ class Catgirl extends Command {
         });
     }
 
-    async handle ({ args, msg }, responder) {
+    async handle ({ args, client, msg }, responder) {
         const options = args.options;
-        const userAgent = 'Satomi - (https://github.com/envyist/satomi)';
+        const userAgent = client.userAgent;
 
         const sites = ['nekos.brussell', 'nekos.life'];
         const site = sites[Math.floor(Math.random() * sites.length)];
@@ -30,7 +30,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x98ffa6,
+                    color: client.hexColor,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
@@ -45,7 +45,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x98ffa6,
+                    color: client.hexColor,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url
@@ -67,7 +67,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x98ffa6,
+                    color: client.hexColor,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
@@ -82,7 +82,7 @@ class Catgirl extends Command {
                 }).catch(this.logger.error);
 
                 return responder.send(' ', {embed: {
-                    color: 0x98ffa6,
+                    color: client.hexColor,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url

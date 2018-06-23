@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const { Command } = require('sylphy');
 const util = require('util');
 
@@ -14,7 +16,7 @@ class Eval extends Command {
         });
     }
 
-    async handle ({ msg }, responder) {
+    async handle ({ args, client, msg }, responder) {
         if (msg.author.id !== process.env.OWNER_ID) {
             return;
         }

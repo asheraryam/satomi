@@ -34,7 +34,7 @@ class Hug extends Command {
         }).catch(this.logger.error);
 
         return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, {embed: {
-            color: 0x98ffa6,
+            color: client.hexColor,
             image: {
                 url: res.data.url
             },

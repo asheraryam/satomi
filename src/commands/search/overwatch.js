@@ -20,7 +20,7 @@ class Overwatch extends Command {
         });
     }
 
-    handle ({ args }, responder) {
+    handle ({ args, client }, responder) {
         const type = args.type; // profile, competitive, quickplay
         const platform = args.platform; // pc, xbl, psn
         const region = args.region; // na, eu, kr, cn
@@ -29,7 +29,7 @@ class Overwatch extends Command {
         if (type === 'profile' || type === 'pf' || type === 'p') {
             owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
-                    color: 0xf99e1a,
+                    color: client.owColor,
                     title: `Overwatch Profile Info for: ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {
@@ -70,7 +70,7 @@ class Overwatch extends Command {
         } else if (type === 'competitive' || type === 'comp' || type === 'c') {
             owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
-                    color: 0xf99e1a,
+                    color: client.owColor,
                     title: `Competitive Overwatch Info for ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {
@@ -139,7 +139,7 @@ class Overwatch extends Command {
         } else if (type === 'quickplay' || type === 'quick' || type === 'q') {
             owjs.getOverall(platform, region, player).then((data) => {
                 return responder.send(' ', {embed: {
-                    color: 0xf99e1a,
+                    color: client.owColor,
                     title: `Overwatch Quickplay Info for ${player}`,
                     url: `${!data.profile.url ? `` : ''}${data.profile.url ? data.profile.url : ''}`,
                     thumbnail: {

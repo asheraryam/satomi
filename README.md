@@ -4,7 +4,6 @@
     <a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat" alt="TravisCI" /></a>
     <a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat" alt="DavidDM" /></a>
     <a title="license" href="https://github.com/envyist/satomi/blob/master/LICENSE"><img src="https://img.shields.io/github/license/envyist/satomi.svg" alt="License" /></a>
-    <a title="Gitmoji" href="https://gitmoji.carloscuesta.me"><img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg" alt="Gitmoji"></a>
 </p>
 
 -------------------
@@ -18,7 +17,7 @@ If you don't mind, you can check out Satomi's trello here -> [Trello Link](https
 * [Eris](https://github.com/abalabahaha/eris) : A Discord JavaScript Library for Node.js
 * [Sylphy](https://github.com/pyraxo/sylphy) : A framework for Eris allowing easy implementation of commands
 * [ESLint](https://eslint.org) : A configurable JavaScript linter for old and current ECMAScript versions
-* [Nodemon](https://nodemon.io) : Runs your code while you work on it and will restart it after any saved changes
+* [PM2](https://pm2.keymetrics.io/) : An advanced process manager for applications in production
 
 ## Want to invite Satomi?
 As of right now, I am not completely done with Satomi's development. Im aiming for public use by version 1.0.0, as by then I hope to have most of the features I want on Satomi present. I also don't have a job currently to pay for a VPS to keep the bot online 24/7 >.>
@@ -38,18 +37,6 @@ npm install
 ```
 * This will install all of the code from the repository and also with npm, install every dependency needed for the bot to fully function.
 
-### Nodemon
-You can have the bot online while you work on it with nodemon like so :
-```
-nodemon index.js
-```
-or you can use my script, which then types the above aswell~ :
-```
-npm run devstart
-```
-* This requires using the console in an IDE ("CTRL + `" for VSCode, then type whats in the code block)
-* Every time you save ("CTRL + s"), it will restart the bot and you test the command right away without having to keep closing and openning the batch file
-
 ### Linting
 ESLint is used for this bot with no exeptions for the linter. You can lint the code with :
 ```
@@ -65,6 +52,8 @@ This requires the set up of just 2 env files. You also need an IDE to configure 
 
 For .env (and for .env.example, have the values empty while .env has the values defined)...
 ```env
+# Bot configuration
+
 # Bot Masterkeys
 CLIENT_TOKEN=
 CLIENT_PREFIX=
@@ -75,9 +64,9 @@ ADMIN_IDS=
 CLIENT_PROCESSES=
 CLIENT_SHARDS_PER_PROCESS=
 
-# Host Server Logging
-BOT_LOG=
-MEMBER_LOG=
+# Database
+
+# API
 ```
 * You get your bot token from [here](https://discordapp.com/developers/applications/me), you need to create an application and then create a bot user. After, you need to invite the bot to your/a discord server to use its commands. (There are tutorials on how to do this if you are confused)
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
@@ -85,11 +74,14 @@ MEMBER_LOG=
 * As of version 0.9.0, Satomi uses `.env` for holding keys instead of a json file. However, if you do not like using `.env`, you can easily switch the code to use a json file.
 
 ### Running the bot :
-After setting up the env files, just open the batch file (SatomiStart.bat) and follow the instructions to get the bot online!
+After setting up the env files, configure the pm2-*.json files to your liking. After setting them up, you start the bot with pm2 (install globally)
 
-or you can use this command in a console
+**DO NOT USE SATOMISTART.BAT**, it will not run the bot properly after 0.12.0. Please use a console within the bot folder path.
+
 ```
-npm start
+$ pm2 start pm2-master.json
+$ pm2 start pm2-satomi.json
+$ pm2 monit
 ```
 
 ## License/Author

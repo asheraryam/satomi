@@ -16,18 +16,18 @@ class Weather extends Command {
         });
     }
 
-    handle ({ args }, responder) {
+    handle ({ args, client }, responder) {
         const city = args.city;
         const tempunit = args.tempunit;
 
-        weather(city, tempunit).then((info) => {
+        weather(city, (tempunit || 'f')).then((info) => {
             const url = info.item.link;
             if (info === null) {
                 return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
             }
 
             return responder.send(' ', {embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf('*') + 1),
                 thumbnail: {

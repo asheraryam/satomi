@@ -24,7 +24,7 @@ class Ban extends Command {
 
         client.banGuildMember(msg.guild.id, member, 7, reason).then(() => {
             return responder.send(' ', { embed: {
-                color: 0x98ffa6,
+                color: client.hexColor,
                 title: 'Member Banned!',
                 thumbnail: {
                     url: member.avatarURL

@@ -1,0 +1,12 @@
+{
+    "apps": [{
+        "name": "satomi",
+        "script": "src/satomi.js",
+        "exec_mode": "cluster",
+        "instances": "1",
+        "watch": false,
+        "args": [
+            "--color"
+        ]
+    }]
+}
