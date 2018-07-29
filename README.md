@@ -64,9 +64,14 @@ ADMIN_IDS=
 CLIENT_PROCESSES=
 CLIENT_SHARDS_PER_PROCESS=
 
-# Database
+# RethinkDB Keys
+DB_HOST=
+DB_PORT=
+DB_NAME=
+DB_AUTHKEY=
 
 # API
+
 ```
 * You get your bot token from [here](https://discordapp.com/developers/applications/me), you need to create an application and then create a bot user. After, you need to invite the bot to your/a discord server to use its commands. (There are tutorials on how to do this if you are confused)
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
