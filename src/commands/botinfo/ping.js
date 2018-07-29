@@ -10,11 +10,11 @@ class Ping extends Command {
         });
     }
 
-    handle ({ client, msg }, responder) {
-        return responder.send(' ', {embed: {
-            color: client.hexColor,
+    handle ({ msg }, responder) {
+        return responder.send(' ', { embed: {
+            color: 0x98ffa6,
             description: `${msg.author.mention} | **Pong! - ${msg.channel.guild.shard.latency} ms** :dango:`
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

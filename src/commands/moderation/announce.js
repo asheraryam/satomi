@@ -6,23 +6,23 @@ class Announce extends Command {
             name: 'announce',
             group: 'moderation',
             cooldown: 5,
-            options: { guildOnly: true, requirements: { permissions: { administrator: true }}},
+            options: { guildOnly: true, requirements: { permissions: { administrator: true } } },
             usage: [
                 { name: 'announcement', displayName: 'announcement', type: 'string', optional: 'false', last: true }
             ]
         });
     }
 
-    handle ({ args, client, msg }, responder) {
+    handle ({ args, msg }, responder) {
         const announcement = args.announcement;
 
         msg.delete();
         return responder.send('@everyone', { embed: {
-            color: client.hexColor,
-            title: ':postal_horn: Announcement!',
+            color: 0x98ffa6,
+            title: `:postal_horn: Announcement! by - ${msg.author.username} #${msg.author.discriminator}`,
             description: `${announcement}`,
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

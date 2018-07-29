@@ -1,9 +1,9 @@
-// const { Client } = require('sylphy');
-const SatomiClient = require('./structures/satomiClient.js');
+const { Client } = require('sylphy');
 const chalk = require('chalk');
-const winston = require('winston');
+const { createLogger, format, transports } = require('winston');
+const { colorize, combine, timestamp, label, printf } = format;
 const moment = require('moment');
-const statusList = require('./utils/core/statusList.js');
+const statusList = require('./plugins/lists/statusList.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -23,21 +23,25 @@ const maxShards = processShards * processCount;
 
 const resolve = (str) => path.join('src', str);
 
-const logger = new (winston.Logger)({
-    transports: [
-        new (winston.transports.Console)({
-            level: 'silly',
-            colorize: true,
-            label: processShards > 1 ? `C ${firstShardID}-${lastShardID}` : `C ${processID}`,
-            timestamp: () => `[${chalk.magenta(moment().format('YYYY MMM Do, h:mm:ss a'))}]`
-        })
-    ]
+const satomiFormat = printf((info) => {
+    return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`;
 });
 
-const satomi = new SatomiClient({
+const logger = createLogger({
+    level: 'silly',
+    format: combine(
+        colorize(),
+        label({ label: processShards > 1 ? `C ${firstShardID}-${lastShardID}` : `C ${processID}` }),
+        timestamp(`[${chalk.magenta(moment().format('YYYY MMM Do, h:mm:ss a'))}]`),
+        satomiFormat
+    ),
+    transports: [new transports.Console()]
+});
+
+const satomi = new Client({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    admins: (process.env.ADMIN_IDS || '').split(', '),
+    admins: (process.env.ADMIN_IDS).split(', '),
     modules: resolve('modules'),
     messageLimit: 0,
     getAllUsers: true,
@@ -69,31 +73,27 @@ satomi.on('ready', () => {
         });
     };
 
-    setTimeout(() => {
-        satomi.ascii();
+    satomi.ascii();
 
-        setTimeout(() => {
-            satomi.logger.info(`${chalk.red.bold(satomi.user.username)} - ${
-                firstShardID === lastShardID
-                ? `Shard ${firstShardID} is ready!`
-                : `Shards ${firstShardID} to ${lastShardID} are ready!`
-            }`);
+    satomi.logger.info(`${chalk.red.bold(satomi.user.username)} - ${
+        firstShardID === lastShardID
+        ? `Shard ${firstShardID} is ready!`
+        : `Shards ${firstShardID} to ${lastShardID} are ready!`
+    }`);
 
-            satomi.logger.info(
-                `Shards: ${chalk.cyan.bold(shards)} | ` +
-                `Guilds: ${chalk.cyan.bold(guilds)} | ` +
-                `Users: ${chalk.cyan.bold(users)}`
-            );
+    satomi.logger.info(
+        `Shards: ${chalk.cyan.bold(shards)} | ` +
+        `Guilds: ${chalk.cyan.bold(guilds)} | ` +
+        `Users: ${chalk.cyan.bold(users)}`
+    );
 
-            satomi.logger.info(chalk.yellow.bold(`Prefix: ${satomi.prefix}`));
-            satomi.logger.info(chalk.green.bold('Satomi Is Ready To Rumble~!'));
-        }, 1000);
-    }, 12000);
+    satomi.logger.info(chalk.yellow.bold(`Prefix: ${satomi.prefix}`));
+    satomi.logger.info(chalk.green.bold('Satomi Is Ready To Rumble~!'));
 
     satomi.changeStatus = function() {
         const status = statusList.statuses[~~(Math.random() * statusList.statuses.length)];
-        satomi.editStatus({name: status.name, type: status.type || 0});
-        satomi.logger.info(chalk.yellow.bold('Satomi\'s status changed to - ' + '"' + status.name + '"'));
+        satomi.editStatus({ name: status.name, type: status.type || 0 });
+        satomi.logger.info(chalk.yellow.bold(`Satomi's status changed to -"${status.name}"`));
     };
 
     setInterval(() => satomi.changeStatus(), 120000);

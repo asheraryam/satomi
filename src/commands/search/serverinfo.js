@@ -17,33 +17,33 @@ class ServerInfo extends Command {
 
         return responder.send(' ', {
             embed: {
-                title: `${server.name}` + ' ' + `(${server.id})`,
-                description: 'Owner: ' + `<@!${server.ownerID}>`,
+                title: `${server.name} | (${server.id})`,
+                description: `Owner: <@!${server.ownerID}>`,
                 author: {
                     name: 'Server Information:',
                     icon_url: client.user.avatarURL
                 },
-                color: client.hexColor,
+                color: 0x98ffa6,
                 thumbnail: {
                     url: server.iconURL
                 },
                 fields: [{
                     name: 'Members Info',
-                    value: 'Members: ' + server.memberCount +
-                    '\nRoles: ' + Object.keys(`${server.roles}`).length +
-                    '\nBans: ' + Object.keys(server.getBans).length,
+                    value: `Members: ${server.memberCount}` +
+                    `\nRoles: ${Object.keys(server.roles).length}` +
+                    `\nBans: ${Object.keys(server.getBans).length}`,
                     inline: true
                 },
                 {
                     name: 'Channels',
-                    value: 'Text & Voice: ' + Object.keys(`${server.channels}`).length + '\nAFK Voice: ' + `<#${server.afkChannelID}>`,
+                    value: `Text & Voice: ${Object.keys(server.channels).length}` + `\nAFK Voice:  <#${server.afkChannelID}>`,
                     inline: true
                 },
                 {
                     name: 'Other Info',
-                    value: 'Shard Number: ' + server.shard.id +
-                    '\nRegion: ' + server.region +
-                    '\nEmojis: ' + Object.keys(server.emojis).length,
+                    value: `Shard Number: ${server.shard.id}` +
+                    `\nRegion: ${server.region}` +
+                    `\nEmojis: ${Object.keys(server.emojis).length}`,
                     inline: true
                 },
                 {

@@ -1,5 +1,5 @@
 const { Command } = require('sylphy');
-const answers8ball = require('../../utils/games/answers8ball.js');
+const answers8ball = require('../../plugins/lists/answers8ball.js');
 
 class Eightball extends Command {
     constructor (...args) {
@@ -14,16 +14,16 @@ class Eightball extends Command {
         });
     }
 
-    handle ({ args, client }, responder) {
+    handle ({ args }, responder) {
         const question = args.question;
         const answer = answers8ball.magicList[~~(Math.random() * answers8ball.magicList.length)];
 
-        return responder.send(' ', {embed: {
-            color: client.hexColor,
-            title: ':question: Your Question: ' + question,
-            description: ':8ball: Answer: ' + answer.name,
+        return responder.send(' ', { embed: {
+            color: 0x98ffa6,
+            title: `:question: Your Question: ${question}`,
+            description: `:8ball: Answer: ${answer.name}`,
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

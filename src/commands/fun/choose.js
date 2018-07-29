@@ -13,10 +13,10 @@ class Choose extends Command {
         });
     }
 
-    handle ({ args, client }, responder) {
+    handle ({ args }, responder) {
         const question = args.question;
 
-        let bothQs = question.split(', ');
+        const bothQs = question.split(', ');
 
         for (let i = 0; i < bothQs.length; i++) {
             bothQs[i] = bothQs[i].trim();
@@ -25,11 +25,11 @@ class Choose extends Command {
         const answer = bothQs[~~(Math.random() * bothQs.length)];
 
         return responder.send(' ', { embed: {
-            color: client.hexColor,
-            title: ':question: Your Question: ' + question,
-            description: 'I choose... ' + answer + ' :sunglasses:',
+            color: 0x98ffa6,
+            title: `:question: Your Question: ${question}`,
+            description: `I choose... ${answer} :sunglasses:`,
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

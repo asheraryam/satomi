@@ -13,8 +13,8 @@ class Stats extends Command {
     }
 
     handle ({ client }, responder) {
-        return responder.send(' ', {embed: {
-            color: client.hexColor,
+        return responder.send(' ', { embed: {
+            color: 0x98ffa6,
             author: {
                 name: 'Satomi Stats~',
                 icon_url: `${client.user.avatarURL}`
@@ -47,7 +47,7 @@ class Stats extends Command {
                 inline: true
             }],
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

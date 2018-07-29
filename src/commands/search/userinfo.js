@@ -15,17 +15,18 @@ class UserInfo extends Command {
         });
     }
 
-    handle ({ client, msg }, responder) {
+    handle ({ msg }, responder) {
+        let user;
         if (msg.mentions.length > 0) {
-            var user = msg.channel.guild.members.get(msg.mentions[0].id);
+            user = msg.channel.guild.members.get(msg.mentions[0].id);
         } else {
             user = msg.channel.guild.members.get(msg.member.id);
         }
 
-        return responder.send(' ', {embed: {
+        return responder.send(' ', { embed: {
             title: 'User Information',
             description: `${user.username}#${user.discriminator} --- Bot? ${user.bot}`,
-            color: client.hexColor,
+            color: 0x98ffa6,
             thumbnail: {
                 url: user.avatarURL
             },
@@ -67,7 +68,7 @@ class UserInfo extends Command {
                 inline: true
             }],
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

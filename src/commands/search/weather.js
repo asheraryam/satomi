@@ -16,7 +16,7 @@ class Weather extends Command {
         });
     }
 
-    handle ({ args, client }, responder) {
+    handle ({ args }, responder) {
         const city = args.city;
         const tempunit = args.tempunit;
 
@@ -26,8 +26,8 @@ class Weather extends Command {
                 return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);
             }
 
-            return responder.send(' ', {embed: {
-                color: client.hexColor,
+            return responder.send(' ', { embed: {
+                color: 0x98ffa6,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf('*') + 1),
                 thumbnail: {
@@ -77,7 +77,7 @@ class Weather extends Command {
                 footer: {
                     text: `${info.item.title} `
                 }
-            }});
+            } });
         }).catch(this.logger.error);
     }
 }

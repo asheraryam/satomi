@@ -33,13 +33,13 @@ class Hug extends Command {
             }
         }).catch(this.logger.error);
 
-        return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, {embed: {
-            color: client.hexColor,
+        return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, { embed: {
+            color: 0x98ffa6,
             image: {
                 url: res.data.url
             },
             timestamp: new Date()
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

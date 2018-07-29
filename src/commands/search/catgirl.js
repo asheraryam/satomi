@@ -1,5 +1,6 @@
 const { Command } = require('sylphy');
 const axios = require('axios');
+const pkg = require('../../../package.json');
 
 class Catgirl extends Command {
     constructor(...args) {
@@ -14,9 +15,9 @@ class Catgirl extends Command {
         });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    async handle ({ args, msg }, responder) {
         const options = args.options;
-        const userAgent = client.userAgent;
+        const userAgent = `Satomi (https://github.com/envyist/satomi) v(${pkg.version})`;
 
         const sites = ['nekos.brussell', 'nekos.life'];
         const site = sites[Math.floor(Math.random() * sites.length)];
@@ -29,14 +30,14 @@ class Catgirl extends Command {
                     }
                 }).catch(this.logger.error);
 
-                return responder.send(' ', {embed: {
-                    color: client.hexColor,
+                return responder.send(' ', { embed: {
+                    color: 0x98ffa6,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
                     },
                     timestamp: new Date()
-                }}).catch(this.logger.error);
+                } }).catch(this.logger.error);
             } else if (site === 'nekos.life') {
                 const res = await axios.get('https://nekos.life/api/v2/img/neko', {
                     headers: {
@@ -44,14 +45,14 @@ class Catgirl extends Command {
                     }
                 }).catch(this.logger.error);
 
-                return responder.send(' ', {embed: {
-                    color: client.hexColor,
+                return responder.send(' ', { embed: {
+                    color: 0x98ffa6,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url
                     },
                     timestamp: new Date()
-                }}).catch(this.logger.error);
+                } }).catch(this.logger.error);
             }
         } else if (options === 'nsfw') {
             if (msg.channel.nsfw === false) {
@@ -66,14 +67,14 @@ class Catgirl extends Command {
                     }
                 }).catch(this.logger.error);
 
-                return responder.send(' ', {embed: {
-                    color: client.hexColor,
+                return responder.send(' ', { embed: {
+                    color: 0x98ffa6,
                     description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
                     image: {
                         url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
                     },
                     timestamp: new Date()
-                }}).catch(this.logger.error);
+                } }).catch(this.logger.error);
             } else if (site === 'nekos.life') {
                 const res = await axios.get('https://nekos.life/api/v2/img/lewd', {
                     headers: {
@@ -81,14 +82,14 @@ class Catgirl extends Command {
                     }
                 }).catch(this.logger.error);
 
-                return responder.send(' ', {embed: {
-                    color: client.hexColor,
+                return responder.send(' ', { embed: {
+                    color: 0x98ffa6,
                     description: `[Source](${res.data.url})`,
                     image: {
                         url: res.data.url
                     },
                     timestamp: new Date()
-                }}).catch(this.logger.error);
+                } }).catch(this.logger.error);
             }
         }
     }

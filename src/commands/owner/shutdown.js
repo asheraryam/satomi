@@ -6,7 +6,7 @@ class Shutdown extends Command {
         super(...args, {
             name: 'shutdown',
             group: 'owner',
-            aliases: ['die'],
+            aliases: ['die', 'kill'],
             cooldown: 0,
             options: { guildOnly: true }
         });
@@ -24,10 +24,10 @@ class Shutdown extends Command {
 
         if (shutdown.choice === 'y') {
             console.log(chalk.cyan('Satomi has shut down'));
-            return responder.send(' ', {embed: {
-                color: client.hexColor,
+            return responder.send(' ', { embed: {
+                color: 0x98ffa6,
                 title: ':zzz: Satomi has shut down...'
-            }})
+            } })
             .then(client.editStatus('invisible', null))
             .then(client.disconnect())
             .catch(this.logger.error);

@@ -23,7 +23,7 @@ class Advice extends Command {
                 icon_url: client.user.avatarURL,
                 text: 'Source: http://adviceslip.com/'
             }
-        }}).catch(this.logger.error);
+        } }).catch(this.logger.error);
     }
 }
 

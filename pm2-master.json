@@ -3,6 +3,8 @@
         "name": "satomi-master",
         "script": "index.js",
         "watch": false,
-        "merge_logs": true
+        "merge_logs": false,
+        "output": "./logs/satomi-master-output.log",
+        "error": "./logs/satomi-master-error.log"
     }]
 }

@@ -16,7 +16,7 @@ class Eval extends Command {
         });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    async handle ({ msg }, responder) {
         if (msg.author.id !== process.env.OWNER_ID) {
             return;
         }
