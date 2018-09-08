@@ -15,8 +15,24 @@ class Urban extends Command {
     }
 
     handle ({ args }, responder) {
-        if (args.word.length > 0) {
-            urban(args.word).first(async(json) => {
+        const word = args.word;
+
+        if (!word) {
+            urban.random().first((json) => {
+                return responder.send(' ', { embed: {
+                    author: {
+                        name: `Random Urban Dictionary Word! (${json.word})`,
+                        url: json.permalink,
+                        icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
+                    },
+                    color: 0x98ffa6,
+                    description: json.definition,
+                    url: json.permalink,
+                    timestamp: new Date()
+                } }).catch(this.logger.error);
+            });
+        } else if (word) {
+            urban(word).first((json) => {
                 if (json === undefined) {
                     return responder.send(' ', { embed: {
                         title: ':x: there was an issue finding that word, try again~'
@@ -26,19 +42,7 @@ class Urban extends Command {
                 return responder.send(' ', { embed: {
                     author: {
                         name: `Definition of ${json.word}`,
-                        icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
-                    },
-                    color: 0x98ffa6,
-                    description: json.definition,
-                    url: json.permalink,
-                    timestamp: new Date()
-                } }).catch(this.logger.error);
-            });
-        } else {
-            urban.random().first(async(json) => {
-                return responder.send(' ', { embed: {
-                    author: {
-                        name: `Random Urban Dictionary Word! (${json.word})`,
+                        url: json.permalink,
                         icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
                     },
                     color: 0x98ffa6,

@@ -9,6 +9,7 @@
             "--color"
         ],
         "output": "./logs/satomi-output.log",
-        "error": "./logs/satomi-error.log"
+        "error": "./logs/satomi-error.log",
+        "autorestart": false
     }]
 }

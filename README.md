@@ -64,11 +64,12 @@ ADMIN_IDS=
 CLIENT_PROCESSES=
 CLIENT_SHARDS_PER_PROCESS=
 
-# RethinkDB Keys
+# MongoDB
 DB_HOST=
 DB_PORT=
-DB_NAME=
-DB_AUTHKEY=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DBNAME=
 
 # API
 
@@ -87,6 +88,9 @@ After setting up the env files, configure the pm2-*.json files to your liking. A
 $ pm2 start pm2-master.json
 $ pm2 start pm2-satomi.json
 $ pm2 monit
+
+Open another console in the same bot folder and type:
+$ pm2 logs
 ```
 
 ## License/Author

@@ -1,9 +1,10 @@
-const { Client } = require('sylphy');
+// const { Client } = require('sylphy');
+const SatomiClient = require('./satomiClient.js');
 const chalk = require('chalk');
 const { createLogger, format, transports } = require('winston');
 const { colorize, combine, timestamp, label, printf } = format;
 const moment = require('moment');
-const statusList = require('./plugins/lists/statusList.js');
+const statusList = require('./utils/lists/statusList.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -38,7 +39,7 @@ const logger = createLogger({
     transports: [new transports.Console()]
 });
 
-const satomi = new Client({
+const satomi = new SatomiClient({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
     admins: (process.env.ADMIN_IDS).split(', '),
@@ -64,7 +65,7 @@ satomi.on('ready', () => {
     const guilds = satomi.guilds.size;
     const users = satomi.users.size;
 
-    satomi.ascii = function() {
+    satomi.ascii = () => {
         fs.readFile('./res/boot/ascii.txt', 'utf-8', (err, data) => {
             if (err) {
                 console.log(err);
@@ -87,10 +88,16 @@ satomi.on('ready', () => {
         `Users: ${chalk.cyan.bold(users)}`
     );
 
+    try {
+        satomi.mongodb.load(satomi);
+    } catch (err) {
+        satomi.logger.error(chalk.red.bold(`[Mongoose]: ${err}`));
+    }
+
     satomi.logger.info(chalk.yellow.bold(`Prefix: ${satomi.prefix}`));
     satomi.logger.info(chalk.green.bold('Satomi Is Ready To Rumble~!'));
 
-    satomi.changeStatus = function() {
+    satomi.changeStatus = () => {
         const status = statusList.statuses[~~(Math.random() * statusList.statuses.length)];
         satomi.editStatus({ name: status.name, type: status.type || 0 });
         satomi.logger.info(chalk.yellow.bold(`Satomi's status changed to -"${status.name}"`));
@@ -99,6 +106,7 @@ satomi.on('ready', () => {
     setInterval(() => satomi.changeStatus(), 120000);
 });
 
+process.on('SIGINT', async () => await satomi.shutdown());
 process.on('unhandledException', (err) => satomi.logger.error(err));
 process.on('unhandledRejection', (err) => satomi.logger.error(err));
 satomi.on('error', (err) => satomi.logger.error(err));

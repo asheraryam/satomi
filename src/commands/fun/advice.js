@@ -15,7 +15,7 @@ class Advice extends Command {
         const res = await axios.get('http://api.adviceslip.com/advice');
 
         return responder.send(' ', { embed: {
-            color: 0xffd1ee,
+            color: 0x98ffa6,
             title: 'Advice Slip',
             description: res.data.slip.advice,
             timestamp: new Date(),
