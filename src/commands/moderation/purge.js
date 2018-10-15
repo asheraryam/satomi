@@ -19,14 +19,14 @@ class Purge extends Command {
 
         if (limit > 50) {
             return responder.send(' ', { embed: {
-                color: 0xff4b4b,
+                color: client.redColor,
                 description: ':x: Message count too high! Max is 50'
             } });
         }
 
         client.purgeChannel(msg.channel.id, limit).catch((error) => {
             responder.send(' ', { embed: {
-                color: 0xff4b4b,
+                color: client.redColor,
                 description: `There was an error trying to purge: ${error}`
             } });
         });

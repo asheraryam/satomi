@@ -13,7 +13,7 @@ class Choose extends Command {
         });
     }
 
-    handle ({ args }, responder) {
+    handle ({ args, client }, responder) {
         const question = args.question;
 
         const bothQs = question.split(', ');
@@ -25,7 +25,7 @@ class Choose extends Command {
         const answer = bothQs[~~(Math.random() * bothQs.length)];
 
         return responder.send(' ', { embed: {
-            color: 0x98ffa6,
+            color: client.satomiColor,
             title: `:question: Your Question: ${question}`,
             description: `I choose... ${answer} :sunglasses:`,
             timestamp: new Date()

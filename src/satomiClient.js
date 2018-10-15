@@ -5,6 +5,8 @@ const chalk = require('chalk');
 class SatomiClient extends Client {
     constructor(options = {}) {
         super(options);
+        this.satomiColor = 0x98ffa6;
+        this.redColor = 0xff4b4b;
         this.settingsManager = require('./utils/settingsManager.js');
         this.mongodb = new Database({
             username: process.env.DB_USERNAME,

@@ -16,7 +16,15 @@ class Eval extends Command {
     }
 
     async handle({ args, client, msg }, responder) {
+        if (msg.author.id !== process.env.OWNER_ID) {
+            return;
+        }
+
         let suffix, evaled;
+
+        const cleanCodeBlock = (string) => {
+            return string.replace(/^```.* ?/, '').replace(/```$/, '')
+        }
 
         try {
             suffix = cleanCodeBlock(args.eval);
@@ -37,10 +45,6 @@ class Eval extends Command {
             '__**Result:**__\n```' + evaled + '```'
         );
     }
-}
-
-function cleanCodeBlock(string) {
-    return string.replace(/^```.* ?/, '').replace(/```$/, '')
 }
 
 module.exports = Eval;

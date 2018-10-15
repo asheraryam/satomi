@@ -1,9 +1,9 @@
 <h1 align="center">Satomi 聡美</h1>
 <p align="center">
-    <a title="CodeClimate" href="https://codeclimate.com/github/envyist/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/3cb373a64e81a2386ec7/maintainability" alt="CodeClimate" /></a>
-    <a title="TravisCI" href="https://travis-ci.org/envyist/satomi"><img src="https://img.shields.io/travis/envyist/satomi.svg?style=flat" alt="TravisCI" /></a>
-    <a title="DavidDM" href="https://david-dm.org/envyist/satomi"><img src="https://img.shields.io/david/envyist/satomi.svg?style=flat" alt="DavidDM" /></a>
-    <a title="license" href="https://github.com/envyist/satomi/blob/master/LICENSE"><img src="https://img.shields.io/github/license/envyist/satomi.svg" alt="License" /></a>
+    <a title="CodeClimate" href="https://codeclimate.com/github/kyostra/satomi/maintainability"><img src="https://api.codeclimate.com/v1/badges/3cb373a64e81a2386ec7/maintainability" alt="CodeClimate" /></a>
+    <a title="TravisCI" href="https://travis-ci.org/kyostra/satomi"><img src="https://img.shields.io/travis/kyostra/satomi.svg?style=flat" alt="TravisCI" /></a>
+    <a title="DavidDM" href="https://david-dm.org/kyostra/satomi"><img src="https://img.shields.io/david/kyostra/satomi.svg?style=flat" alt="DavidDM" /></a>
+    <a title="license" href="https://github.com/kyostra/satomi/blob/master/LICENSE"><img src="https://img.shields.io/github/license/kyostra/satomi.svg" alt="License" /></a>
 </p>
 
 -------------------
@@ -31,7 +31,7 @@ Thanks for your interest in my code, I have added these setup instructions to he
 ### Installing
 First you can either download the latest release or install straight from github through the console like so :
 ```
-git clone https://github.com/envyist/satomi.git
+git clone https://github.com/kyostra/satomi.git
 cd satomi/
 npm install
 ```
@@ -94,8 +94,8 @@ $ pm2 logs
 ```
 
 ## License/Author
-**Satomi** © [Christopher House/Envyist](https://github.com/envyist), Released under the [AGPL-3.0 License](https://github.com/envyist/satomi/blob/master/LICENSE)
+**Satomi** © [Christopher House/kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
 
-Created and maintained by Christopher House/Envyist.
+Created and maintained by Christopher House/kyostra.
 
-> Website - [envyist.github.io](https://envyist.github.io) | Github - [envyist](https://github.com/envyist) | Twitter - [@envyist](https://twitter.com/envyist)
+> Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra)

@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const { createLogger, format, transports } = require('winston');
 const { colorize, combine, timestamp, label, printf } = format;
 const moment = require('moment');
-const statusList = require('./utils/lists/statusList.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -65,6 +64,32 @@ satomi.on('ready', () => {
     const guilds = satomi.guilds.size;
     const users = satomi.users.size;
 
+    /* Status types for Discord Bots
+    * 0 = Playing
+    * 1 = Twitch
+    * 2 = Listening to
+    * 3 = Watching
+    */
+    const statuses = [
+        { type: 0, name: 'type s.help for help' },
+        { type: 3, name: 'you type' },
+        { type: 0, name: 'the saxophone' },
+        { type: 2, name: 'your voices' },
+        { type: 3, name: 'some lewdies' },
+        { type: 0, name: 'a fun game' },
+        { type: 3, name: 'anime' },
+        { type: 0, name: 'the piano' },
+        { type: 0, name: 'with cute girls' },
+        { type: 0, name: 'the violin' },
+        { type: 3, name: 'you struggle' },
+        { type: 0, name: 'with catgirls' },
+        { type: 0, name: `with ${users} users` },
+        { type: 2, name: `to ${users} users` },
+        { type: 3, name: `${users} users` },
+        { type: 0, name: `in ${guilds} servers` },
+        { type: 3, name: `${guilds} servers` }
+    ]
+
     satomi.ascii = () => {
         fs.readFile('./res/boot/ascii.txt', 'utf-8', (err, data) => {
             if (err) {
@@ -98,9 +123,9 @@ satomi.on('ready', () => {
     satomi.logger.info(chalk.green.bold('Satomi Is Ready To Rumble~!'));
 
     satomi.changeStatus = () => {
-        const status = statusList.statuses[~~(Math.random() * statusList.statuses.length)];
-        satomi.editStatus({ name: status.name, type: status.type || 0 });
-        satomi.logger.info(chalk.yellow.bold(`Satomi's status changed to -"${status.name}"`));
+        const chooseStatus = statuses[~~(Math.random() * statuses.length)];
+        satomi.editStatus({ name: chooseStatus.name, type: chooseStatus.type || 0 });
+        satomi.logger.info(chalk.yellow.bold(`Satomi's status changed to -"${chooseStatus.name}"`));
     };
 
     setInterval(() => satomi.changeStatus(), 120000);

@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/envyist/satomi.git"
+    "url": "git+https://github.com/kyostra/satomi.git"
   },
   "keywords": [
     "js",
@@ -21,38 +21,37 @@
     "eris",
     "sylphy",
     "satomi",
-    "envyist"
+    "kyostra"
   ],
-  "author": "envyist @github/twitter",
+  "author": "kyostra @github/twitter",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/envyist/satomi/issues"
+    "url": "https://github.com/kyostra/satomi/issues"
   },
-  "homepage": "https://github.com/envyist/satomi#readme",
+  "homepage": "https://github.com/kyostra/satomi#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.2",
     "chalk": "^2.4.1",
-    "dotenv-safe": "^6.0.0",
+    "dotenv-safe": "^6.1.0",
     "eris": "^0.9.0",
     "longjohn": "^0.2.12",
     "moment": "^2.22.2",
-    "mongodb": "^3.1.4",
-    "mongoose": "^5.2.13",
+    "mongodb": "^3.1.8",
+    "mongoose": "^5.3.3",
     "overwatch-js": "^1.8.0",
-    "pm2": "^3.0.4",
+    "pm2": "^3.2.2",
     "snekfetch": "^4.0.4",
     "sylphy": "^0.4.5",
-    "urban": "github:mvrilo/urban#master",
+    "urban": "^0.3.2",
     "winston": "^3.1.0",
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
-    "eslint-config-ch": "^2.2.0"
+    "eslint": "^5.7.0"
   },
   "eslintConfig": {
-    "extends": "ch/node",
+    "extends": "kyostra/node",
     "rules": {
       "arrow-parens": "off"
     }

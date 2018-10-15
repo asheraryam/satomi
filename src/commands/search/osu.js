@@ -35,7 +35,7 @@ class Osu extends Command {
         const gameType = args.gameType;
         const player = args.player;
 
-        const data = await snekfetch.get(`http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=${gameType}&pp=1&removeavmargin&flagstroke&onlineindicator=undefined&xpbar`);
+        const data = await snekfetch.get( `http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=${gameType}&pp=1&removeavmargin&flagshadow&flagstroke&darktriangles&onlineindicator=undefined&xpbar`);
 
         return client.createMessage(msg.channel.id, ' ', {
             file: data.body,

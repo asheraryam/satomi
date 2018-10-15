@@ -24,7 +24,7 @@ class Kick extends Command {
 
         client.kickGuildMember(msg.guild.id, member, reason).then(() => {
             return responder.send(' ', { embed: {
-                color: 0x98ffa6,
+                color: client.redColor,
                 title: 'Member Kicked!',
                 thumbnail: {
                     url: member.avatarURL

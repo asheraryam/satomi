@@ -13,12 +13,12 @@ class Poll extends Command {
         });
     }
 
-    async handle ({ args, msg }, responder) {
+    async handle ({ args, client, msg }, responder) {
         const phrase = args.phrase;
 
         msg.delete();
         await responder.send(' ', { embed: {
-            color: 0x98ffa6,
+            color: client.satomiColor,
             title: `Poll Started! by - ${msg.author.username}#${msg.author.discriminator}`,
             description: phrase,
             timestamp: new Date()

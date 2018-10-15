@@ -16,7 +16,7 @@ class Weather extends Command {
         });
     }
 
-    handle ({ args }, responder) {
+    handle ({ args, client }, responder) {
         const city = args.city;
         const tempunit = args.tempunit;
 
@@ -27,7 +27,7 @@ class Weather extends Command {
             }
 
             return responder.send(' ', { embed: {
-                color: 0x98ffa6,
+                color: client.satomiColor,
                 title: `Yahoo! Weather Info on ${info.location.city}, ${info.location.country}~`,
                 url: url.substr(url.lastIndexOf('*') + 1),
                 thumbnail: {

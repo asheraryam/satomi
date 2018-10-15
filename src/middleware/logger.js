@@ -10,7 +10,8 @@ module.exports = {
 			return Promise.resolve();
 		}
 
-		logger.info(`${chalk.magenta.bold(!isPrivate ? msg.channel.guild.name : '(in PMs)')} > ${chalk.cyan.bold(msg.author.username)}: ` +
+		logger.info(`${chalk.magenta.bold(!isPrivate ? msg.channel.guild.name : '(in PMs)')} > ` +
+			`${chalk.cyan.bold(msg.author.username + '#' + msg.author.discriminator)}: ` +
 			`${chalk.green.bold(msg.cleanContent.replace(/\n/g, ' '))}`);
 
 		return Promise.resolve(container);

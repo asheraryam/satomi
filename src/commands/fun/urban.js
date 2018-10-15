@@ -14,7 +14,7 @@ class Urban extends Command {
         });
     }
 
-    handle ({ args }, responder) {
+    handle ({ args, client }, responder) {
         const word = args.word;
 
         if (!word) {
@@ -25,7 +25,7 @@ class Urban extends Command {
                         url: json.permalink,
                         icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
                     },
-                    color: 0x98ffa6,
+                    color: client.satomiColor,
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()
@@ -45,7 +45,7 @@ class Urban extends Command {
                         url: json.permalink,
                         icon_url: 'https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g_400x400.jpg'
                     },
-                    color: 0x98ffa6,
+                    color: client.satomiColor,
                     description: json.definition,
                     url: json.permalink,
                     timestamp: new Date()

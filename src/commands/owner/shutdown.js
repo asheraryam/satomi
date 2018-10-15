@@ -25,7 +25,7 @@ class Shutdown extends Command {
         if (shutdown.choice === 'y') {
            this.logger.info(chalk.cyan('[CLIENT] Satomi has shut down'));
             return responder.send(' ', { embed: {
-                color: 0x98ffa6,
+                color: client.satomiColor,
                 title: ':zzz: Satomi has shut down...'
             } })
             .then(async () => await client.shutdown())

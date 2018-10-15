@@ -1,16 +1,15 @@
 const Mongoose = require('mongoose');
-// const Schema = Mongoose.Schema;
 const chalk = require('chalk');
 
-// var rolesSchema = new Schema({
-//     roleID: String
-// }, { collection: 'Roles' });
+const RolesModel = require('../models/Roles.js');
+const UserModel = require('../models/User.js');
+const GuildModel = require('../models/Guild.js');
 
 class Database {
     constructor(options={}) {
         this.URI = `mongodb://${options.username}:${options.password}@${options.host}:${options.port}/${options.dbname}`;
-        // this.models = { roles: Mongoose.model('Roles', rolesSchema) };
-        // this.cache = { roles: {} };
+        this.models = { roles: RolesModel, users: UserModel, guild: GuildModel };
+        this.cache = { roles: {}, users: {}, guild: {} };
     }
 
     load(satomi) {

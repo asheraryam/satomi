@@ -14,18 +14,18 @@ class About extends Command {
         return responder.send(' ', { embed: {
             title: 'Satomi, About~',
             description: 'some more info about satomi can be found here ~',
-            color: 0x98ffa6,
+            color: client.satomiColor,
             author: {
                 name: 'Satomi',
                 icon_url: client.user.avatarURL
             },
             fields: [{
                 name: 'Mini Q & A',
-                value: 'Whats Satomi\'s color? #98ffa6 '
+                value: 'Whats Satomi\'s color? #98ffa6'
             },
             {
                 name: 'Source Code',
-                value: 'https://github.com/envyist/satomi'
+                value: 'https://github.com/kyostra/satomi'
             },
             {
                 name: 'Trello Board',
@@ -38,7 +38,7 @@ class About extends Command {
             timestamp: new Date(),
             footer: {
                 icon_url: client.user.avatarURL,
-                text: 'Satomi | created by envyist @github/twitter'
+                text: 'Satomi | created by kyostra @github/twitter'
             } }
         }).catch(this.logger.error);
     }

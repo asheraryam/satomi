@@ -13,12 +13,12 @@ class Announce extends Command {
         });
     }
 
-    handle ({ args, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
         const announcement = args.announcement;
 
         msg.delete();
         return responder.send('@everyone', { embed: {
-            color: 0x98ffa6,
+            color: client.satomiColor,
             title: `:postal_horn: Announcement! by - ${msg.author.username} #${msg.author.discriminator}`,
             description: `${announcement}`,
             timestamp: new Date()

@@ -29,12 +29,12 @@ class Hug extends Command {
 
         const res = await axios.get('https://nekos.life/api/v2/img/hug', {
             headers: {
-                'User-Agent': 'Satomi - (https://github.com/envyist/satomi)'
+                'User-Agent': 'Satomi - (https://github.com/kyostra/satomi)'
             }
         }).catch(this.logger.error);
 
         return responder.send(`${msg.author.mention} hugged ${user.mention}! uwu`, { embed: {
-            color: 0x98ffa6,
+            color: client.satomiColor,
             image: {
                 url: res.data.url
             },
