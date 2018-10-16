@@ -28,7 +28,7 @@ class Role extends Command {
             } else {
                 return false;
             }
-        }
+        };
 
         const memberHasRole = memberRoleCheck();
 
@@ -92,7 +92,7 @@ class Role extends Command {
                 }
             });
         }
-        
+
         if (options === 'remove') {
             try {
                 if (memberHasRole === false) {

@@ -94,8 +94,8 @@ $ pm2 logs
 ```
 
 ## License/Author
-**Satomi** © [Christopher House/kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
+**Satomi** © [Christopher House/Kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
 
-Created and maintained by Christopher House/kyostra.
+Created and maintained by Christopher House/Kyostra.
 
 > Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra)

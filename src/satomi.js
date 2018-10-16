@@ -88,7 +88,7 @@ satomi.on('ready', () => {
         { type: 3, name: `${users} users` },
         { type: 0, name: `in ${guilds} servers` },
         { type: 3, name: `${guilds} servers` }
-    ]
+    ];
 
     satomi.ascii = () => {
         fs.readFile('./res/boot/ascii.txt', 'utf-8', (err, data) => {

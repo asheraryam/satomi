@@ -30,7 +30,7 @@ class Ssar extends Command {
                         title: 'Ssar.Add Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    }}).catch(this.logger.error);
+                    } }).catch(this.logger.error);
                 } else {
                     return responder.send(`${msg.author.mention} successfully added role **${roleName}** to the database!`, { embed: {
                         color: client.satomiColor,
@@ -43,7 +43,7 @@ class Ssar extends Command {
                             `\nRole ID: ${roleID}`
                         }],
                         timestamp: new Date()
-                    }}).catch(this.logger.error);
+                    } }).catch(this.logger.error);
                 }
             });
         }
@@ -56,7 +56,7 @@ class Ssar extends Command {
                         title: 'Ssar.Remove Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    }}).catch(this.logger.error);
+                    } }).catch(this.logger.error);
                 } else {
                     return responder.send(`${msg.author.mention} successfully removed role **${roleName}** to the database!`, { embed: {
                         color: client.redColor,
@@ -69,7 +69,7 @@ class Ssar extends Command {
                             `\nRole ID: ${roleID}`
                         }],
                         timestamp: new Date()
-                    }}).catch(this.logger.error);
+                    } }).catch(this.logger.error);
                 }
             });
         }

@@ -48,7 +48,8 @@
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "eslint": "^5.7.0"
+    "eslint": "^5.7.0",
+    "eslint-config-kyostra": "^0.1.0"
   },
   "eslintConfig": {
     "extends": "kyostra/node",
