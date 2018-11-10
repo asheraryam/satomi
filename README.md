@@ -72,7 +72,12 @@ DB_PASSWORD=
 DB_DBNAME=
 
 # API
-
+API_OSU=
+API_TWITCH=
+API_REDDIT_ID=
+API_REDDIT_SECRET=
+API_REDDIT_REFRESH=
+API_REDDIT_ACCESS=
 ```
 * You get your bot token from [here](https://discordapp.com/developers/applications/me), you need to create an application and then create a bot user. After, you need to invite the bot to your/a discord server to use its commands. (There are tutorials on how to do this if you are confused)
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
@@ -80,18 +85,17 @@ DB_DBNAME=
 * As of version 0.9.0, Satomi uses `.env` for holding keys instead of a json file. However, if you do not like using `.env`, you can easily switch the code to use a json file.
 
 ### Running the bot :
-After setting up the env files, configure the pm2-*.json files to your liking. After setting them up, you start the bot with pm2 (install globally)
-
-**DO NOT USE SATOMISTART.BAT**, it will not run the bot properly after 0.12.0. Please use a console within the bot folder path.
+After setting up the env files, configure the pm2-*.json files to your liking. After setting them up, you start the bot with pm2 (install globally or locally)
 
 ```
 $ pm2 start pm2-master.json
 $ pm2 start pm2-satomi.json
-$ pm2 monit
-
-Open another console in the same bot folder and type:
 $ pm2 logs
 ```
+* `Ctrl + c` will prompt you if you want to close the logs and return you to the console
+* If the bot is running and you want to shut it down do: (in discord) `s.shutdown` -> (in console) `pm2 stop all`
+* If you want to restart the bot after some changes `pm2 restart all`
+* Only do `pm2 stop all` by itself when they bot is having a reconnect loop
 
 ## License/Author
 **Satomi** © [Christopher House/Kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)

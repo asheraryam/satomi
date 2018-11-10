@@ -32,11 +32,11 @@ class Help extends Command {
                 },
                 {
                     name: 'fun',
-                    value: '`8ball`, `advice`, `choose`, `coinflip`, `hug`, `ratewaifu`, `urban`'
+                    value: '`8ball`, `advice`, `aesthetic`, `choose`, `coinflip`, `hug`, `owo`, `ratewaifu`, `urban`'
                 },
                 {
                     name: 'moderation',
-                    value: '`ban`, `kick`, `poll`, `purge`, `setnsfw`, `ssar`'
+                    value: '`ban`, `kick`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`'
                 },
                 {
                     name: 'search',
@@ -85,7 +85,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Aliases',
-                    value: 's.avatar (main)\ns.profilepicture\ns.profilepic'
+                    value: 's.avatar, s.profilepicture, s.profilepic'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -216,12 +216,12 @@ class Help extends Command {
                 description: 'Shows info about a user',
                 fields: [{
                     name: 'Usage',
-                    value: 's.userinfo or s.userinfo @user',
+                    value: 's.userinfo, s.userinfo @user or s.userinfo <user_id>',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.userinfo or s.userinfo @Satomi',
+                    value: 's.userinfo, s.userinfo @Satomi or s.userinfo 12345678910111213141',
                     inline: true
                 },
                 {
@@ -277,6 +277,27 @@ class Help extends Command {
                     text: footerText
                 }
             } }).catch(this.logger.error);
+        } else if (command === 'aesthetic') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Aesthetic (fun)',
+                description: 'makes your text more a e s t h e t ic',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.aesthetic <phrase>',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.aesthetic i have no life',
+                    inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
         } else if (command === 'choose') {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
@@ -312,6 +333,11 @@ class Help extends Command {
                     name: 'Example',
                     value: 's.coinflip',
                     inline: true
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.coinflip, s.flip, s.coin',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -333,6 +359,32 @@ class Help extends Command {
                     name: 'Example',
                     value: 's.hug @Satomi',
                     inline: true
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'owo') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Owo (fun)',
+                description: 'makes your text owo uwu, add "!" adds a face',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.owo <phrase>',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.owo catgirls are for degenerates!',
+                    inline: true
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.owo, s.uwu',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -386,16 +438,21 @@ class Help extends Command {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
                 title: 'Help for Ban (moderation)',
-                description: '[USERS WITH BAN PERMISSION] Bans a member from the server and set days worth of messages to delete (Default is 7)',
+                description: '[USERS WITH BAN PERMISSION] Bans a member from the server and set days worth of messages to delete (Default is 0)',
                 fields: [{
                     name: 'Usage',
-                    value: 's.ban @member',
+                    value: 's.ban @member <days_msg> <reason>',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.ban @RandomTroll',
+                    value: 's.ban @RandomTroll 7 being a spam bot',
                     inline: true
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'days_msg - (optional) how many days of messages to delete from them' +
+                    '\nreason - (optional) why you banned them'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -410,13 +467,79 @@ class Help extends Command {
                 description: '[USERS WITH KICK PERMISSION] Kicks a member from the server',
                 fields: [{
                     name: 'Usage',
-                    value: 's.kick @member',
+                    value: 's.kick @member <reason>',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.kick @RandomTroll',
+                    value: 's.kick @RandomTroll being a spam bot',
                     inline: true
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'reason - (optional) why you kicked them'
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'mute') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Mute (moderation)',
+                description: '[USERS WITH MUTE MEMBERS PERMISSION] mute a member',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.mute @member <options>',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.mute @RandomTroll full',
+                    inline: true
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.mute, s.gag'
+                },
+                {
+                    name: 'Extra Args - Options',
+                    value: 'text - (default) gives them a role that doesnt allow message sending' +
+                    '\nvoice - mutes them from speaking in voice channels' +
+                    '\nfull - mutes them from text and voice'
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: client.user.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'unmute') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Unmute (moderation)',
+                description: '[USERS WITH MUTE MEMBERS PERMISSION] unmute a member',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.unmute @member <options>',
+                    inline: true
+                },
+                {
+                    name: 'Example',
+                    value: 's.unmute @RandomTroll full',
+                    inline: true
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.unmute, s.ungag'
+                },
+                {
+                    name: 'Extra Args - Options',
+                    value: 'text - (default) removes the mute role that doesnt allow message sending' +
+                    '\nvoice - unmutes them from voice channels' +
+                    '\nfull - unmutes them from text and voice'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -462,7 +585,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Aliases',
-                    value: 's.purge (main)\ns.clear\ns.delete',
+                    value: 's.purge, s.clear, s.delete',
                     inline: true
                 }],
                 timestamp: new Date(),
@@ -555,17 +678,17 @@ class Help extends Command {
                 description: 'Posts an image of Osu profile info',
                 fields: [{
                     name: 'Usage',
-                    value: 's.osu <mode> <user>',
+                    value: 's.osu <searchtype> <user>',
                     inline: true
                 },
                 {
                     name: 'Example',
-                    value: 's.osu osu cookiezi',
+                    value: 's.osu cookiezi',
                     inline: true
                 },
                 {
-                    name: 'Modes',
-                    value: 'osu, taiko, ctb, mania'
+                    name: 'Search Types',
+                    value: '<none>, sig, profile, best, recent'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -590,14 +713,14 @@ class Help extends Command {
                 },
                 {
                     name: 'Extra Args',
-                    value: '**Types -**\nprofile, pf, p | competitive, comp, c | quickplay, quick, q' +
+                    value: '**Types -**\nprofile, p | competitive, comp, c | quickplay, quick, q' +
                     '\n**Platforms -**\npc, xbl, psn' +
                     '\n**Regions** -\nna, eu, kr, cn',
                     inline: true
                 },
                 {
                     name: 'Aliases',
-                    value: 'overwatch (main), ow',
+                    value: 's.overwatch, s.ow',
                     inline: true
                 }],
                 timestamp: new Date(),
@@ -628,7 +751,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Aliases',
-                    value: 's.weather\ns.w',
+                    value: 's.weather, s.w',
                     inline: true
                 }],
                 timestamp: new Date(),

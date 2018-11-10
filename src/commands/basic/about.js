@@ -39,8 +39,8 @@ class About extends Command {
             footer: {
                 icon_url: client.user.avatarURL,
                 text: 'Satomi | created by kyostra @github/twitter'
-            } }
-        }).catch(this.logger.error);
+            }
+        } }).catch(this.logger.error);
     }
 }
 

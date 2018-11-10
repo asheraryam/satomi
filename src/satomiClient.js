@@ -1,12 +1,14 @@
 const { Client } = require('sylphy');
 const Database = require('./plugins/Database.js');
 const chalk = require('chalk');
+const pkg = require('../package.json');
 
 class SatomiClient extends Client {
     constructor(options = {}) {
         super(options);
         this.satomiColor = 0x98ffa6;
         this.redColor = 0xff4b4b;
+        this.userAgent = `Satomi (https://github.com/kyostra/satomi) v(${pkg.version})`;
         this.settingsManager = require('./utils/settingsManager.js');
         this.mongodb = new Database({
             username: process.env.DB_USERNAME,
@@ -25,9 +27,7 @@ class SatomiClient extends Client {
             this.logger.error(chalk.red.bold(error));
             process.exit(0);
         }
-        setTimeout(() => {
-            process.exit(0);
-        }, 5000);
+        setTimeout(() => process.exit(0), 5000);
     }
 }
 

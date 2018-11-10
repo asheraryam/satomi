@@ -18,20 +18,6 @@ class Role extends Command {
         const options = args.options;
         const roleName = args.roleName;
 
-        const getRoleID = () => msg.channel.guild.roles.find(r => r.name === `${roleName}`).id;
-
-        const roleID = getRoleID();
-
-        const memberRoleCheck = () => {
-            if (msg.member.roles.find(r => r === roleID)) {
-                return true;
-            } else {
-                return false;
-            }
-        };
-
-        const memberHasRole = memberRoleCheck();
-
         if (!options) {
             return responder.send(`${msg.author.mention} please specify **add**, **remove** or **list** before the role name :rage:`)
             .catch(this.logger.error);
@@ -39,31 +25,44 @@ class Role extends Command {
             return responder.send(`${msg.author.mention} please specify a role name :rage:`).catch(this.logger.error);
         }
 
-        // if (options === 'list') {
-        //     client.mongodb.models.roles.find({ serverID: msg.channel.guild.id }, (error, list) => {
-        //         if (error) {
-        //             return responder.send(`${msg.author.mention} couldnt display server database roles`, { embed: {
-        //                 color: client.redColor,
-        //                 title: 'Role.List Error',
-        //                 description: `${error}`,
-        //                 timestamp: new Date()
-        //             }}).catch(this.logger.error);
-        //         } else {
-        //             return responder.send(' ', { embed: {
-        //                 color: client.satomiColor,
-        //                 title: 'Server Role List',
-        //                 description: `testing space`,
-        //                 fields: [{
-        //                     name: '---------',
-        //                     value: `${(list.toArray().map(r => r.roleName)).join('\n')}`
-        //                 }],
-        //                 timestamp: new Date()
-        //             }}).catch(this.logger.error);
-        //         }
-        //     });
-        // }
+        if (options === 'list') {
+            client.mongodb.models.roles.find({ serverID: msg.channel.guild.id }, null, (error, list) => {
+                if (error) {
+                    return responder.send(`${msg.author.mention} couldnt display server database roles`, { embed: {
+                        color: client.redColor,
+                        title: 'Role.List Error',
+                        description: `${error}`,
+                        timestamp: new Date()
+                    } }).catch(this.logger.error);
+                } else {
+                    return responder.send(' ', { embed: {
+                        color: client.satomiColor,
+                        title: `${msg.channel.guild.name}\'s Role List`,
+                        fields: [{
+                            name: '---------',
+                            value: `${(list.map(r => r.roleName)).join('\n')}`
+                        }],
+                        timestamp: new Date()
+                    } }).catch(this.logger.error);
+                }
+            });
+        }
 
         if (options === 'add') {
+            const getRoleID = () => msg.channel.guild.roles.find(r => r.name === `${roleName}`).id;
+
+            const roleID = getRoleID();
+
+            const memberRoleCheck = () => {
+                if (msg.member.roles.find(r => r === roleID)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
+            const memberHasRole = memberRoleCheck();
+
             client.mongodb.models.roles.findOne({ serverID: msg.channel.guild.id, roleID: roleID, roleName: roleName }, (error, role) => {
                 if (error) {
                     return responder.send(`${msg.author.mention} could not find role **${roleName}** in the database`).catch(this.logger.error);
@@ -71,7 +70,11 @@ class Role extends Command {
 
                 try {
                     if (memberHasRole === true) {
-                        return responder.send(`you already have the role **${roleName}**`).catch(this.logger.error);
+                        return responder.send(' ', { embed: {
+                            color: client.redColor,
+                            title: 'Role Add Error',
+                            description: `You already have the role **${roleName}**`
+                        } }).catch(this.logger.error);
                     } else {
                         client.addGuildMemberRole(msg.channel.guild.id, msg.author.id, role.roleID)
                         .then(() => {
@@ -94,9 +97,27 @@ class Role extends Command {
         }
 
         if (options === 'remove') {
+            const getRoleID = () => msg.channel.guild.roles.find(r => r.name === `${roleName}`).id;
+
+            const roleID = getRoleID();
+
+            const memberRoleCheck = () => {
+                if (msg.member.roles.find(r => r === roleID)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+
+            const memberHasRole = memberRoleCheck();
+
             try {
                 if (memberHasRole === false) {
-                    return responder.send('i cant remove a role you dont have...').catch(this.logger.error);
+                    return responder.send(' ', { embed: {
+                        color: client.redColor,
+                        title: 'Role Remove Error',
+                        description: 'I can\'t remove a role you dont have'
+                    } }).catch(this.logger.error);
                 } else {
                     client.removeGuildMemberRole(msg.channel.guild.id, msg.author.id, roleID)
                     .then(() => {

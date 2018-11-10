@@ -1,3 +1,5 @@
+/* eslint eqeqeq:0 */
+
 const { Module } = require('sylphy');
 
 class ReactMessages extends Module {
@@ -11,20 +13,20 @@ class ReactMessages extends Module {
     }
 
     onCreate (msg) {
-        if (msg.content === 'owo' || msg.content === 'uwu') {
+        if (msg.content == 'owo' || msg.content == 'uwu') {
             return this._client.createMessage(msg.channel.id, 'uwu <:uwu:468426937686032385>');
         }
 
-        if (msg.content === 'poggers' || msg.content === 'POGGERS') {
+        if (msg.content == 'poggers' || msg.content == 'POGGERS') {
             return this._client.createMessage(msg.channel.id, '<:POGGERS:432986990338768896>');
         }
 
-        if (msg.content === 'succ') {
+        if (msg.content == 'succ') {
             return this._client.createMessage(msg.channel.id, '<a:succsucc:468426964252884992>');
         }
 
-        if (msg.content === '>clap.gif' || msg.content === 'clap.gif') {
-            return this._client.createMessage(msg.channel.id, '<a:clap:413217369751561>');
+        if (msg.content == '>clap' || msg.content == 'clap') {
+            return this._client.createMessage(msg.channel.id, '<:4Head:507416130491514890> <a:clap:413217369751561>');
         }
     }
 }

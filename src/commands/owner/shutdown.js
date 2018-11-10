@@ -18,11 +18,11 @@ class Shutdown extends Command {
         }
 
         const shutdown = await responder.dialog([{
-            prompt: 'Are you sure you want me to shut down? (y/n)',
-            input: { name: 'choice', type: 'string', choices: ['y', 'n'] }
+            prompt: 'Are you sure you want me to shut down? Respond by \`yes\` or \`no\`',
+            input: { name: 'choice', type: 'string', choices: ['yes', 'no'] }
         }]);
 
-        if (shutdown.choice === 'y') {
+        if (shutdown.choice === 'yes') {
            this.logger.info(chalk.cyan('[CLIENT] Satomi has shut down'));
             return responder.send(' ', { embed: {
                 color: client.satomiColor,

@@ -7,6 +7,7 @@ class Catgirl extends Command {
         super(...args, {
             name: 'catgirl',
             group: 'search',
+            aliases: ['neko'],
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
@@ -19,12 +20,14 @@ class Catgirl extends Command {
         const options = args.options;
         const userAgent = `Satomi (https://github.com/kyostra/satomi) v(${pkg.version})`;
 
-        const sites = ['nekos.brussell', 'nekos.life'];
+        const sites = ['nekos.moe', 'nekos.life'];
         const site = sites[Math.floor(Math.random() * sites.length)];
 
         if (options === 'sfw' || !options) {
-            if (site === 'nekos.brussell') {
-                const res = await axios.get('https://nekos.brussell.me/api/v1/random/image?count=1&nsfw=false', {
+            if (site === 'nekos.moe') {
+                client.sendChannelTyping(msg.channel.id);
+
+                const res = await axios.get('https://nekos.moe/api/v1/random/image?count=1&nsfw=false', {
                     headers: {
                         'User-Agent': userAgent
                     }
@@ -32,13 +35,15 @@ class Catgirl extends Command {
 
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
-                    description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
+                    description: `[Source](https://nekos.moe/image/${res.data.images[0].id})`,
                     image: {
-                        url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
+                        url: `https://nekos.moe/image/${res.data.images[0].id}`
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             } else if (site === 'nekos.life') {
+                client.sendChannelTyping(msg.channel.id);
+
                 const res = await axios.get('https://nekos.life/api/v2/img/neko', {
                     headers: {
                         'User-Agent': userAgent
@@ -60,8 +65,10 @@ class Catgirl extends Command {
                 .catch(this.logger.error);
             }
 
-            if (site === 'nekos.brussell') {
-                const res = await axios.get('https://nekos.brussell.me/api/v1/random/image?count=1&nsfw=true', {
+            if (site === 'nekos.moe') {
+                client.sendChannelTyping(msg.channel.id);
+
+                const res = await axios.get('https://nekos.moe/api/v1/random/image?count=1&nsfw=true', {
                     headers: {
                         'User-Agent': userAgent
                     }
@@ -69,13 +76,15 @@ class Catgirl extends Command {
 
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
-                    description: `[Source](https://nekos.brussell.me/image/${res.data.images[0].id})`,
+                    description: `[Source](https://nekos.moe/image/${res.data.images[0].id})`,
                     image: {
-                        url: `https://nekos.brussell.me/image/${res.data.images[0].id}`
+                        url: `https://nekos.moe/image/${res.data.images[0].id}`
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             } else if (site === 'nekos.life') {
+                client.sendChannelTyping(msg.channel.id);
+
                 const res = await axios.get('https://nekos.life/api/v2/img/lewd', {
                     headers: {
                         'User-Agent': userAgent

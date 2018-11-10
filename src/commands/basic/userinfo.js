@@ -10,22 +10,26 @@ class UserInfo extends Command {
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
-                { name: 'member', displayName: 'user', type: 'member', optional: true, last: true }
+                { name: 'member', displayName: 'member', type: 'string', optional: true, last: true }
             ]
         });
     }
 
-    handle ({ client, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
+        const member = args.member;
+
         let user;
         if (msg.mentions.length > 0) {
             user = msg.channel.guild.members.get(msg.mentions[0].id);
+        } else if (member.length === 18) {
+            user = msg.channel.guild.members.get(member);
         } else {
             user = msg.channel.guild.members.get(msg.member.id);
         }
 
         return responder.send(' ', { embed: {
             title: 'User Information',
-            description: `${user.username}#${user.discriminator} --- Bot? ${user.bot}`,
+            description: `${user.username}#${user.discriminator}`,
             color: client.satomiColor,
             thumbnail: {
                 url: user.avatarURL
@@ -51,19 +55,19 @@ class UserInfo extends Command {
                 inline: true
             },
             {
-                name: 'Roles',
-                value: `${user.roles.map(roleid => msg.channel.guild.roles.get(roleid).name).join(', ') || 'None'}`,
-                inline: false
-            },
-            {
                 name: 'Joined Server At',
-                value: `${moment(user.joinedAt).format('MMMM Do YYYY')} at ${moment(user.joinedAt).format('h:mm')}`,
+                value: `${moment(user.joinedAt).format('MMMM Do YYYY')} at ${moment(user.joinedAt).format('h:mm a')}`,
                 inline: true
             },
             {
                 name: 'Created Discord Account',
-                value: `${moment(user.createdAt).format('MMMM Do YYYY')} at ${moment(user.createdAt).format('h:mm')}`,
+                value: `${moment(user.createdAt).format('MMMM Do YYYY')} at ${moment(user.createdAt).format('h:mm a')}`,
                 inline: true
+            },
+            {
+                name: `Roles [${user.roles.length}]`,
+                value: `${user.roles.map(roleid => msg.channel.guild.roles.get(roleid).name).join(', ') || 'None'}`,
+                inline: false
             }],
             timestamp: new Date()
         } }).catch(this.logger.error);

@@ -17,7 +17,7 @@ class ServerInfo extends Command {
 
         return responder.send(' ', {
             embed: {
-                title: `${server.name} | (${server.id})`,
+                title: `${server.name} (${server.id})`,
                 description: `Owner: <@!${server.ownerID}>`,
                 author: {
                     name: 'Server Information:',
@@ -50,7 +50,7 @@ class ServerInfo extends Command {
                 },
                 {
                     name: 'Server Created On:',
-                    value: `${moment(server.createdAt).format('MMMM Do YYYY, h:mm:ss a')}`,
+                    value: `${moment(server.createdAt).format('MMMM Do YYYY, h:mm a')}`,
                     inline: true
                 }],
                 timestamp: new Date(),

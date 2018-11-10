@@ -10,8 +10,8 @@ class Weather extends Command {
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
-                { name: 'city', displayName: 'city', type: 'string', optional: false, last: true },
-                { name: 'tempunit', displayName: 'tempunit', type: 'string', choices: ['f', 'c'], optional: true }
+                { name: 'tempunit', displayName: 'tempunit', type: 'string', choices: ['f', 'c'], optional: true, last: false },
+                { name: 'city', displayName: 'city', type: 'string', optional: false, last: true }
             ]
         });
     }
@@ -40,7 +40,7 @@ class Weather extends Command {
                 },
                 {
                     name: ':droplet: Humidity',
-                    value: `${info.atmosphere.humidity}`,
+                    value: `${info.atmosphere.humidity}%`,
                     inline: true
                 },
                 {
