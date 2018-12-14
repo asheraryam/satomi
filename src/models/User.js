@@ -1,10 +1,16 @@
+/* eslint prefer-const: 0 */
+
 const Mongoose = require('mongoose');
 
-var UserSchema = new Mongoose.Schema({
-    serverID: { type: String, unique: true },
+let UserSchema = new Mongoose.Schema({
+    serverID: { type: String },
     userID: { type: String },
-    exp: { type: Number, default: 0 },
-    yennies: { type: Number, default: 0 }
+    userName: { type: String },
+    userDisc: { type: String },
+    xp: { type: Number, default: 0 },
+    yennies: { type: Number, default: 0 },
+    yenniesCD: { type: Date, default: new Date(0) },
+    blacklist: { type: Boolean, default: false }
 });
 
-module.exports = Mongoose.model('User', UserSchema);
+module.exports = Mongoose.model('Users', UserSchema);

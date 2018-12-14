@@ -18,7 +18,7 @@ class RateWaifu extends Command {
         const hotness = (Math.random() * 10).toPrecision(3);
         const craziness = (Math.random() * 10).toPrecision(3);
 
-        var hotReact = '';
+        let hotReact = '';
         if (hotness === 10.00) {
             hotReact = 'an angel :heart_eyes:';
         } else if (hotness >= 8.00 || hotness >= 9.00) {
@@ -31,7 +31,7 @@ class RateWaifu extends Command {
             hotReact = 'idk, go next waifu :mask:';
         }
 
-        var crazyReact = '';
+        let crazyReact = '';
         if (craziness === 10.00) {
             crazyReact = 'that waifu is a yandere, go next waifu :fearful:';
         } else if (craziness >= 8.00 || craziness >= 9.00) {

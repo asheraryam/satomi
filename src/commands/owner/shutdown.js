@@ -18,7 +18,7 @@ class Shutdown extends Command {
         }
 
         const shutdown = await responder.dialog([{
-            prompt: 'Are you sure you want me to shut down? Respond by \`yes\` or \`no\`',
+            prompt: 'Are you sure you want me to shut down? Respond by `yes` or `no`',
             input: { name: 'choice', type: 'string', choices: ['yes', 'no'] }
         }]);
 

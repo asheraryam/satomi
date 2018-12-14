@@ -15,7 +15,7 @@ class Help extends Command {
 
     handle ({ args, client, msg }, responder) {
         const command = args.command;
-        const footerText = ' | created by kyostra @github/twitter';
+        const footerText = `Requested by ${msg.author.username}#${msg.author.discriminator}`;
 
         if (!command) {
             return responder.send(msg.author.mention, { embed: {
@@ -36,7 +36,7 @@ class Help extends Command {
                 },
                 {
                     name: 'moderation',
-                    value: '`ban`, `kick`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`'
+                    value: '`ban`, `goodbye`, `kick`, `mute`, `poll`, `purge`, `setlogs`, `setnsfw`, `ssar`, `unmute`, `welcome`'
                 },
                 {
                     name: 'search',
@@ -44,8 +44,8 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
-                    text: 'Satomi | created by kyostra @github/twitter'
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
                 } } }).catch(this.logger.error);
         } else if (command === 'about') {
             return responder.send(' ', { embed: {
@@ -55,16 +55,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.about',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.about',
-                    inline: true
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.about, s.info',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -76,20 +81,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.avatar @user or s.avatar',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.avatar @Satomi or s.avatar',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
-                    value: 's.avatar, s.profilepicture, s.profilepic'
+                    value: 's.avatar, s.profilepicture, s.profilepic',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -101,16 +107,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.help or s.help <command name>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.help or s.help ratewaifu',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -122,16 +128,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.ping',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.ping',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -143,22 +149,23 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.role add <role>, s.role remove <role> or s.role list',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.role add nsfw, s.role remove nsfw, s.role list',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
                     value: 'add - tells Satomi to add the role to you' +
                     '\nremove - tells Satomi to remove the role from you' +
-                    '\nlist - lists all roles available to you'
+                    '\nlist - lists all roles available to you',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -170,16 +177,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.stats',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.stats',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -191,21 +198,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.serverinfo',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.serverinfo',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
                     value: 's.serverinfo, s.server',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -217,21 +224,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.userinfo, s.userinfo @user or s.userinfo <user_id>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.userinfo, s.userinfo @Satomi or s.userinfo 12345678910111213141',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
                     value: 's.userinfo, s.user',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -243,16 +250,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.8ball <question>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.8ball am i a weeb?',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -264,16 +271,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.advice',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.advice',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -285,16 +292,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.aesthetic <phrase>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.aesthetic i have no life',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -306,16 +313,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.choose <word/phrase>, <word/phrase>...',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.choose pizza, poutine, koreanbbq',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -327,12 +334,12 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.coinflip',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.coinflip',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
@@ -341,7 +348,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -353,16 +360,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.hug @user',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.hug @Satomi',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -374,12 +381,12 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.owo <phrase>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.owo catgirls are for degenerates!',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
@@ -388,7 +395,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -400,16 +407,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.ratewaifu @user',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.ratewaifu @Satomi',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -421,16 +428,43 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.urban <word> or s.urban',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.urban eGirl or s.urban',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'autorole') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for AutoRole (moderation)',
+                description: '[USERS WITH MANAGE ROLES PERMISSION] Sets the auto-role for new members',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.autorole <options> <role>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.autorole add Member\ns.autorole remove',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'add - sets the role to give automatically' +
+                    '\nremove - turns off autorole',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -442,21 +476,43 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.ban @member <days_msg> <reason>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.ban @RandomTroll 7 being a spam bot',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
                     value: 'days_msg - (optional) how many days of messages to delete from them' +
-                    '\nreason - (optional) why you banned them'
+                    '\nreason - (optional) why you banned them',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'goodbye') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Goodbye (moderation)',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel for goodbye messages',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.goodbye (a prompt will appear)',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.goodbye',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -468,20 +524,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.kick @member <reason>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.kick @RandomTroll being a spam bot',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
-                    value: 'reason - (optional) why you kicked them'
+                    value: 'reason - (optional) why you kicked them',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -493,26 +550,28 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.mute @member <options>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.mute @RandomTroll full',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
-                    value: 's.mute, s.gag'
+                    value: 's.mute, s.gag',
+                    inline: false
                 },
                 {
                     name: 'Extra Args - Options',
                     value: 'text - (default) gives them a role that doesnt allow message sending' +
                     '\nvoice - mutes them from speaking in voice channels' +
-                    '\nfull - mutes them from text and voice'
+                    '\nfull - mutes them from text and voice',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -524,26 +583,28 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.unmute @member <options>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.unmute @RandomTroll full',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
-                    value: 's.unmute, s.ungag'
+                    value: 's.unmute, s.ungag',
+                    inline: false
                 },
                 {
                     name: 'Extra Args - Options',
                     value: 'text - (default) removes the mute role that doesnt allow message sending' +
                     '\nvoice - unmutes them from voice channels' +
-                    '\nfull - unmutes them from text and voice'
+                    '\nfull - unmutes them from text and voice',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -555,16 +616,16 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.poll <topic/message>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.poll Should we add more roles?',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -576,21 +637,48 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.purge <number>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.purge 10',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Aliases',
                     value: 's.purge, s.clear, s.delete',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'setlogs') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for SetLogs (moderation)',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel for logs',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.setlogs on\ns.setlogs off',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.setlogs on\ns.setlogs off',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'on - sets the current channel for logs' +
+                    '\noff - turns off sending logs in that channel',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -602,21 +690,22 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.setnsfw\ns.setnsfw on\ns.setnsfw off',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.setnsfw\ns.setnsfw on\ns.setnsfw off',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
                     value: 'off - takes away the nsfw label, nsfw content not allowed' +
-                    '\non - adds the nsfw label, nsfw content allowed'
+                    '\non - adds the nsfw label, nsfw content allowed',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -628,21 +717,43 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.ssar add <rolename>\ns.ssar remove <rolename>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.ssar add nsfw\ns.ssar remove nsfw',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
                     value: 'add - adds the role to the bots database for assignability' +
-                    '\nremove - removes the role from the bots database, making it unable to assign the role'
+                    '\nremove - removes the role from the bots database, making it unable to assign the role',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'welcome') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Welcome (moderation)',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel for welcome messages',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.welcome (a prompt will appear)',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.welcome',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -654,20 +765,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.catgirl or s.catgirl nsfw',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.catgirl or s.catgirl nsfw',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
-                    value: 'nsfw - tells Satomi to search for lewd Catgirls'
+                    value: 'nsfw - tells Satomi to search for lewd Catgirls',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -679,20 +791,21 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.osu <searchtype> <user>',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.osu cookiezi',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Search Types',
-                    value: '<none>, sig, profile, best, recent'
+                    value: '<none>, sig, profile, best, recent',
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -704,28 +817,28 @@ class Help extends Command {
                 fields: [{
                     name: 'Usage',
                     value: 's.overwatch type platform region Username#1234',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Example',
                     value: 's.overwatch p pc na Surefour#2559',
-                    inline: true
+                    inline: false
                 },
                 {
                     name: 'Extra Args',
                     value: '**Types -**\nprofile, p | competitive, comp, c | quickplay, quick, q' +
                     '\n**Platforms -**\npc, xbl, psn' +
-                    '\n**Regions** -\nna, eu, kr, cn',
-                    inline: true
+                    '\n**Regions** -\nna, eu, kr, cn, global',
+                    inline: false
                 },
                 {
                     name: 'Aliases',
                     value: 's.overwatch, s.ow',
-                    inline: true
+                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -736,27 +849,23 @@ class Help extends Command {
                 description: 'Displays weather info from Yahoo!Weather',
                 fields: [{
                     name: 'Usage',
-                    value: 's.weather <tempScale> <city>',
-                    inline: true
+                    value: 's.weather <tempScale> <city>'
                 },
                 {
                     name: 'Example',
-                    value: 's.weather f Los Angeles or s.weather Los Angeles',
-                    inline: true
+                    value: 's.weather f Los Angeles or s.weather Los Angeles'
                 },
                 {
                     name: 'Temperature Scales',
-                    value: 'f = Fahrenheit\nc = Celsius',
-                    inline: true
+                    value: 'f = Fahrenheit\nc = Celsius'
                 },
                 {
                     name: 'Aliases',
-                    value: 's.weather, s.w',
-                    inline: true
+                    value: 's.weather, s.w'
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
+                    icon_url: msg.author.avatarURL,
                     text: footerText
                 }
             } }).catch(this.logger.error);

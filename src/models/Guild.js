@@ -1,13 +1,16 @@
+/* eslint prefer-const: 0 */
+
 const Mongoose = require('mongoose');
 
-var GuildSchema = new Mongoose.Schema({
-    serverName: { type: String, unique: true },
+let GuildSchema = new Mongoose.Schema({
+    serverName: { type: String },
     serverID: { type: String, unique: true },
-    welcome: { channelID: { type: String, default: '', unique: true }, message: { type: String, default: '' } },
-    autoroleID: { type: String, default: '', unique: true },
-    goodbye: { channelID: { type: String, default: '', unique: true }, message: { type: String, default: '' } },
-    twLog: { type: String, default: '', unique: true },
-    twStreamers: { name: { type: String, default: '' }, id: { type: String, default: '' } }
+    welcome: { channelID: { type: String, default: '' }, message: { type: String, default: '' } },
+    autoroleID: { type: String, default: '' },
+    goodbye: { channelID: { type: String, default: '' }, message: { type: String, default: '' } },
+    logChannel: { type: String, default: '' },
+    twLog: { type: String, default: '' },
+    blacklist: { type: Boolean, default: false }
 });
 
-module.exports = Mongoose.model('Guild', GuildSchema);
+module.exports = Mongoose.model('Guilds', GuildSchema);

@@ -1,9 +1,11 @@
+/* eslint prefer-const: 0 */
+
 const Mongoose = require('mongoose');
 
-var RolesSchema = new Mongoose.Schema({
+let RoleSchema = new Mongoose.Schema({
     serverID: { type: String },
     roleID: { type: String, unique: true },
     roleName: { type: String }
 });
 
-module.exports = Mongoose.model('Roles', RolesSchema);
+module.exports = Mongoose.model('Roles', RoleSchema);

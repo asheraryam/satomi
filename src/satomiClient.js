@@ -6,8 +6,10 @@ const pkg = require('../package.json');
 class SatomiClient extends Client {
     constructor(options = {}) {
         super(options);
+        this.botVersion = `v${pkg.version}`;
         this.satomiColor = 0x98ffa6;
         this.redColor = 0xff4b4b;
+        this.blueColor = 0x99dff;
         this.userAgent = `Satomi (https://github.com/kyostra/satomi) v(${pkg.version})`;
         this.settingsManager = require('./utils/settingsManager.js');
         this.mongodb = new Database({

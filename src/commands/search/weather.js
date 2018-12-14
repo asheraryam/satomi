@@ -18,9 +18,13 @@ class Weather extends Command {
 
     handle ({ args, client }, responder) {
         const city = args.city;
-        const tempunit = args.tempunit;
+        let tempunit = args.tempunit;
 
-        weather(city, (tempunit || 'f')).then((info) => {
+        if (!tempunit) {
+            tempunit = 'f';
+        }
+
+        weather(city, (tempunit)).then((info) => {
             const url = info.item.link;
             if (info === null) {
                 return responder.send(`:no_entry_sign: couldnt find weather on ${city}`);

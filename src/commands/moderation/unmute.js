@@ -9,21 +9,119 @@ class Unmute extends Command {
             cooldown: 2,
             options: { guildOnly: true, requirements: { permissions: { voiceMuteMembers: true } } },
             usage: [
-                { name: 'member', displayName: 'member', type: 'string', optional: true, last: false },
+                { name: 'member', displayName: 'member', type: 'member', optional: true },
                 { name: 'options', displayName: 'options', type: 'string', optional: true, last: true }
             ]
         });
     }
 
-    handle ({ args, client, msg }, responder) {
-        if (!msg.mentions) {
-            return responder.send(`${msg.author.mention}, Please mention a user to unmute~! :anger:`);
-        }
-
+    async handle ({ args, client, msg }, responder) {
         const member = msg.mentions[0];
         const options = args.options;
 
-        // Nothing to see here :^)
+        if (!msg.mentions) {
+            return responder.send(`${msg.author.mention}, Please mention a user to unmute~! :anger:`);
+        } else if (!member) {
+            return;
+        }
+
+        if (member.id === msg.author.id) {
+            return responder.send(`${msg.author.mention}, You cant unmute yourself :anger:`);
+        } else if (member.id === client.user.id) {
+            return responder.send(`${msg.author.mention}, nice try <a:gachiBASS:421166944998129695> <a:HYPERCLAP:477515918813954048>`);
+        }
+
+        const muteRole = msg.channel.guild.roles.find(r => r.name === 'Satomi Mute');
+
+        if (!muteRole && (options === 'text' || options === 'full')) {
+            return responder.send(`${msg.author.mention}, cant unmute text if the mute command was never used`);
+        }
+
+        const memberRoleCheck = () => {
+            if (msg.member.roles.find(r => r === muteRole.id)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        const memberHasRole = memberRoleCheck();
+
+        if (!options || options === 'text') {
+            if (memberHasRole === true) {
+                try {
+                    await msg.channel.guild.removeMemberRole(member.id, muteRole.id);
+                    return responder.send(' ', { embed: {
+                        color: client.satomiColor,
+                        title: 'Member Text UnMute',
+                        description: `**${member.username}#${member.discriminator}** has been unmute from **text**`
+                    } });
+                } catch (error) {
+                    this.logger.error;
+                    return responder.send(' ', { embed: {
+                        color: client.redColor,
+                        title: 'Text UnMute Error',
+                        description: `${error}`,
+                        timestamp: new Date()
+                    } });
+                }
+            } else {
+                return responder.send(' ', { embed: {
+                    color: client.redColor,
+                    title: 'Cant Text UnMute Member',
+                    description: `**${member.username}#${member.discriminator}** isnt text muted`,
+                    timestamp: new Date()
+                } });
+            }
+        } else if (options === 'voice') {
+            try {
+                await client.editGuildMember(msg.channel.guild.id, member.id, {
+                    mute: false
+                }, 'Probably not being annoying anymore');
+                return responder.send(' ', { embed: {
+                    color: client.satomiColor,
+                    title: 'Member Voice UnMute',
+                    description: `**${member.username}#${member.discriminator}** has been unmute from **voice**`
+                } });
+            } catch (error) {
+                this.logger.error;
+                return responder.send(' ', { embed: {
+                    color: client.redColor,
+                    title: 'Voice UnMute Error',
+                    description: `${error}`,
+                    timestamp: new Date()
+                } });
+            }
+        } else if (options === 'full') {
+            if (memberHasRole === true) {
+                try {
+                    await msg.channel.guild.removeMemberRole(member.id, muteRole.id);
+                    await client.editGuildMember(msg.channel.guild.id, member.id, {
+                        mute: false
+                    }, 'Probably not being annoying anymore');
+                    return responder.send(' ', { embed: {
+                        color: client.satomiColor,
+                        title: 'Member Full UnMute',
+                        description: `**${member.username}#${member.discriminator}** has been unmuted from **text** and **voice**`
+                    } });
+                } catch (error) {
+                    this.logger.error;
+                    return responder.send(' ', { embed: {
+                        color: client.redColor,
+                        title: 'Full UnMute Error',
+                        description: `${error}`,
+                        timestamp: new Date()
+                    } });
+                }
+            } else {
+                return responder.send(' ', { embed: {
+                    color: client.redColor,
+                    title: 'Cant Full UnMute Member',
+                    description: `**${member.username}#${member.discriminator}** isnt text muted, please use \`unmute voice\` instead of full maybe`,
+                    timestamp: new Date()
+                } });
+            }
+        }
     }
 }
 

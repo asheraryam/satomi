@@ -23,8 +23,8 @@ class Eval extends Command {
         let suffix, evaled;
 
         const cleanCodeBlock = (string) => {
-            return string.replace(/^```.* ?/, '').replace(/```$/, '')
-        }
+            return string.replace(/^```.* ?/, '').replace(/```$/, '');
+        };
 
         try {
             suffix = cleanCodeBlock(args.eval);

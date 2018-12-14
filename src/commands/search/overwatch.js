@@ -1,7 +1,5 @@
-/* eslint quotes: 0 */
-
 const { Command } = require('sylphy');
-const axios = require("axios");
+const axios = require('axios');
 
 class Overwatch extends Command {
     constructor(...args) {
@@ -33,7 +31,7 @@ class Overwatch extends Command {
 
         const type = args.type; // profile, competitive, quickplay
         const platform = args.platform; // pc, xbl, psn
-        const region = regionCheck(args.region); // us, eu, asia
+        const region = regionCheck(args.region); // us, eu, asia, global
         const battletag = args.battletag.replace('#', '-'); // case sensitive
 
         if (type === 'profile' || type === 'p') {
@@ -150,7 +148,7 @@ class Overwatch extends Command {
                 {
                     name: 'Best In Game',
                     value: `All Damage: ${stats.data.stats.best.competitive[0].value}` +
-                    `\nDeaths: --` +
+                    '\nDeaths: --' +
                     `\nEliminations: ${stats.data.stats.best.competitive[3].value}` +
                     `\nFinal Blows: ${stats.data.stats.best.competitive[5].value}` +
                     `\nObjective Kills: ${stats.data.stats.best.competitive[11].value}` +
@@ -188,10 +186,10 @@ class Overwatch extends Command {
                 },
                 fields: [{
                     name: 'General Quickplay Stats',
-                    value: `Games Played: --` +
+                    value: 'Games Played: --' +
                         `\nGames Won: ${stats.data.stats.game.quickplay[0].value}` +
-                        `\nGames Lost: --` +
-                        `\nGames Tied: --` +
+                        '\nGames Lost: --' +
+                        '\nGames Tied: --' +
                         `\nTime Played: ${stats.data.stats.game.quickplay[1].value}` +
                         `\nTotal Medals: ${stats.data.stats.match_awards.quickplay[1].value}` +
                         `\nGold Medals: ${stats.data.stats.match_awards.quickplay[2].value}` +
@@ -226,7 +224,7 @@ class Overwatch extends Command {
                 {
                     name: 'Best In Game',
                     value: `All Damage: ${stats.data.stats.best.quickplay[0].value}` +
-                    `\nDeaths: --` +
+                    '\nDeaths: --' +
                     `\nEliminations: ${stats.data.stats.best.quickplay[3].value}` +
                     `\nFinal Blows: ${stats.data.stats.best.quickplay[5].value}` +
                     `\nObjective Kills: ${stats.data.stats.best.quickplay[11].value}` +

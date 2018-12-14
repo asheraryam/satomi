@@ -9,7 +9,7 @@ class Purge extends Command {
             cooldown: 2,
             options: { guildOnly: true, requirements: { permissions: { manageMessages: true } } },
             usage: [
-                { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 50 }
+                { name: 'limit', displayName: 'limit', type: 'int', min: 1, max: 51 }
             ]
         });
     }
@@ -17,7 +17,7 @@ class Purge extends Command {
     handle ({ args, client, msg }, responder) {
         const limit = args.limit + 1;
 
-        if (limit > 50) {
+        if (limit > 51) {
             return responder.send(' ', { embed: {
                 color: client.redColor,
                 description: ':x: Message count too high! Max is 50'

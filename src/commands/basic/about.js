@@ -1,44 +1,58 @@
 const { Command } = require('sylphy');
+const pkg = require('../../../package.json');
 
 class About extends Command {
     constructor (...args) {
         super (...args, {
             name: 'about',
             group: 'basic',
+            aliases: ['info'],
             cooldown: 2,
             options: { guildOnly: true }
         });
     }
 
     handle ({ client }, responder) {
+        const owner = client.users.get(process.env.OWNER_ID);
+
         return responder.send(' ', { embed: {
             title: 'Satomi, About~',
-            description: 'some more info about satomi can be found here ~',
+            description: 'Hello! I\'m Satomi, a multi-purpose discord bot. I started out as a small project ' +
+            'to learn JavaScript, but have became a fully functional bot for servers.' +
+            '\n ' +
+            '\nI\'m still a work in progress so please bear with me! Report any issues to the repo or ' +
+            'DM Kyostra on discord or twitter. The support server isn\'t setup yet >.<',
             color: client.satomiColor,
-            author: {
-                name: 'Satomi',
-                icon_url: client.user.avatarURL
+            thumbnail: {
+                url: client.user.avatarURL
             },
             fields: [{
-                name: 'Mini Q & A',
-                value: 'Whats Satomi\'s color? #98ffa6'
+                name: 'Developed By',
+                value: 'Kyostra#6290 | Kyostra @twitter/github',
+                inline: false
             },
             {
-                name: 'Source Code',
-                value: 'https://github.com/kyostra/satomi'
+                name: 'Satomi',
+                value: `Version - ${client.botVersion}` +
+                '\nLanguage - JavaScript + Node',
+                inline: false
             },
             {
-                name: 'Trello Board',
-                value: 'https://trello.com/b/TRspnxiz/satomi'
+                name: 'Useful Links',
+                value: '[Github](https://github.com/kyostra/satomi)' +
+                '\n[Trello](https://trello.com/b/TRspnxiz/satomi)',
+                inline: true
             },
             {
-                name: 'Support Server',
-                value: 'not setup yet :('
+                name: 'Built With',
+                value: `[Eris - ${pkg.dependencies.eris}](https://github.com/abalabahaha/eris)` +
+                `\n[Sylphy - ${pkg.dependencies.sylphy}](https://github.com/pyraxo/sylphy)`,
+                inline: true
             }],
             timestamp: new Date(),
             footer: {
-                icon_url: client.user.avatarURL,
-                text: 'Satomi | created by kyostra @github/twitter'
+                icon_url: owner.avatarURL,
+                text: 'Satomi © 2018 | All Rights Reserved'
             }
         } }).catch(this.logger.error);
     }

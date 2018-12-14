@@ -28,35 +28,36 @@ class Ban extends Command {
 
         if (member.id === msg.author.id) {
             return responder.send(`${msg.author.mention}, You cant ban yourself :anger:`);
-        } else if (member.id === client.id) {
-            return responder.send(`${msg.author.mention}, fuck you`);
+        } else if (member.id === client.user.id) {
+            return responder.send(`${msg.author.mention}, nice try <a:gachiBASS:421166944998129695> <a:HYPERCLAP:477515918813954048>`);
         }
 
         const reply = await responder.dialog([{
-            prompt: '❗ Do you want to ban the user? Respond by \`yes\` or \`no\`',
+            prompt: '❗ Do you want to ban the user? Respond by `yes` or `no`',
             input: { name: 'response', type: 'string', choices: ['yes', 'no'] }
         }]);
 
         if (reply.response === 'yes') {
             try {
                 const userDM = await client.getDMChannel(member.id);
-                await userDM.createMessage({ embed: {
+                await this.send(userDM, '', { embed: {
                     color: client.redColor,
                     title: `Banned from ${msg.channel.guild.name}`,
-                    description: `Reason: ${reason}`,
+                    description: `Reason: ${reason === null ? 'reason not specified' : reason}`,
                     timestamp: new Date()
                 } });
                 await msg.channel.guild.banMember(member.id, msgPurge, reason);
+                client.emit('satomiMemberBan', msg.channel.guild, member.user, reason);
                 return responder.send(' ', { embed: {
                     color: client.redColor,
                     title: 'Member Banned!',
                     thumbnail: {
-                        url: member.avatarURL
+                        url: member.user.avatarURL
                     },
                     fields: [{
                         name: 'User',
-                        value: `${member.username}#${member.discriminator}` +
-                        `\n(${member.id})`,
+                        value: `${member.user.username}#${member.user.discriminator}` +
+                        `\n(${member.user.id})`,
                         inline: true
                     },
                     {

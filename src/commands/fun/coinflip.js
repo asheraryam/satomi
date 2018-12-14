@@ -25,7 +25,7 @@ class Coinflip extends Command {
                 title: `${msg.author.username} flipped a coin!`,
                 description: `and it landed on... ${coin.name}`,
                 image: {
-                    url: 'https://my.mixtape.moe/aqpabj.png'
+                    url: 'https://track9.mixtape.moe/aqpabj.png'
                 },
                 timestamp: new Date()
             } }).catch(this.logger.error);
@@ -35,7 +35,7 @@ class Coinflip extends Command {
                 title: `${msg.author.username} flipped a coin!`,
                 description: `and it landed on... ${coin.name}`,
                 image: {
-                    url: 'https://my.mixtape.moe/fahgte.png'
+                    url: 'https://track9.mixtape.moe/fahgte.png'
                 },
                 timestamp: new Date()
             } }).catch(this.logger.error);

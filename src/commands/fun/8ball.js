@@ -1,5 +1,5 @@
 const { Command } = require('sylphy');
-const answers8ball = require('../../utils/lists/answers8ball.js');
+const answers8ball = require('../../utils/answers8ball.js');
 
 class Eightball extends Command {
     constructor (...args) {

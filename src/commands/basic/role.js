@@ -37,7 +37,7 @@ class Role extends Command {
                 } else {
                     return responder.send(' ', { embed: {
                         color: client.satomiColor,
-                        title: `${msg.channel.guild.name}\'s Role List`,
+                        title: `${msg.channel.guild.name}'s Role List`,
                         fields: [{
                             name: '---------',
                             value: `${(list.map(r => r.roleName)).join('\n')}`
@@ -81,7 +81,7 @@ class Role extends Command {
                             return responder.send(' ', { embed: {
                                 color: client.satomiColor,
                                 title: 'Role Add Success!',
-                                description: `The role ${roleName} has been added to you :3`
+                                description: `The role ${roleName} has been added to you`
                             } }).catch(this.logger.error);
                         }).catch(this.logger.error);
                     }
@@ -124,7 +124,7 @@ class Role extends Command {
                         return responder.send(' ', { embed: {
                             color: client.satomiColor,
                             title: 'Role Remove Success!',
-                            description: `The role ${roleName} has been removed from you :3`
+                            description: `The role ${roleName} has been removed from you`
                         } }).catch(this.logger.error);
                     }).catch(this.logger.error);
                 }

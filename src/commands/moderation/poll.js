@@ -16,7 +16,6 @@ class Poll extends Command {
     handle ({ args, client, msg }, responder) {
         const phrase = args.phrase;
 
-        msg.delete();
         return responder.send(' ', { embed: {
             color: client.satomiColor,
             title: `Poll Started! by - ${msg.author.username}#${msg.author.discriminator}`,
