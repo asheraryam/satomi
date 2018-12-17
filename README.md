@@ -83,6 +83,7 @@ API_REDDIT_ACCESS=
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
 * You get the channel ID's the same way you did your ownerID. You right click on the channel and click "Copy ID", then paste it in this file.
 * As of version 0.9.0, Satomi uses `.env` for holding keys instead of a json file. However, if you do not like using `.env`, you can easily switch the code to use a json file.
+* In `src/modules/GuildLogger.js`, change the channel ID's to your own, but it's a useless file for self-hosters. The best thing to do is delete it.
 
 ### Running the bot :
 After setting up the env files, configure the pm2-*.json files to your liking. After setting them up, you start the bot with pm2 (install globally or locally)
@@ -102,4 +103,4 @@ $ pm2 logs
 
 Created and maintained by Christopher House/Kyostra.
 
-> Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra)
+> Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra) | Discord - **Kyostra#6290**
