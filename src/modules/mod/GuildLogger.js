@@ -12,8 +12,8 @@ class GuildLog extends Module {
             }
         });
 
-        this.joinLog = '512385761002127371';
-        this.leaveLog = '512385825254932481';
+        this.joinLog = process.env.JOINLOG_ID;
+        this.leaveLog = process.env.LEAVELOG_ID;
     }
 
     init() {
