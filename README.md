@@ -64,6 +64,10 @@ ADMIN_IDS=
 CLIENT_PROCESSES=
 CLIENT_SHARDS_PER_PROCESS=
 
+# Module Keys
+JOINLOG_ID=
+LEAVELOG_ID=
+
 # MongoDB
 DB_HOST=
 DB_PORT=
@@ -83,7 +87,7 @@ API_REDDIT_ACCESS=
 * The ownerID is the person who owns the application from above. You get your ID from right clicking your name and selecting "Copy ID" then paste it in the JSON. *To enable this, open your discord app then go to User Settings>Appearance>Advanced>Turn on Developer Mode*
 * You get the channel ID's the same way you did your ownerID. You right click on the channel and click "Copy ID", then paste it in this file.
 * As of version 0.9.0, Satomi uses `.env` for holding keys instead of a json file. However, if you do not like using `.env`, you can easily switch the code to use a json file.
-* In `src/modules/GuildLogger.js`, change the channel ID's to your own, but it's a useless file for self-hosters. The best thing to do is delete it.
+* I suggest you delete `src/modules/mod/GuildLogger.js` and the `# Module Keys` section in `.env` since you are just self hosting.
 
 ### Running the bot :
 After setting up the env files, configure the pm2-*.json files to your liking. After setting them up, you start the bot with pm2 (install globally or locally)
