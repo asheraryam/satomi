@@ -333,12 +333,12 @@ class Help extends Command {
                 description: 'Flips a coin',
                 fields: [{
                     name: 'Usage',
-                    value: 's.coinflip',
+                    value: 's.coinflip or s.coinflip <guess>',
                     inline: false
                 },
                 {
                     name: 'Example',
-                    value: 's.coinflip',
+                    value: 's.coinflip or s.coinflip heads',
                     inline: false
                 },
                 {
