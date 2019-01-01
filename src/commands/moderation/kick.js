@@ -15,19 +15,17 @@ class Kick extends Command {
     }
 
     async handle ({ args, client, msg }, responder) {
-        const member = msg.mentions[0];
+        const member = (await responder.selection(args.member, { mapFunc: m => `${m.user.username}#${m.user.discriminator}` }))[0];
         const reason = args.reason;
 
-        if (!msg.mentions) {
-            return responder.send(`${msg.author.mention}, Please mention a user to kick~! :anger:`);
-        } else if (!member) {
+        if (!member) {
             return;
         }
 
         if (member.id === msg.author.id) {
             return responder.send(`${msg.author.mention}, You cant kick yourself :anger:`);
         } else if (member.id === client.user.id) {
-            return responder.send(`${msg.author.mention}, nice try <a:gachiBASS:421166944998129695> <a:HYPERCLAP:477515918813954048>`);
+            return responder.send(`${msg.author.mention}, nice try buddy :^)`);
         }
 
         const reply = await responder.dialog([{
