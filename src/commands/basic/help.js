@@ -636,17 +636,26 @@ class Help extends Command {
                 description: '[USERS WITH MANAGE MESSAGES PERMISSION] Deletes a set amount of messages in a channel',
                 fields: [{
                     name: 'Usage',
-                    value: 's.purge <number>',
+                    value: 's.purge <number> <filter>',
                     inline: false
                 },
                 {
                     name: 'Example',
-                    value: 's.purge 10',
+                    value: 's.purge 10, s.purge 10 @TrollUser, s.purge 5 owo',
                     inline: false
                 },
                 {
                     name: 'Aliases',
                     value: 's.purge, s.clear, s.delete',
+                    inline: false
+                },
+                {
+                    name: 'Filters',
+                    value: '<word> - any phrase/word specified after the message count will only be deleted' +
+                    '\nbots - deletes messages made by a bot' +
+                    '\ncommands - deletes messages with the s. prefix' +
+                    '\n@user - deletes messages from that user' +
+                    '\nunpinned - messages that are pinned wont be deleted',
                     inline: false
                 }],
                 timestamp: new Date(),
