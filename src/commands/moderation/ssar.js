@@ -25,22 +25,22 @@ class Ssar extends Command {
         if (options === 'add') {
             client.mongodb.models.roles.create({ serverID: msg.channel.guild.id, roleID: roleID, roleName: roleName }, (error, add) => {
                 if (error) {
-                    return responder.send(`${msg.author.mention} could not add role **${roleName}** to the database`, { embed: {
+                    return responder.send(`${msg.author.mention} could not add role **${add.roleName}** to the database`, { embed: {
                         color: client.redColor,
                         title: 'Ssar.Add Error',
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 } else {
-                    return responder.send(`${msg.author.mention} successfully added role **${roleName}** to the database!`, { embed: {
+                    return responder.send(`${msg.author.mention} successfully added role **${add.roleName}** from the database!`, { embed: {
                         color: client.satomiColor,
                         title: 'Role Info',
                         description: 'useful info below',
                         fields: [{
                             name: '---------',
-                            value: `Role: ${roleName}` +
+                            value: `Role: ${add.roleName}` +
                             `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${roleID}`
+                            `\nRole ID: ${add.roleID}`
                         }],
                         timestamp: new Date()
                     } }).catch(this.logger.error);
@@ -51,22 +51,22 @@ class Ssar extends Command {
         if (options === 'remove') {
             client.mongodb.models.roles.findOneAndDelete({ serverID: msg.channel.guild.id, roleID: roleID, roleName: roleName }, (error, remove) => {
                 if (error) {
-                    return responder.send(`${msg.author.mention} could not remove role **${roleName}** to the database`, { embed: {
+                    return responder.send(`${msg.author.mention} could not remove role **${remove.roleName}** to the database`, { embed: {
                         color: client.redColor,
                         title: 'Ssar.Remove Error',
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 } else {
-                    return responder.send(`${msg.author.mention} successfully removed role **${roleName}** to the database!`, { embed: {
+                    return responder.send(`${msg.author.mention} successfully removed role **${remove.roleName}** to the database!`, { embed: {
                         color: client.redColor,
                         title: 'Removed Role Info',
                         description: 'useful info below',
                         fields: [{
                             name: '---------',
-                            value: `Role: ${roleName}` +
+                            value: `Role: ${remove.roleName}` +
                             `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${roleID}`
+                            `\nRole ID: ${remove.roleID}`
                         }],
                         timestamp: new Date()
                     } }).catch(this.logger.error);
