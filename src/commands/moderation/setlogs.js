@@ -56,7 +56,7 @@ class SetLogs extends Command {
                 } else {
                     return responder.send(`${msg.author.mention} successfully updated the log channel`, { embed: {
                         color: client.blueColor,
-                        title: 'Added LogChannel Info',
+                        title: 'Removed LogChannel Info',
                         description: 'useful info below',
                         fields: [{
                             name: '---------',
