@@ -40,7 +40,7 @@ class Role extends Command {
                         title: `${msg.channel.guild.name}'s Role List`,
                         fields: [{
                             name: '---------',
-                            value: `${(list.map(r => r.roleName)).join('\n')}`
+                            value: `${(list.map(r => r.roleName)).join('\n') || 'None'}`
                         }],
                         timestamp: new Date()
                     } }).catch(this.logger.error);
