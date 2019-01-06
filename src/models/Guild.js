@@ -9,7 +9,7 @@ let GuildSchema = new Mongoose.Schema({
     autoroleID: { type: String, default: '' },
     goodbye: { channelID: { type: String, default: '' }, message: { type: String, default: '' } },
     logChannel: { type: String, default: '' },
-    twLog: { type: String, default: '' },
+    starChannel: { type: String, default: '' },
     blacklist: { type: Boolean, default: false }
 });
 

@@ -43,7 +43,7 @@ const satomi = new SatomiClient({
     prefix: process.env.CLIENT_PREFIX,
     admins: (process.env.ADMIN_IDS).split(', '),
     modules: resolve('modules'),
-    messageLimit: 51,
+    messageLimit: 151,
     getAllUsers: true,
     disableEveryone: false,
     maxShards: maxShards,

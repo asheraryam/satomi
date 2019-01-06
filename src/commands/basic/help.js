@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`avatar`, `help`, `about`, `ping`, `role`, `serverinfo`, `stats`, `userinfo`'
+                    value: '`avatar`, `help`, `about`, `ping`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
                 },
                 {
                     name: 'fun',
@@ -36,7 +36,7 @@ class Help extends Command {
                 },
                 {
                     name: 'moderation',
-                    value: '`ban`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `unmute`, `welcome`'
+                    value: '`ban`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `starboard`, `unmute`, `welcome`'
                 },
                 {
                     name: 'search',
@@ -162,6 +162,32 @@ class Help extends Command {
                     '\nremove - tells Satomi to remove the role from you' +
                     '\nlist - lists all roles available to you',
                     inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'star') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Star (basic)',
+                description: 'Star a message to the starboard or show a message. You cannot star your own message',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.star add <message_id>\ns.star show <message_id>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.star add 12312312311',
+                    inline: false
+                },
+                {
+                    name: 'Options',
+                    value: 'add - adds the given message to the starboard' +
+                    '\nshow - shows the given message (good for lazy friends)'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -737,6 +763,33 @@ class Help extends Command {
                     name: 'Extra Args',
                     value: 'add - adds the role to the bots database for assignability' +
                     '\nremove - removes the role from the bots database, making it unable to assign the role',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'starboard') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Logs (moderation)',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel as the starboard',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.starbord on\ns.starbord off',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.starbord on\ns.starbord off',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'on - sets the current channel as the starboard' +
+                    '\noff - turns off the channel being the starboard',
                     inline: false
                 }],
                 timestamp: new Date(),
