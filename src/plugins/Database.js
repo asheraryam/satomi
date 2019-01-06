@@ -4,13 +4,12 @@ const chalk = require('chalk');
 const RoleModel = require('../models/Role.js');
 const UserModel = require('../models/User.js');
 const GuildModel = require('../models/Guild.js');
-const StreamerModel = require('../models/Streamer.js');
 
 class Database {
     constructor(options={}) {
         this.URI = `mongodb://${options.username}:${options.password}@${options.host}:${options.port}/${options.dbname}`;
-        this.models = { roles: RoleModel, users: UserModel, guilds: GuildModel, streamers: StreamerModel };
-        this.cache = { roles: {}, users: {}, guilds: {}, streamers: {} };
+        this.models = { roles: RoleModel, users: UserModel, guilds: GuildModel };
+        this.cache = { roles: {}, users: {}, guilds: {} };
     }
 
     load(satomi) {
