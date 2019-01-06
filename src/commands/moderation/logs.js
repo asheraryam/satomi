@@ -1,9 +1,9 @@
 const { Command } = require('sylphy');
 
-class SetLogs extends Command {
+class Logs extends Command {
     constructor(...args) {
         super(...args, {
-            name: 'setlogs',
+            name: 'logs',
             group: 'moderation',
             cooldown: 10,
             options: { guildOnly: true, requirements: { permissions: { manageChannels: true } } },
@@ -71,4 +71,4 @@ class SetLogs extends Command {
     }
 }
 
-module.exports = SetLogs;
+module.exports = Logs;

@@ -36,7 +36,7 @@ class Help extends Command {
                 },
                 {
                     name: 'moderation',
-                    value: '`ban`, `goodbye`, `kick`, `mute`, `poll`, `purge`, `setlogs`, `setnsfw`, `ssar`, `unmute`, `welcome`'
+                    value: '`ban`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `unmute`, `welcome`'
                 },
                 {
                     name: 'search',
@@ -542,6 +542,33 @@ class Help extends Command {
                     text: footerText
                 }
             } }).catch(this.logger.error);
+        } else if (command === 'logs') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Logs (moderation)',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel for logs',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.logs on\ns.logs off',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.logs on\ns.logs off',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'on - sets the current channel for logs' +
+                    '\noff - turns off sending logs in that channel',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
         } else if (command === 'mute') {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
@@ -656,33 +683,6 @@ class Help extends Command {
                     '\ncommands - deletes messages with the s. prefix' +
                     '\n@user - deletes messages from that user' +
                     '\nunpinned - messages that are pinned wont be deleted',
-                    inline: false
-                }],
-                timestamp: new Date(),
-                footer: {
-                    icon_url: msg.author.avatarURL,
-                    text: footerText
-                }
-            } }).catch(this.logger.error);
-        } else if (command === 'setlogs') {
-            return responder.send(' ', { embed: {
-                color: client.satomiColor,
-                title: 'Help for SetLogs (moderation)',
-                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Sets the channel for logs',
-                fields: [{
-                    name: 'Usage',
-                    value: 's.setlogs on\ns.setlogs off',
-                    inline: false
-                },
-                {
-                    name: 'Example',
-                    value: 's.setlogs on\ns.setlogs off',
-                    inline: false
-                },
-                {
-                    name: 'Extra Args',
-                    value: 'on - sets the current channel for logs' +
-                    '\noff - turns off sending logs in that channel',
                     inline: false
                 }],
                 timestamp: new Date(),
