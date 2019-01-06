@@ -57,11 +57,15 @@ class Clerk extends Module {
             }
         });
 
-        this.db.models.users.create({ serverID: guild.id, userName: member.username, userID: member.id }, (error, u) => {
-            if (error) {
-                this.logger.error('Error Adding User to DB', error);
-            }
-        });
+        if (member.bot === false) {
+            this.db.models.users.create({ serverID: guild.id, userName: member.username, userID: member.id }, (error, u) => {
+                if (error) {
+                    this.logger.error('Error Adding User to DB', error);
+                }
+            });
+        } else {
+            return;
+        }
     }
 
     onLeave(guild, member) {
