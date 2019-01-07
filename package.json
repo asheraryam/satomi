@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "description": "a fun discord bot to add some life to your discord server",
   "main": "./src/satomi.js",
   "scripts": {
