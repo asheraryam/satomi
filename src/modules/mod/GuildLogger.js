@@ -61,7 +61,9 @@ class GuildLog extends Module {
         });
 
         guild.members.forEach((member) => {
-            this.db.models.users.create({ serverID: guild.id, userID: member.id, userName: member.username, userDisc: member.discriminator });
+            if (member.bot === false) {
+                this.db.models.users.create({ serverID: guild.id, userID: member.id, userName: member.username, userDisc: member.discriminator });
+            }
         });
     }
 
