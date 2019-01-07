@@ -931,7 +931,7 @@ class Help extends Command {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
                 title: 'Help for Osu (search)',
-                description: 'Posts an image of Osu profile info',
+                description: 'Displays Osu profile info and stats',
                 fields: [{
                     name: 'Usage',
                     value: 's.osu <searchtype> <user>',
@@ -939,7 +939,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Example',
-                    value: 's.osu cookiezi',
+                    value: 's.osu cookiezi\ns.osu profile cookiezi',
                     inline: false
                 },
                 {
