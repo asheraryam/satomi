@@ -63,8 +63,6 @@ class Clerk extends Module {
                     this.logger.error('Error Adding User to DB', error);
                 }
             });
-        } else {
-            return;
         }
     }
 
@@ -334,31 +332,33 @@ class Clerk extends Module {
     }
 
     onMessageUpdate(message, oldMessage) {
-        this.db.models.guilds.findOne({ serverID: message.channel.guild.id }, (error, server) => {
-            if (error) {
-                this.logger.error('Error Finding Guild Log Channel', error);
-            }
-
-            this.send(`${server.logChannel}`, '', { embed: {
-                color: this._client.blueColor,
-                title: `📝 Message Updated in #${message.channel.name}`,
-                description: `${message.author.username}#${message.author.discriminator} | ${message.author.id}`,
-                thumbnail: {
-                    url: `${message.author.avatarURL}`
-                },
-                fields: [{
-                    name: 'Old Content',
-                    value: `${oldMessage.content}`
-                },
-                {
-                    name: 'New Content',
-                    value: `${message.content}`
-                }],
-                footer: {
-                    text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
+        if (message.author.bot === false) {
+            this.db.models.guilds.findOne({ serverID: message.channel.guild.id }, (error, server) => {
+                if (error) {
+                    this.logger.error('Error Finding Guild Log Channel', error);
                 }
-            } });
-        });
+    
+                this.send(`${server.logChannel}`, '', { embed: {
+                    color: this._client.blueColor,
+                    title: `📝 Message Updated in #${message.channel.name}`,
+                    description: `${message.author.username}#${message.author.discriminator} | ${message.author.id}`,
+                    thumbnail: {
+                        url: `${message.author.avatarURL}`
+                    },
+                    fields: [{
+                        name: 'Old Content',
+                        value: `${oldMessage.content}`
+                    },
+                    {
+                        name: 'New Content',
+                        value: `${message.content}`
+                    }],
+                    footer: {
+                        text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
+                    }
+                } });
+            });
+        }
     }
 
     onMessageDelete(message) {
