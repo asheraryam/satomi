@@ -26,7 +26,7 @@ class Star extends Command {
                 return;
             }
             return attachment;
-        }
+        };
 
         if (options === 'add') {
             await msg.channel.getMessage(msgid).then((message) => {
@@ -34,7 +34,7 @@ class Star extends Command {
                     return responder.send(`${msg.author.mention} You cannot star your own message <:baka:477515971469377538>`);
                 }
                 const imageURL = message.attachments[0] !== undefined ? imageType(message.attachments[0].url) : '';
-        
+
                 client.mongodb.models.guilds.findOne({ serverID: msg.channel.guild.id }, (error, g) => {
                     if (error) {
                         return responder.send(`${msg.author.mention} couldnt find the starboard channel`, { embed: {
@@ -65,7 +65,7 @@ class Star extends Command {
         if (options === 'show') {
             await msg.channel.getMessage(msgid).then((message) => {
                 const imageURL = message.attachments[0] !== undefined ? imageType(message.attachments[0].url) : '';
-        
+
                 return responder.send(`⭐ <#${message.channel.id}> (${message.id})`, { embed: {
                     color: client.satomiColor,
                     author: {
