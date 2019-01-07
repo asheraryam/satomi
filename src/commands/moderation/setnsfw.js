@@ -16,12 +16,12 @@ class SetNSFW extends Command {
     handle ({ args, client, msg }, responder) {
         const options = args.options;
 
-        if (msg.channel.nsfw === true) {
+        if (options === 'on' && msg.channel.nsfw === true) {
             return responder.send(`${msg.author.mention} this channel already has the nsfw option enabled~ :weary:`)
             .catch(this.logger.error);
         }
 
-        if (options === 'on' || !options) {
+        if (options === 'on' && msg.channel.nsfw === false) {
             client.editChannel(msg.channel.id, {
                 nsfw: true
             }, 'enabling nsfw for lewdies~').then(() => {
@@ -33,7 +33,7 @@ class SetNSFW extends Command {
         if (options === 'off' && msg.channel.nsfw === true) {
             client.editChannel(msg.channel.id, {
                 nsfw: false
-            }, 'no more lewdies for this channel :(').then(() => {
+            }, 'no more lewdies for this channel').then(() => {
                 return responder.send(`${msg.author.mention} this channel isnt nsfw anymore :innocent:`)
                 .catch(this.logger.error);
             }).catch(this.logger.error);

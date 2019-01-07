@@ -39,6 +39,10 @@ class Help extends Command {
                     value: '`ban`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `starboard`, `unmute`, `welcome`'
                 },
                 {
+                    name: 'nsfw',
+                    value: '`danbooru`, `gelbooru`, `rule34`'
+                },
+                {
                     name: 'search',
                     value: '`catgirl`, `osu`, `overwatch`, `reddit`, `weather`'
                 }],
@@ -724,12 +728,12 @@ class Help extends Command {
                 description: '[USERS WITH MANAGE CHANNELS PERMISSION] Changes a channel to enable NSFW content',
                 fields: [{
                     name: 'Usage',
-                    value: 's.setnsfw\ns.setnsfw on\ns.setnsfw off',
+                    value: 's.setnsfw on\ns.setnsfw off',
                     inline: false
                 },
                 {
                     name: 'Example',
-                    value: 's.setnsfw\ns.setnsfw on\ns.setnsfw off',
+                    value: 's.setnsfw on\ns.setnsfw off',
                     inline: false
                 },
                 {
@@ -811,6 +815,84 @@ class Help extends Command {
                 {
                     name: 'Example',
                     value: 's.welcome',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'danbooru') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Danbooru (nsfw)',
+                description: 'Sends an image from danbooru (there are some banned tags)',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.danbooru or s.danbooru <tags>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.danbooru or s.danbooru thighs',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: '<tags> - search for images with these tags',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'gelbooru') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Gelbooru (nsfw)',
+                description: 'Sends an image from gelbooru (there are some banned tags)',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.gelbooru or s.gelbooru <tags>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.gelbooru or s.gelbooru thighs',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: '<tags> - search for images with these tags',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'rule34') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Rule34 (nsfw)',
+                description: 'Sends an image from rule34.xxx (there are some banned tags)',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.rule34 or s.rule34 <tags>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.rule34 or s.rule34 thighs',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: '<tags> - search for images with these tags',
                     inline: false
                 }],
                 timestamp: new Date(),
