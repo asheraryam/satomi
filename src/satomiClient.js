@@ -10,6 +10,7 @@ class SatomiClient extends Client {
         this.satomiColor = 0x98ffa6;
         this.redColor = 0xff4b4b;
         this.blueColor = 0x99dff;
+        this.redditColor = 0xcee3f8;
         this.userAgent = `Satomi (https://github.com/kyostra/satomi) v(${pkg.version})`;
         this.settingsManager = require('./utils/settingsManager.js');
         this.mongodb = new Database({

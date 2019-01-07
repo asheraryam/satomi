@@ -40,7 +40,7 @@ class Help extends Command {
                 },
                 {
                     name: 'search',
-                    value: '`catgirl`, `osu`, `overwatch`, `weather`'
+                    value: '`catgirl`, `osu`, `overwatch`, `reddit`, `weather`'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -896,6 +896,27 @@ class Help extends Command {
                 {
                     name: 'Aliases',
                     value: 's.overwatch, s.ow',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'reddit') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Reddit (search)',
+                description: 'Posts the first 5 threads on the frontpage or specified subreddit',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.reddit <searchtype>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.reddit\ns.reddit frontpage\ns.reddit leagueoflegends',
                     inline: false
                 }],
                 timestamp: new Date(),
