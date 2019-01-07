@@ -18,7 +18,6 @@ class Catgirl extends Command {
 
     async handle ({ args, client, msg }, responder) {
         const options = args.options;
-        const userAgent = `Satomi (https://github.com/kyostra/satomi) v(${pkg.version})`;
 
         const sites = ['nekos.moe', 'nekos.life'];
         const site = sites[Math.floor(Math.random() * sites.length)];
@@ -29,7 +28,7 @@ class Catgirl extends Command {
 
                 const res = await axios.get('https://nekos.moe/api/v1/random/image?count=1&nsfw=false', {
                     headers: {
-                        'User-Agent': userAgent
+                        'User-Agent': client.userAgent
                     }
                 }).catch(this.logger.error);
 
@@ -46,7 +45,7 @@ class Catgirl extends Command {
 
                 const res = await axios.get('https://nekos.life/api/v2/img/neko', {
                     headers: {
-                        'User-Agent': userAgent
+                        'User-Agent': client.userAgent
                     }
                 }).catch(this.logger.error);
 
@@ -70,7 +69,7 @@ class Catgirl extends Command {
 
                 const res = await axios.get('https://nekos.moe/api/v1/random/image?count=1&nsfw=true', {
                     headers: {
-                        'User-Agent': userAgent
+                        'User-Agent': client.userAgent
                     }
                 }).catch(this.logger.error);
 
@@ -87,7 +86,7 @@ class Catgirl extends Command {
 
                 const res = await axios.get('https://nekos.life/api/v2/img/lewd', {
                     headers: {
-                        'User-Agent': userAgent
+                        'User-Agent': client.userAgent
                     }
                 }).catch(this.logger.error);
 
