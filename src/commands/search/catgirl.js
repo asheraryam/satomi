@@ -1,6 +1,5 @@
 const { Command } = require('sylphy');
 const axios = require('axios');
-const pkg = require('../../../package.json');
 
 class Catgirl extends Command {
     constructor(...args) {
