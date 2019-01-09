@@ -337,7 +337,7 @@ class Clerk extends Module {
                 if (error) {
                     this.logger.error('Error Finding Guild Log Channel', error);
                 }
-    
+
                 this.send(`${server.logChannel}`, '', { embed: {
                     color: this._client.blueColor,
                     title: `📝 Message Updated in #${message.channel.name}`,
