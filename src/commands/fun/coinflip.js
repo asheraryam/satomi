@@ -31,7 +31,7 @@ class Coinflip extends Command {
                     title: `${msg.author.username} guessed ${guess}`,
                     description: `and it landed on... ${coin.name}`,
                     image: {
-                        url: 'https://track9.mixtape.moe/aqpabj.png'
+                        url: 'https://files.catbox.moe/vh5f5y.png'
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
@@ -41,7 +41,7 @@ class Coinflip extends Command {
                     title: `${msg.author.username} guessed ${guess}`,
                     description: `and it landed on... ${coin.name}`,
                     image: {
-                        url: 'https://track9.mixtape.moe/fahgte.png'
+                        url: 'https://files.catbox.moe/q324t3.png'
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
@@ -53,7 +53,7 @@ class Coinflip extends Command {
                     title: `${msg.author.username} flipped a coin!`,
                     description: `and it landed on... ${coin.name}`,
                     image: {
-                        url: 'https://track9.mixtape.moe/aqpabj.png'
+                        url: 'https://files.catbox.moe/vh5f5y.png'
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
@@ -63,7 +63,7 @@ class Coinflip extends Command {
                     title: `${msg.author.username} flipped a coin!`,
                     description: `and it landed on... ${coin.name}`,
                     image: {
-                        url: 'https://track9.mixtape.moe/fahgte.png'
+                        url: 'https://files.catbox.moe/q324t3.png'
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
