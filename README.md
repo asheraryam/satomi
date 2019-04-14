@@ -103,8 +103,8 @@ $ pm2 logs
 * Only do `pm2 stop all` by itself when they bot is having a reconnect loop
 
 ## License/Author
-**Satomi** © [Christopher House/Kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
+**Satomi** © [Kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
 
-Created and maintained by Christopher House/Kyostra.
+Created and maintained by Kyostra.
 
 > Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra) | Discord - **Kyostra#6290**
