@@ -1,6 +1,5 @@
 const { Command } = require('sylphy');
 const axios = require('axios');
-const nsfwBlocks = require('../../utils/nsfwBlocks.js');
 
 class Gelbooru extends Command {
     constructor(...args) {
@@ -18,9 +17,12 @@ class Gelbooru extends Command {
     async handle ({ args, client, msg }, responder) {
         const tags = args.tags;
         const randomInt = Math.floor(Math.random() * 100);
+        const blacklist = ["loli", "shota", "cub", "young", "child", "baby", "guro", "gore", "vore"];
 
-        if (tags === nsfwBlocks.nsfwBlockList.tag) {
-            return;
+        if (tags.length !== 0) {
+            if (blacklist.includes(tags.toLowerCase())) {
+                return responder.error(`${msg.author.mention} Blacklisted word found`);
+            }
         }
 
         if (msg.channel.nsfw === false) {
