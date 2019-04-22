@@ -19,14 +19,14 @@ class Census extends Command {
         if (options === 'guild') {
             client.mongodb.models.guilds.findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { serverName: msg.channel.guild.name } }, (error, g) => {
                 if (error) {
-                    return responder.send(`${msg.author.mention} couldn\'t find Guild`, { embed: {
+                    return responder.send(`${msg.author.mention} couldn't find Guild`, { embed: {
                         color: client.redColor,
                         title: 'GuildUsersDB.Update Error',
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 }
-    
+
                 return responder.send('', { embed: {
                     color: client.satomiColor,
                     title: `${msg.channel.guild.name} Census - Guild`,
@@ -41,7 +41,7 @@ class Census extends Command {
                 if (member.bot === false) {
                     client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: member.id }, { $set: { userName: member.username, userDisc: member.discriminator } }, (error, u) => {
                         if (error) {
-                            return responder.send(`${msg.author.mention} couldn\'t find Guild`, { embed: {
+                            return responder.send(`${msg.author.mention} couldn't find Guild`, { embed: {
                                 color: client.redColor,
                                 title: 'GuildDB.Update Error',
                                 description: `${error}`,
