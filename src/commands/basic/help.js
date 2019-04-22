@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`avatar`, `help`, `about`, `ping`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
+                    value: '`about`, `avatar`, `help`, `ping`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
                 },
                 {
                     name: 'fun',
@@ -36,7 +36,7 @@ class Help extends Command {
                 },
                 {
                     name: 'moderation',
-                    value: '`ban`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `starboard`, `unmute`, `welcome`'
+                    value: '`autorole`, `ban`, `census`, `goodbye`, `kick`, `logs`, `mute`, `poll`, `purge`, `setnsfw`, `ssar`, `starboard`, `unmute`, `welcome`'
                 },
                 {
                     name: 'nsfw',
@@ -517,6 +517,33 @@ class Help extends Command {
                     name: 'Extra Args',
                     value: 'days_msg - (optional) how many days of messages to delete from them' +
                     '\nreason - (optional) why you banned them',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'census') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Census (moderation)',
+                description: '[USERS WITH ADMINISTRATOR PERMISSION] Updates the database manually, usually this is all automatic, only do this if the bot was offline',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.census <option>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.census guild\ns.census members',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'guild - updates the guild name in the database' +
+                    '\nmembers - updates all members username + discriminator database entry',
                     inline: false
                 }],
                 timestamp: new Date(),
