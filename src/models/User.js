@@ -9,8 +9,9 @@ let UserSchema = new Mongoose.Schema({
     userDisc: { type: String },
     description: { type: String, default: 'Welcome to my profile' },
     xp: { type: Number, default: 0 },
-    yennies: { type: Number, default: 0 },
-    yenniesCD: { type: Date, default: new Date(0) },
+    xpCD: { type: Date, default: new Date(0) },
+    currency: { type: Number, default: 0 },
+    currencyCD: { type: Date, default: new Date(0) },
     blacklist: { type: Boolean, default: false }
 });
 
