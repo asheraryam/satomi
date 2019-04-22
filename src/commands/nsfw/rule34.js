@@ -18,7 +18,7 @@ class Rule34 extends Command {
     async handle ({ args, client, msg }, responder) {
         const tags = args.tags;
         const randomInt = Math.floor(Math.random() * 100);
-        const blacklist = ["loli", "shota", "cub", "young", "child", "baby", "guro", "gore", "vore"];
+        const blacklist = ['loli', 'shota', 'cub', 'young', 'child', 'baby', 'guro', 'gore', 'vore'];
 
         if (tags.length !== 0) {
             if (blacklist.includes(tags.toLowerCase())) {
