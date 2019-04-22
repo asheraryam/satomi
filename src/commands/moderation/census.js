@@ -48,6 +48,10 @@ class Census extends Command {
                                 timestamp: new Date()
                             } }).catch(this.logger.error);
                         }
+
+                        if (!u) {
+                            client.mongodb.models.users.create({ serverID: msg.channel.guild.id, userID: member.id, userName: member.username, userDisc: member.discriminator });
+                        }
                     }).catch(this.logger.error);
                 }
             });
