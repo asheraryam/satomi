@@ -8,6 +8,7 @@ let UserSchema = new Mongoose.Schema({
     userName: { type: String },
     userDisc: { type: String },
     description: { type: String, default: 'Welcome to my profile' },
+    level: { type: Number, default: 1 },
     xp: { type: Number, default: 0 },
     xpCD: { type: Date, default: new Date(0) },
     currency: { type: Number, default: 0 },
