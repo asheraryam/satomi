@@ -21,7 +21,7 @@ class UserInfo extends Command {
         let user;
         if (msg.mentions.length > 0) {
             user = msg.channel.guild.members.get(msg.mentions[0].id);
-        } else if (member.length === 18) {
+        } else if (member.length >= 17) {
             user = msg.channel.guild.members.get(member);
         } else {
             user = msg.channel.guild.members.get(msg.member.id);
