@@ -73,7 +73,9 @@ class Unmute extends Command {
                     timestamp: new Date()
                 } });
             }
-        } else if (options === 'voice') {
+        }
+
+        if (options === 'voice') {
             try {
                 await client.editGuildMember(msg.channel.guild.id, member.id, {
                     mute: false
@@ -92,7 +94,9 @@ class Unmute extends Command {
                     timestamp: new Date()
                 } });
             }
-        } else if (options === 'full') {
+        }
+
+        if (options === 'full') {
             if (memberHasRole === true) {
                 try {
                     await msg.channel.guild.removeMemberRole(member.id, muteRole.id);

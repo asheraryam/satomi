@@ -57,7 +57,9 @@ class Reddit extends Command {
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             }).catch(this.logger.error);
-        } else if (searchType.length > 0 && searchType !== 'frontpage') {
+        }
+
+        if (searchType.length > 0 && searchType !== 'frontpage') {
             client.sendChannelTyping(msg.channel.id);
             reddit.getHot(searchType).then((data) => {
                 return responder.send('', { embed: {

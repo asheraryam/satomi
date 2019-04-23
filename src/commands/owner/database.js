@@ -38,7 +38,9 @@ class Database extends Command {
                     timestamp: new Date()
                 } });
             }
-        } else if (options === 'disconnect') {
+        }
+
+        if (options === 'disconnect') {
             try {
                 client.mongodb.destroy();
                 return responder.send(' ', { embed: {

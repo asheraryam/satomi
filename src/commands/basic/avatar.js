@@ -23,7 +23,9 @@ class Avatar extends Command {
         if (!options) {
             return responder.send(`:camera: ${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`)
             .catch(this.logger.error);
-        } else if (options === 'server') {
+        }
+
+        if (options === 'server') {
             return responder.send(`:camera: ${msg.author.mention} **${server.name}**'s Avatar:\n ${server.iconURL}`)
             .catch(this.logger.error);
         }

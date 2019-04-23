@@ -35,7 +35,9 @@ class Coinflip extends Command {
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
-            } else if (coin.name === 'tails!') {
+            }
+
+            if (coin.name === 'tails!') {
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
                     title: `${msg.author.username} guessed ${guess}`,
@@ -46,7 +48,9 @@ class Coinflip extends Command {
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             }
-        } else if (!guess) {
+        }
+
+        if (!guess) {
             if (coin.name === 'heads!') {
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
@@ -57,7 +61,9 @@ class Coinflip extends Command {
                     },
                     timestamp: new Date()
                 } }).catch(this.logger.error);
-            } else if (coin.name === 'tails!') {
+            }
+
+            if (coin.name === 'tails!') {
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
                     title: `${msg.author.username} flipped a coin!`,

@@ -37,7 +37,7 @@ class Overwatch extends Command {
         if (type === 'profile' || type === 'p') {
             client.sendChannelTyping(msg.channel.id);
 
-            const profile = await axios.get(`http://ow-api.herokuapp.com/profile/${platform}/${region}/${battletag}`, {
+            const profile = await axios.get(`http://overwatchy.com/profile/${platform}/${region}/${battletag}`, {
                 headers: {
                     'User-Agent': client.userAgent
                 }
@@ -83,10 +83,12 @@ class Overwatch extends Command {
                 }],
                 timestamp: new Date()
             } }).catch(this.logger.error);
-        } else if (type === 'competitive' || type === 'comp' || type === 'c') {
+        }
+
+        if (type === 'competitive' || type === 'comp' || type === 'c') {
             client.sendChannelTyping(msg.channel.id);
 
-            const stats = await axios.get(`http://ow-api.herokuapp.com/stats/${platform}/${region}/${battletag}`, {
+            const stats = await axios.get(`http://overwatchy.com/stats/${platform}/${region}/${battletag}`, {
                 headers: {
                     'User-Agent': client.userAgent
                 }
@@ -159,10 +161,12 @@ class Overwatch extends Command {
                 }],
                 timestamp: new Date()
             } }).catch(this.logger.error);
-        } else if (type === 'quickplay' || type === 'quick' || type === 'q') {
+        }
+
+        if (type === 'quickplay' || type === 'quick' || type === 'q') {
             client.sendChannelTyping(msg.channel.id);
 
-            const stats = await axios.get(`http://ow-api.herokuapp.com/stats/${platform}/${region}/${battletag}`, {
+            const stats = await axios.get(`http://overwatchy.com/stats/${platform}/${region}/${battletag}`, {
                 headers: {
                     'User-Agent': client.userAgent
                 }

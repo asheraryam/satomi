@@ -57,7 +57,9 @@ class Catgirl extends Command {
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             }
-        } else if (options === 'nsfw') {
+        }
+
+        if (options === 'nsfw') {
             if (msg.channel.nsfw === false) {
                 return responder.send('Please ask an admin to enable nsfw in this channel (s.setnsfw on)')
                 .catch(this.logger.error);

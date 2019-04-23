@@ -31,7 +31,9 @@ class Urban extends Command {
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             });
-        } else if (word) {
+        }
+
+        if (word) {
             urban(word).first((json) => {
                 if (json === undefined) {
                     return responder.send(' ', { embed: {

@@ -35,7 +35,9 @@ class Osu extends Command {
                 file: data.body,
                 name: `osusig-${player}.png`
             }).catch(this.logger.error);
-        } else if (!searchType || searchType === 'profile') {
+        }
+        
+        if (!searchType || searchType === 'profile') {
             client.sendChannelTyping(msg.channel.id);
 
             const osuApi = new osu.Api(process.env.API_OSU, {
@@ -90,7 +92,9 @@ class Osu extends Command {
                     description: `${err}`
                 } }).catch(this.logger.error);
             });
-        } else if (searchType === 'best') {
+        }
+
+        if (searchType === 'best') {
             client.sendChannelTyping(msg.channel.id);
 
             const osuApi = new osu.Api(process.env.API_OSU, {
@@ -171,7 +175,9 @@ class Osu extends Command {
                     description: `${err}`
                 } }).catch(this.logger.error);
             });
-        } else if (searchType === 'recent') {
+        }
+
+        if (searchType === 'recent') {
             client.sendChannelTyping(msg.channel.id);
 
             const osuApi = new osu.Api(process.env.API_OSU, {

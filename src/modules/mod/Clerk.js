@@ -139,10 +139,6 @@ class Clerk extends Module {
                 fields: [{
                     name: 'ID',
                     value: `${user.id}`
-                // },
-                // {
-                //     name: 'Reason',
-                //     value: `${reason.length > 0 ? reason : 'Not Specified'}`
                 }],
                 footer: {
                     text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
