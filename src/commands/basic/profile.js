@@ -18,11 +18,11 @@ class Profile extends Command {
         var user;
 
         if (!member) {
-            var user = msg.author.id;
+            user = msg.author.id;
         } else if (member.length >= 17) {
-            var user = member;
+            user = member;
         } else if (msg.mentions > 0) {
-            var user = msg.mentions[0];
+            user = msg.mentions[0];
         }
 
         client.mongodb.models.users.findOne({ serverID: msg.channel.guild.id, userID: user }, (error, u) => {

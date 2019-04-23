@@ -36,7 +36,7 @@ class Osu extends Command {
                 name: `osusig-${player}.png`
             }).catch(this.logger.error);
         }
-        
+
         if (!searchType || searchType === 'profile') {
             client.sendChannelTyping(msg.channel.id);
 
