@@ -44,7 +44,7 @@ class Help extends Command {
                 },
                 {
                     name: 'search',
-                    value: '`catgirl`, `osu`, `overwatch`, `reddit`, `weather`'
+                    value: '`catgirl`, `osu`, `overwatch`, `reddit`'
                 }],
                 timestamp: new Date(),
                 footer: {
@@ -1060,34 +1060,7 @@ class Help extends Command {
                     text: footerText
                 }
             } }).catch(this.logger.error);
-        } else if (command === 'weather') {
-            return responder.send(' ', { embed: {
-                color: client.satomiColor,
-                title: 'Help for Weather (search)',
-                description: 'Displays weather info from Yahoo!Weather',
-                fields: [{
-                    name: 'Usage',
-                    value: 's.weather <tempScale> <city>'
-                },
-                {
-                    name: 'Example',
-                    value: 's.weather f Los Angeles or s.weather Los Angeles'
-                },
-                {
-                    name: 'Temperature Scales',
-                    value: 'f = Fahrenheit\nc = Celsius'
-                },
-                {
-                    name: 'Aliases',
-                    value: 's.weather, s.w'
-                }],
-                timestamp: new Date(),
-                footer: {
-                    icon_url: msg.author.avatarURL,
-                    text: footerText
-                }
-            } }).catch(this.logger.error);
-		}
+        }
     }
 }
 
