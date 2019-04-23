@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`about`, `avatar`, `help`, `ping`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
+                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
                 },
                 {
                     name: 'fun',
@@ -137,6 +137,32 @@ class Help extends Command {
                 {
                     name: 'Example',
                     value: 's.ping',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'profile') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Profile (basic)',
+                description: 'Displays a user\'s profile, bots do not have one because they are not stored in the database',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.profile\ns.profile <user_id>\ns.profile @user',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.profile\ns.profile <user_id>\ns.profile @friend',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'not specifying an ID or mention will default to the message author\'s profile',
                     inline: false
                 }],
                 timestamp: new Date(),
