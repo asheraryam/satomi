@@ -997,7 +997,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Search Types',
-                    value: '<none>, sig, profile, best, recent',
+                    value: '<none>, profile, best, recent',
                     inline: false
                 }],
                 timestamp: new Date(),

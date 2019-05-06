@@ -9,7 +9,7 @@ class Osu extends Command {
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
-                { name: 'searchType', displayName: 'searchType', type: 'string', choices: ['sig', 'profile', 'best', 'recent'], optional: true, last: false },
+                { name: 'searchType', displayName: 'searchType', type: 'string', choices: ['profile', 'best', 'recent'], optional: true, last: false },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }
             ]
         });
