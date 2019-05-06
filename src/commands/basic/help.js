@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `star`, `stats`, `userinfo`'
+                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbio` `star`, `stats`, `userinfo`'
                 },
                 {
                     name: 'fun',
@@ -264,6 +264,32 @@ class Help extends Command {
                 {
                     name: 'Aliases',
                     value: 's.serverinfo, s.server',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'setbio') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for SetBio (basic)',
+                description: 'Sets the bio for your profile',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.setbio <bio text>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.setbio I am not a weeb',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'To reset your bio do `s.setbio -reset`',
                     inline: false
                 }],
                 timestamp: new Date(),
