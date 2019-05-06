@@ -47,7 +47,7 @@ class SetBio extends Command {
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 }
-    
+
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
                     title: 'SetBio.Success',
