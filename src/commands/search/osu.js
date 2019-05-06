@@ -1,5 +1,4 @@
 const { Command } = require('sylphy');
-const snekfetch = require('snekfetch');
 const osu = require('node-osu');
 
 class Osu extends Command {
@@ -10,7 +9,7 @@ class Osu extends Command {
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
-                { name: 'searchType', displayName: 'gameType', type: 'string', choices: ['sig', 'profile', 'best', 'recent'], optional: true, last: false },
+                { name: 'searchType', displayName: 'searchType', type: 'string', choices: ['sig', 'profile', 'best', 'recent'], optional: true, last: false },
                 { name: 'player', displayName: 'player', type: 'string', optional: false, last: true }
             ]
         });
@@ -24,17 +23,6 @@ class Osu extends Command {
             const parts = x.toString().split('.');
             parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             return parts.join('.');
-        }
-
-        if (searchType === 'sig') {
-            client.sendChannelTyping(msg.channel.id);
-
-            const data = await snekfetch.get(`http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=0&pp=1&removeavmargin&flagshadow&flagstroke&darktriangles&onlineindicator=undefined&xpbar`);
-
-            return client.createMessage(msg.channel.id, ' ', {
-                file: data.body,
-                name: `osusig-${player}.png`
-            }).catch(this.logger.error);
         }
 
         if (!searchType || searchType === 'profile') {
@@ -52,6 +40,9 @@ class Osu extends Command {
                     title: `Osu Player Info - ${user.name}`,
                     thumbnail: {
                         url: `https://a.ppy.sh/${user.id}`
+                    },
+                    image: {
+                        url: `http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=0&pp=1&removeavmargin&flagshadow&flagstroke&darktriangles&onlineindicator=undefined&xpbar`
                     },
                     fields: [{
                         name: 'Basic',
@@ -112,6 +103,9 @@ class Osu extends Command {
                             description: `Date of occurence: ${scores[0][0].date}`,
                             thumbnail: {
                                 url: `https://a.ppy.sh/${user.id}`
+                            },
+                            image: {
+                                url: `http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=0&pp=1&removeavmargin&flagshadow&flagstroke&darktriangles&onlineindicator=undefined&xpbar`
                             },
                             author: {
                                 name: 'click to download the beatmap',
@@ -195,6 +189,9 @@ class Osu extends Command {
                             description: `Date of occurence: ${scores[0][0].date}`,
                             thumbnail: {
                                 url: `https://a.ppy.sh/${user.id}`
+                            },
+                            image: {
+                                url: `http://lemmmy.pw/osusig/sig.php?colour=pink&uname=${player}&mode=0&pp=1&removeavmargin&flagshadow&flagstroke&darktriangles&onlineindicator=undefined&xpbar`
                             },
                             author: {
                                 name: 'click to download the beatmap',
