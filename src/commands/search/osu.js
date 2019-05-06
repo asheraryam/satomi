@@ -15,7 +15,7 @@ class Osu extends Command {
         });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
         const searchType = args.searchType;
         const player = args.player;
 
