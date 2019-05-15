@@ -422,11 +422,6 @@ class Help extends Command {
                     name: 'Example',
                     value: 's.coinflip or s.coinflip heads',
                     inline: false
-                },
-                {
-                    name: 'Aliases',
-                    value: 's.coinflip, s.flip, s.coin',
-                    inline: false
                 }],
                 timestamp: new Date(),
                 footer: {

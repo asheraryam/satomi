@@ -5,7 +5,6 @@ class Coinflip extends Command {
         super(...args, {
             name: 'coinflip',
             group: 'fun',
-            aliases: ['coin', 'flip'],
             cooldown: 2,
             options: { guildOnly: true },
             usage: [

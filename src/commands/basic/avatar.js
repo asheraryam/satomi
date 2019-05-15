@@ -5,7 +5,6 @@ class Avatar extends Command {
         super (...args, {
             name: 'avatar',
             group: 'basic',
-            aliases: ['profilepicture', 'profilepic'],
             cooldown: 5,
             options: { guildOnly: true },
             usage: [
