@@ -31,6 +31,10 @@ class Help extends Command {
                     value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbio` `star`, `stats`, `userinfo`'
                 },
                 {
+                    name: 'currency',
+                    value: '`betflip`, `betroll`, `daily`, `give`'
+                },
+                {
                     name: 'fun',
                     value: '`8ball`, `advice`, `aesthetic`, `choose`, `coinflip`, `hug`, `owo`, `ratewaifu`, `urban`'
                 },
@@ -316,6 +320,100 @@ class Help extends Command {
                 {
                     name: 'Aliases',
                     value: 's.userinfo, s.user',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'betflip') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for BetFlip (currency)',
+                description: 'Bet money, flip a coin, win or lose money',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.betflip <amount> <heads/tails/h/t>, s.bf <amount> <heads/tails/h/t>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.betflip 100 h, s.bf 100 tails',
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.betflip, s.bf',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'betroll') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for BetRoll (currency)',
+                description: 'Bet money, roll from 0-100, win or lose money',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.betroll <amount>, s.br <amount>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.betroll 100, s.br 100',
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.betroll, s.br',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'daily') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Daily (currency)',
+                description: 'Get your Universal Basic Income for the day',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.daily',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.daily',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'give') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Give (currency)',
+                description: 'Give someone some money',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.give <amount> <user>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.give 100 @User, s.give 100 12345678910111213141',
                     inline: false
                 }],
                 timestamp: new Date(),
