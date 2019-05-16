@@ -22,7 +22,7 @@ class Profile extends Command {
         } else if (member.length >= 17) {
             user = member;
         } else if (msg.mentions > 0) {
-            user = msg.mentions[0];
+            user = msg.mentions[0].id;
         }
 
         client.mongodb.models.users.findOne({ serverID: msg.channel.guild.id, userID: user }, (error, u) => {
