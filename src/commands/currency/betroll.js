@@ -29,7 +29,7 @@ class BetRoll extends Command {
             newAmount = amount * 4;
         }
 
-        client.mongodb.models.users.findOne({ serverID: msg.channel.guild.id, userID: msg.author.id }, (error,u) => {
+        client.mongodb.models.users.findOne({ serverID: msg.channel.guild.id, userID: msg.author.id }, (error, u) => {
             if (error || !u) {
                 return responder.send(`${msg.author.mention} couldn't find Guild or User (BOTS HAVE NO PROFILES)`, { embed: {
                     color: client.redColor,
@@ -40,7 +40,7 @@ class BetRoll extends Command {
             }
 
             if (rollNumber <= 60) {
-                client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: msg.author.id }, { $set: { currency: u.currency -= newAmount } }, (error,uu) => {
+                client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: msg.author.id }, { $set: { currency: u.currency -= newAmount } }, (error, uu) => {
                     if (error || !uu) {
                         return responder.send(`${msg.author.mention} couldn't find Guild or User (BOTS HAVE NO PROFILES)`, { embed: {
                             color: client.redColor,
@@ -49,7 +49,7 @@ class BetRoll extends Command {
                             timestamp: new Date()
                         } }).catch(this.logger.error);
                     }
-    
+
                     return responder.send(' ', { embed: {
                         color: client.redColor,
                         description: `${msg.author.mention} **rolled ${rollNumber}.** Better luck next time ﾍ(=￣∇￣)ﾉ`
@@ -58,7 +58,7 @@ class BetRoll extends Command {
             }
 
             if (rollNumber >= 61) {
-                client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: msg.author.id }, { $set: { currency: u.currency += newAmount } }, (error,uu2) => {
+                client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: msg.author.id }, { $set: { currency: u.currency += newAmount } }, (error, uu2) => {
                     if (error || !uu2) {
                         return responder.send(`${msg.author.mention} couldn't find Guild or User (BOTS HAVE NO PROFILES)`, { embed: {
                             color: client.redColor,
@@ -67,7 +67,7 @@ class BetRoll extends Command {
                             timestamp: new Date()
                         } }).catch(this.logger.error);
                     }
-    
+
                     return responder.send(' ', { embed: {
                         color: client.satomiColor,
                         description: `${msg.author.mention} **rolled ${rollNumber}.** Congrats! You won ￥${newAmount} for rolling above 60`
