@@ -21,11 +21,14 @@ class ServerInfo extends Command {
                 description: `Owner: <@!${server.ownerID}>`,
                 author: {
                     name: 'Server Information:',
-                    icon_url: client.user.avatarURL
+                    icon_url: server.iconURL
                 },
                 color: client.satomiColor,
                 thumbnail: {
                     url: server.iconURL
+                },
+                image: {
+                    url: server.bannerURL
                 },
                 fields: [{
                     name: 'Members Info',
