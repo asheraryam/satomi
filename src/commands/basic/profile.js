@@ -1,3 +1,5 @@
+/* eslint prefer-const: 0 */
+
 const { Command } = require('sylphy');
 const { createCanvas, Image, registerFont } = require('canvas');
 const path = require('path');
@@ -18,7 +20,7 @@ class Profile extends Command {
         });
     }
 
-    async handle ({ args, client, msg }, responder) {
+    handle ({ args, client, msg }, responder) {
         const member = args.member;
         let user;
 
@@ -43,10 +45,9 @@ class Profile extends Command {
 
             const memUser = msg.author || msg.mentions[0];
 
-            // const Image = new Image();
             const canvas = createCanvas(300, 300);
             const ctx = canvas.getContext('2d');
-            const lines = await this._wrapText(ctx, u.description, 110);
+            const textWrapped = await this._wrapText(ctx, u.description, 110);
             const fillValue = Math.min(Math.max(u.xp / (Math.floor(u.level * 2 * 3.65 * 22) - 0), 0), 1);
             const base = new Image();
             const cond = new Image();
@@ -122,7 +123,7 @@ class Profile extends Command {
                 // Info
                 ctx.font = '12px Roboto';
                 ctx.fillStyle = '#333333';
-                lines.forEach((line, i) => {
+                textWrapped.forEach((line, i) => {
                     ctx.fillText(line, 158, (i + 18.6) * parseInt(12, 0));
                 });
 
@@ -142,7 +143,7 @@ class Profile extends Command {
             });
             generate();
 
-            return client.createMessage(msg.channel.id, ' ', { 
+            return client.createMessage(msg.channel.id, ' ', {
                 file: canvas.toBuffer(),
                 name: 'profile.png'
             }).catch(this.logger.error);

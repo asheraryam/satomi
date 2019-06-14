@@ -293,7 +293,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Extra Args',
-                    value: 'To reset your bio do `s.setbio -reset`' + 
+                    value: 'To reset your bio do `s.setbio -reset`' +
                     '\nBackgrounds: `default`, `whitemarble`, `blackmarble`',
                     inline: false
                 }],
