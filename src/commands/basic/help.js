@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbio` `star`, `stats`, `userinfo`'
+                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbackground`, `setbio`, `star`, `stats`, `userinfo`'
                 },
                 {
                     name: 'currency',
@@ -156,17 +156,17 @@ class Help extends Command {
                 description: 'Displays a user\'s profile, bots do not have one because they are not stored in the database',
                 fields: [{
                     name: 'Usage',
-                    value: 's.profile\ns.profile <user_id>\ns.profile @user',
+                    value: 's.profile\ns.profile @user',
                     inline: false
                 },
                 {
                     name: 'Example',
-                    value: 's.profile\ns.profile <user_id>\ns.profile @friend',
+                    value: 's.profile\ns.profile @friend',
                     inline: false
                 },
                 {
                     name: 'Extra Args',
-                    value: 'not specifying an ID or mention will default to the message author\'s profile',
+                    value: 'not using a mention will default to the message author\'s profile',
                     inline: false
                 }],
                 timestamp: new Date(),
@@ -268,6 +268,33 @@ class Help extends Command {
                 {
                     name: 'Aliases',
                     value: 's.serverinfo, s.server',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'setbackground') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for SetBackground (basic)',
+                description: 'Sets the background for your profile',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.setbackground <background>',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.setbackground whitemarble',
+                    inline: false
+                },
+                {
+                    name: 'Extra Args',
+                    value: 'To reset your bio do `s.setbio -reset`' + 
+                    '\nBackgrounds: `default`, `whitemarble`, `blackmarble`',
                     inline: false
                 }],
                 timestamp: new Date(),
