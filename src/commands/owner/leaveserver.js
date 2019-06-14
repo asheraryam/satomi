@@ -26,20 +26,18 @@ class LeaveServer extends Command {
             serverid = msg.channel.guild.id;
         }
 
-        const serverName = client.guilds.get(g => g.id === serverid).name;
-
         const leave = await responder.dialog([{
-            prompt: `Are you sure you want me to leave **${serverName}** \`yes\` or \`no\``,
+            prompt: `Are you sure you want me to leave **${serverid}** \`yes\` or \`no\``,
             input: { name: 'choice', type: 'string', choices: ['yes', 'no'] }
         }]);
 
         if (leave.choice === 'yes') {
             try {
                 client.leaveGuild(serverid);
-                this.logger.info(chalk.cyan(`[CLIENT] Satomi has left ${serverName}`));
+                this.logger.info(chalk.cyan(`[CLIENT] Satomi has left guild ${serverid}`));
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
-                    title: `Satomi has left ${serverName}`
+                    title: `Satomi has left guild ${serverid}`
                 } });
             } catch (error) {
                 this.logger.error;
@@ -51,7 +49,7 @@ class LeaveServer extends Command {
                 } });
             }
         } else {
-            return responder.send(`Ok, I will not leave **${serverName}**~ :dango:`);
+            return responder.send(`Ok, I will not leave guild **${serverid}**~ :dango:`);
         }
     }
 }
