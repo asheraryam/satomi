@@ -4,20 +4,16 @@ class Database extends Command {
     constructor(...args) {
         super(...args, {
             name: 'database',
-            group: 'owner',
+            group: 'admin',
             cooldown: 2,
-            options: { guildOnly: true },
+            options: { guildOnly: false, adminOnly: true },
             usage: [
                 { name: 'options', displayName: 'options', type: 'string', optional: true, last: true }
             ]
         });
     }
 
-    handle ({ args, client, msg }, responder) {
-        if (msg.author.id !== process.env.OWNER_ID) {
-            return;
-        }
-
+    handle ({ args, client }, responder) {
         const options = args.options;
 
         if (options === 'reconnect') {

@@ -5,10 +5,9 @@ class LeaveServer extends Command {
     constructor (...args) {
         super(...args, {
             name: 'leaveserver',
-            group: 'owner',
-            aliases: ['leave'],
+            group: 'admin',
             cooldown: 0,
-            options: { guildOnly: true },
+            options: { guildOnly: false, adminOnly: true },
             usage: [
                 { name: 'serverid', displayName: 'serverid', type: 'string', optional: true, last: true }
             ]
@@ -16,14 +15,14 @@ class LeaveServer extends Command {
     }
 
     async handle ({ args, client, msg }, responder) {
-        if (msg.author.id !== process.env.OWNER_ID) {
-            return;
-        }
-
         let serverid = args.serverid;
 
         if (!serverid) {
             serverid = msg.channel.guild.id;
+        }
+
+        if (serverid === process.env.HOME_ID) {
+            return;
         }
 
         const leave = await responder.dialog([{
