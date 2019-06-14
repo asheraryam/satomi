@@ -48,7 +48,7 @@ class GuildLog extends Module {
         });
 
         this.db.models.guilds.create({ serverName: guild.name, serverID: guild.id }, (error, add) => {
-            if (error) {
+            if (error || !add) {
                 this.send(this.joinLog, `Could not add guild **${guild.name}** to the database`, { embed: {
                     color: this._client.redColor,
                     title: 'Guild.Create Error',
@@ -56,7 +56,7 @@ class GuildLog extends Module {
                     footer: {
                         text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                     }
-                } }).catch(this.logger.error);
+                } });
             }
         });
 
@@ -83,7 +83,7 @@ class GuildLog extends Module {
             }
         } });
 
-        this.db.models.guilds.deleteOne({ serverID: guild.id }, (error, remove) => {
+        this.db.models.guilds.deleteOne({ serverID: guild.id }, (error) => {
             if (error) {
                 this.send(this.leaveLog, `Could not remove guild **${guild.name}** from the database`, { embed: {
                     color: this._client.redColor,
@@ -92,11 +92,11 @@ class GuildLog extends Module {
                     footer: {
                         text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                     }
-                } }).catch(this.logger.error);
+                } });
             }
-        });
+        }).catch(err => this.logger.error('Error Deleting Guild DB Entry', err));
 
-        this.db.models.roles.deleteMany({ serverID: guild.id }, (error, remove) => {
+        this.db.models.roles.deleteMany({ serverID: guild.id }, (error) => {
             if (error) {
                 this.send(this.leaveLog, `Could not remove roles in **${guild.name}** from the database`, { embed: {
                     color: this._client.redColor,
@@ -105,11 +105,11 @@ class GuildLog extends Module {
                     footer: {
                         text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                     }
-                } }).catch(this.logger.error);
+                } });
             }
-        });
+        }).catch(err => this.logger.error('Error Deleting Role DB Entry', err));
 
-        this.db.models.users.deleteMany({ serverID: guild.id }, (error, remove) => {
+        this.db.models.users.deleteMany({ serverID: guild.id }, (error) => {
             if (error) {
                 this.send(this.leaveLog, `Could not remove users in **${guild.name}** from the database`, { embed: {
                     color: this._client.redColor,
@@ -118,9 +118,9 @@ class GuildLog extends Module {
                     footer: {
                         text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                     }
-                } }).catch(this.logger.error);
+                } });
             }
-        });
+        }).catch(err => this.logger.error('Error Deleting User DB Entry', err));
     }
 }
 

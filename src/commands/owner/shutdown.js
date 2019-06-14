@@ -6,7 +6,6 @@ class Shutdown extends Command {
         super(...args, {
             name: 'shutdown',
             group: 'owner',
-            aliases: ['die', 'kill'],
             cooldown: 0,
             options: { guildOnly: true }
         });
@@ -28,8 +27,10 @@ class Shutdown extends Command {
                 color: client.satomiColor,
                 title: ':zzz: Satomi has shut down...'
             } })
-            .then(async () => await client.shutdown())
-            .catch(this.logger.error);
+            .then(async () => {
+                await client.mongodb.destroy();
+                await client.disconnect({ reconnect: false });
+            }).catch(this.logger.error);
         } else {
             return responder.send('Ok, I will not shut down~ :dango:');
         }

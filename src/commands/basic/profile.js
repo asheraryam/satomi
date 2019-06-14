@@ -15,7 +15,7 @@ class Profile extends Command {
 
     handle ({ args, client, msg }, responder) {
         const member = args.member;
-        var user;
+        let user;
 
         if (!member) {
             user = msg.author.id;

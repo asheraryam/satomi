@@ -29,7 +29,7 @@ class Census extends Command {
 
                 return responder.send('', { embed: {
                     color: client.satomiColor,
-                    title: `${msg.channel.guild.name} Census - Guild`,
+                    title: `${g.serverName} Census - Guild`,
                     description: 'Updated all guild credentials in the database as of now',
                     timestamp: new Date()
                 } }).catch(this.logger.error);

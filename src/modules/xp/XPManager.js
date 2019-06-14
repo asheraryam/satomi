@@ -35,8 +35,12 @@ class XPManager extends Module {
         };
 
         this.db.models.users.findOne({ serverID: message.channel.guild.id, userID: message.author.id }, (error, u) => {
-            if (error) {
+            if (error || !u) {
                 this.logger.error('Error finding user in DB', error);
+            }
+
+            if (u === null) {
+                return;
             }
 
             const timely = () => {
@@ -48,7 +52,7 @@ class XPManager extends Module {
 
             if (timely() >= 2) {
                 this.db.models.users.findOneAndUpdate({ serverID: message.channel.guild.id, userID: message.author.id }, { $set: { xp: u.xp += generateXP(), xpCD: new Date() } }, (error, uu) => {
-                    if (error) {
+                    if (error || !uu) {
                         this.logger.error('Error adding XP to user in DB', error);
                     }
 
@@ -58,7 +62,7 @@ class XPManager extends Module {
 
                     if (uu.xp >= xpToLevelUp()) {
                         this.db.models.users.findOneAndUpdate({ serverID: message.channel.guild.id, userID: message.author.id }, { $set: { level: uu.level += 1, xp: 0 } }, (error, uuu) => {
-                            if (error) {
+                            if (error || !uuu) {
                                 this.logger.error('Error adding level to user in DB', error);
                             }
                         }).catch(this.logger.error);

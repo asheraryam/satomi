@@ -18,7 +18,7 @@ class BetRoll extends Command {
         const amount = args.amount;
         const rollNumber = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 
-        var newAmount;
+        let newAmount;
         if (rollNumber <= 55) {
             newAmount = amount * 3;
         } else if (rollNumber >= 56 && rollNumber <= 61) {

@@ -25,12 +25,8 @@ class BetFlip extends Command {
         ];
 
         const coin = coins[~~(Math.random() * coins.length)];
-
-        var newAmountRight;
-        newAmountRight = amount * 2;
-
-        var newAmountWrong;
-        newAmountWrong = Math.round(amount * 1.5);
+        const newAmountRight = amount * 2;
+        const newAmountWrong = Math.round(amount * 1.5);
 
         if (coin.name === 'heads!') {
             if (guess === 'h' || guess === 'heads') {

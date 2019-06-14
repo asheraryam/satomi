@@ -17,7 +17,7 @@ class Give extends Command {
     handle ({ args, client, msg }, responder) {
         const amount = args.amount;
         const member = args.member;
-        var user;
+        let user;
 
         if (!member) {
             return;

@@ -41,7 +41,7 @@ const logger = createLogger({
 const satomi = new SatomiClient({
     token: process.env.CLIENT_TOKEN,
     prefix: process.env.CLIENT_PREFIX,
-    admins: (process.env.ADMIN_IDS).split(', '),
+    admins: process.env.ADMIN_IDS.split(', '),
     modules: resolve('modules'),
     messageLimit: 151,
     getAllUsers: true,
@@ -131,9 +131,24 @@ satomi.on('ready', () => {
     setInterval(() => satomi.changeStatus(), 120000);
 });
 
-process.on('SIGINT', async () => await satomi.shutdown());
-process.on('unhandledException', (err) => satomi.logger.error(err));
-process.on('unhandledRejection', (err) => satomi.logger.error(err));
-satomi.on('error', (err) => satomi.logger.error(err));
+satomi.on('error', satomi.logger.error);
+
+process.once('SIGINT', () => {
+    satomi.logger.error('Recieved SIGINT');
+    if (satomi) {
+        try {
+            satomi.mongodb.destroy();
+            satomi.disconnect();
+        } catch (error) {
+            satomi.logger.error(error);
+        }
+    }
+    process.exit(0);
+});
+process.on('uncaughtException', (err, origin) => {
+    satomi.logger.error('Caught Exception: ', err.stack, 'Exception origin: ', origin);
+    process.exit(1);
+});
+process.on('unhandledRejection', (reason, promise) => reason && satomi.logger.error('Unhandled Rejection: ', promise, 'reason: ', reason.message));
 
 satomi.run();

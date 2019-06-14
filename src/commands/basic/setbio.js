@@ -18,8 +18,8 @@ class SetBio extends Command {
         const biotext = args.biotext;
 
         if (biotext === '-reset') {
-            client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: member }, { $set: { description: 'Welcome to my profile' } }, (error, u) => {
-                if (error) {
+            client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: member }, { $set: { description: 'Welcome to my profile' } }, { new: true }, (error, u) => {
+                if (error || !u) {
                     return responder.send(`${msg.author.mention} couldn't find Guild or User`, { embed: {
                         color: client.redColor,
                         title: 'SetBio.Find Error',
@@ -31,15 +31,15 @@ class SetBio extends Command {
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
                     title: 'SetBio.Reset',
-                    description: 'Your bio was set to the default',
+                    description: `Your bio was set to the default **${u.description}**`,
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             }).catch(this.logger.error);
         }
 
         if (biotext !== '-reset') {
-            client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: member }, { $set: { description: biotext } }, (error, u) => {
-                if (error) {
+            client.mongodb.models.users.findOneAndUpdate({ serverID: msg.channel.guild.id, userID: member }, { $set: { description: biotext } }, { new: true }, (error, uu) => {
+                if (error || !uu) {
                     return responder.send(`${msg.author.mention} couldn't find Guild or User`, { embed: {
                         color: client.redColor,
                         title: 'SetBio.Find Error',
@@ -51,7 +51,7 @@ class SetBio extends Command {
                 return responder.send(' ', { embed: {
                     color: client.satomiColor,
                     title: 'SetBio.Success',
-                    description: `Your bio was set to **${biotext}**`,
+                    description: `Your bio was set to **${uu.description}**`,
                     timestamp: new Date()
                 } }).catch(this.logger.error);
             }).catch(this.logger.error);
