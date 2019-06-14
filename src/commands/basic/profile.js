@@ -65,7 +65,7 @@ class Profile extends Command {
                 // Username
                 ctx.font = '20px Roboto';
                 ctx.fillStyle = '#FFFFFF';
-                ctx.fillText(`${u.userName}#${u.userDisc}`, 12, 173);
+                ctx.fillText(`${u.userName}`, 12, 173);
 
                 // XP Bar
                 ctx.font = '10px Roboto';
