@@ -32,7 +32,7 @@ class Ssar extends Command {
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 } else {
-                    return responder.send(`${msg.author.mention} successfully added role **${add.roleName}** from the database!`, { embed: {
+                    return responder.send(`${msg.author.mention} successfully added role **${add.roleName}** to the database!`, { embed: {
                         color: client.satomiColor,
                         title: 'Role Info',
                         description: 'useful info below',
@@ -58,7 +58,7 @@ class Ssar extends Command {
                         timestamp: new Date()
                     } }).catch(this.logger.error);
                 } else {
-                    return responder.send(`${msg.author.mention} successfully removed role **${remove.roleName}** to the database!`, { embed: {
+                    return responder.send(`${msg.author.mention} successfully removed role **${remove.roleName}** from the database!`, { embed: {
                         color: client.redColor,
                         title: 'Removed Role Info',
                         description: 'useful info below',
