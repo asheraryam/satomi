@@ -30,7 +30,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
@@ -76,7 +76,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
@@ -109,7 +109,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
@@ -141,7 +141,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
@@ -169,7 +169,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
@@ -198,12 +198,16 @@ class Clerk extends Module {
     guildUpdate(guild, oldGuild) {
         if (guild.name !== oldGuild.name) {
             this.db.models.guilds.findOneAndUpdate({ serverID: guild.id }, { $set: { serverName: guild.name } }, (error, server) => {
-                if (error || !server) {
+                if (error) {
                     this.logger.error('Error Finding Guild', error);
                 }
 
+                if (!server || !server.logChannel) {
+                    return;
+                }
+
                 this.logger.info(`[DB] ${oldGuild.name} is now ${guild.name}`);
-            }).catch(err => this.logger.error('Error Finding Guild', err));
+            });
         }
     }
 
@@ -211,6 +215,10 @@ class Clerk extends Module {
         this.db.models.guilds.findOne({ serverID: guild.id }, (error, server) => {
             if (error) {
                 this.logger.error('Error Finding Guild Log Channel', error);
+            }
+
+            if (!server || !server.logChannel) {
+                return;
             }
 
             if (member.nick !== oldMember.nick) {
@@ -231,6 +239,10 @@ class Clerk extends Module {
                     this.logger.error('Error Finding Guild Log Channel', error);
                 }
 
+                if (!server || !server.logChannel) {
+                    return;
+                }
+
                 if (user.username !== oldUser.username || user.discriminator !== oldUser.discriminator) {
                     return this.onNameChange(user, oldUser, server);
                 }
@@ -247,11 +259,7 @@ class Clerk extends Module {
             if (error || !user) {
                 this.logger.send('Error Finding Guild or User', error);
             }
-        }).catch(err => this.logger.error('Error Finding Guild or User', err));
-
-        if (!server.logChannel) {
-            return;
-        }
+        });
 
         this.send(`${server.logChannel}`, '', { embed: {
             color: this._client.blueColor,
@@ -275,10 +283,6 @@ class Clerk extends Module {
     }
 
     onNickChange(member, oldMember, server) {
-        if (!server.logChannel) {
-            return;
-        }
-
         this.send(`${server.logChannel}`, '', { embed: {
             color: this._client.blueColor,
             title: '👥 Nickname Changed',
@@ -301,10 +305,6 @@ class Clerk extends Module {
     }
 
     onRolesUpdate(member, oldMember, server) {
-        if (!server.logChannel) {
-            return;
-        }
-
         if (member.roles.length > oldMember.roles.length) {
             const role = member.guild.roles.get(member.roles.find(r => oldMember.roles.indexOf(r) < 0)).name;
             this.send(`${server.logChannel}`, '', { embed: {
@@ -343,10 +343,6 @@ class Clerk extends Module {
     }
 
     onAvatarChange(user, oldUser, server) {
-        if (!server.logChannel) {
-            return;
-        }
-
         this.send(`${server.logChannel}`, '', { embed: {
             color: this._client.blueColor,
             title: '📷 Avatar Changed',
@@ -370,7 +366,7 @@ class Clerk extends Module {
                     this.logger.error('Error Finding Guild Log Channel', error);
                 }
 
-                if (!server.logChannel) {
+                if (!server || !server.logChannel) {
                     return;
                 }
 
@@ -407,7 +403,7 @@ class Clerk extends Module {
                 this.logger.error('Error Finding Guild Log Channel', error);
             }
 
-            if (!server.logChannel) {
+            if (!server || !server.logChannel) {
                 return;
             }
 
