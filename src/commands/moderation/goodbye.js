@@ -35,7 +35,7 @@ class Goodbye extends Command {
                 prompt: [
                     'Satomi.Goodbye Set Prompt',
                     '\n```pl',
-                    '\n`Please type the message you want Satomi to send when a new member joins the server`',
+                    '\n`Please type the message you want Satomi to send when a member leaves the server`',
                     '\n',
                     '\nArgs:',
                     '\n`{{user}}` - mentions the user in that spot',
@@ -51,8 +51,7 @@ class Goodbye extends Command {
             }]);
 
             if (setGoodbye.phrase.length > 0) {
-                client.mongodb.models.guilds
-                .findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { goodbye: { channelID: msg.channel.id, message: setGoodbye.phrase } } }, { new: true }, (error, g) => {
+                client.mongodb.models.guilds.findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { goodbye: { channelName: msg.channel.name, channelID: msg.channel.id, message: setGoodbye.phrase } } }, { new: true }, (error, g) => {
                     if (error) {
                         return responder.send(`${msg.author.mention} couldnt find server`, { embed: {
                             color: client.redColor,
@@ -68,7 +67,7 @@ class Goodbye extends Command {
                         description: 'useful info below',
                         fields: [{
                             name: '---------',
-                            value: `Channel: ${msg.channel.name}` +
+                            value: `Channel: ${g.goodbye.channelName}` +
                             `\nChannelID: ${g.goodbye.channelID}` +
                             `\nMessage: ${g.goodbye.message}`
                         }],
@@ -79,8 +78,7 @@ class Goodbye extends Command {
         }
 
         if (goodbyer.choice === 'reset') {
-            client.mongodb.models.guilds
-            .findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { goodbye: { channelID: '', message: '' } } }, { new: true }, (error, g) => {
+            client.mongodb.models.guilds.findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { goodbye: { channelName: '', channelID: '', message: '' } } }, { new: true }, (error, g) => {
                 if (error) {
                     return responder.send(`${msg.author.mention} couldnt find server`, { embed: {
                         color: client.redColor,
@@ -122,9 +120,9 @@ class Goodbye extends Command {
                     description: 'useful info below',
                     fields: [{
                         name: '---------',
-                        value: `Channel: ${msg.channel.name}` +
-                        `\nChannelID: ${g.goodbye.channelID}` +
-                        `\nMessage: ${g.goodbye.message}`
+                        value: `Channel: ${g.goodbye.channelName || 'none'}` +
+                        `\nChannelID: ${g.goodbye.channelID || 'none'}` +
+                        `\nMessage: ${g.goodbye.message || 'none'}`
                     }],
                     timestamp: new Date()
                 } }).catch(this.logger.error);

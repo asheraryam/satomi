@@ -51,8 +51,7 @@ class Welcome extends Command {
             }]);
 
             if (setWelcome.phrase.length > 0) {
-                client.mongodb.models.guilds
-                .findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { welcome: { channelID: msg.channel.id, message: setWelcome.phrase } } }, { new: true }, (error, g) => {
+                client.mongodb.models.guilds.findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { welcome: { channelName: msg.channel.name, channelID: msg.channel.id, message: setWelcome.phrase } } }, { new: true }, (error, g) => {
                     if (error) {
                         return responder.send(`${msg.author.mention} couldnt find server`, { embed: {
                             color: client.redColor,
@@ -68,7 +67,7 @@ class Welcome extends Command {
                         description: 'useful info below',
                         fields: [{
                             name: '---------',
-                            value: `Channel: ${msg.channel.name}` +
+                            value: `Channel: ${g.welcome.channelName}` +
                             `\nChannelID: ${g.welcome.channelID}` +
                             `\nMessage: ${g.welcome.message}`
                         }],
@@ -79,8 +78,7 @@ class Welcome extends Command {
         }
 
         if (welcomer.choice === 'reset') {
-            client.mongodb.models.guilds
-            .findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { welcome: { channelID: '', message: '' } } }, { new: true }, (error, g) => {
+            client.mongodb.models.guilds.findOneAndUpdate({ serverID: msg.channel.guild.id }, { $set: { welcome: { channelName: '', channelID: '', message: '' } } }, { new: true }, (error, g) => {
                 if (error) {
                     return responder.send(`${msg.author.mention} couldnt find server`, { embed: {
                         color: client.redColor,
@@ -122,9 +120,9 @@ class Welcome extends Command {
                     description: 'useful info below',
                     fields: [{
                         name: '---------',
-                        value: `Channel: ${msg.channel.name}` +
-                        `\nChannelID: ${g.welcome.channelID}` +
-                        `\nMessage: ${g.welcome.message}`
+                        value: `Channel: ${g.welcome.channelName || 'none'}` +
+                        `\nChannelID: ${g.welcome.channelID || 'none'}` +
+                        `\nMessage: ${g.welcome.message || 'none'}`
                     }],
                     timestamp: new Date()
                 } }).catch(this.logger.error);
