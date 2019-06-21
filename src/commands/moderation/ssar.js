@@ -31,21 +31,21 @@ class Ssar extends Command {
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
-                } else {
-                    return responder.send(`${msg.author.mention} successfully added role **${add.roleName}** to the database!`, { embed: {
-                        color: client.satomiColor,
-                        title: 'Role Info',
-                        description: 'useful info below',
-                        fields: [{
-                            name: '---------',
-                            value: `Role: ${add.roleName}` +
-                            `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${add.roleID}`
-                        }],
-                        timestamp: new Date()
-                    } }).catch(this.logger.error);
                 }
-            });
+
+                return responder.send(`${msg.author.mention} successfully added role **${add.roleName}** to the database!`, { embed: {
+                    color: client.satomiColor,
+                    title: 'Role Info',
+                    description: 'useful info below',
+                    fields: [{
+                        name: '---------',
+                        value: `Role: ${add.roleName}` +
+                        `\nServer: ${msg.channel.guild.name} (${add.serverID})` +
+                        `\nRole ID: ${add.roleID}`
+                    }],
+                    timestamp: new Date()
+                } }).catch(this.logger.error);
+            }).catch(this.logger.error);
         }
 
         if (options === 'remove') {
@@ -57,21 +57,21 @@ class Ssar extends Command {
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
-                } else {
-                    return responder.send(`${msg.author.mention} successfully removed role **${remove.roleName}** from the database!`, { embed: {
-                        color: client.redColor,
-                        title: 'Removed Role Info',
-                        description: 'useful info below',
-                        fields: [{
-                            name: '---------',
-                            value: `Role: ${remove.roleName}` +
-                            `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${remove.roleID}`
-                        }],
-                        timestamp: new Date()
-                    } }).catch(this.logger.error);
                 }
-            });
+
+                return responder.send(`${msg.author.mention} successfully removed role **${remove.roleName}** from the database!`, { embed: {
+                    color: client.redColor,
+                    title: 'Removed Role Info',
+                    description: 'useful info below',
+                    fields: [{
+                        name: '---------',
+                        value: `Role: ${remove.roleName}` +
+                        `\nServer: ${msg.channel.guild.name} (${remove.serverID})` +
+                        `\nRole ID: ${remove.roleID}`
+                    }],
+                    timestamp: new Date()
+                } }).catch(this.logger.error);
+            }).catch(this.logger.error);
         }
     }
 }

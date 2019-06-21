@@ -20,13 +20,11 @@ class Avatar extends Command {
         const avatarURL = user.dynamicAvatarURL('png', 256);
 
         if (!options) {
-            return responder.send(`:camera: ${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`)
-            .catch(this.logger.error);
+            return responder.send(`:camera: ${msg.author.mention} **${user.username}**'s Avatar:\n ${avatarURL}`).catch(this.logger.error);
         }
 
         if (options === 'server') {
-            return responder.send(`:camera: ${msg.author.mention} **${server.name}**'s Avatar:\n ${server.iconURL}`)
-            .catch(this.logger.error);
+            return responder.send(`:camera: ${msg.author.mention} **${server.name}**'s Avatar:\n ${server.iconURL}`).catch(this.logger.error);
         }
     }
 }

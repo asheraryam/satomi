@@ -36,7 +36,7 @@ class UserInfo extends Command {
             },
             fields: [{
                 name: 'Nickname',
-                value: `${user.nick !== null ? user.nick: 'None'}`,
+                value: `${user.nick !== null ? user.nick : 'None'}`,
                 inline: true
             },
             {
@@ -51,7 +51,7 @@ class UserInfo extends Command {
             },
             {
                 name: 'Game Playing',
-                value: `${user.game !== null ? user.game.name: 'None'}`,
+                value: `${user.game !== null ? user.game.name : 'None'}`,
                 inline: true
             },
             {

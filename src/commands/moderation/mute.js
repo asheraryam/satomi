@@ -28,7 +28,7 @@ class Mute extends Command {
         if (member.id === msg.author.id) {
             return responder.send(`${msg.author.mention}, You cant mute yourself :anger:`);
         } else if (member.id === client.user.id) {
-            return responder.send(`${msg.author.mention}, nice try <a:gachiBASS:421166944998129695> <a:HYPERCLAP:477515918813954048>`);
+            return responder.send(`${msg.author.mention}, nice try`);
         }
 
         let muteRole = msg.channel.guild.roles.find(r => r.name === 'Satomi Mute');
@@ -51,7 +51,7 @@ class Mute extends Command {
                     title: 'Creating Muted Role Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         }
 
@@ -73,7 +73,7 @@ class Mute extends Command {
                         color: client.satomiColor,
                         title: 'Member Text Mute',
                         description: `**${member.username}#${member.discriminator}** has been **text** muted`
-                    } });
+                    } }).catch(this.logger.error);
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -81,7 +81,7 @@ class Mute extends Command {
                         title: 'Text Mute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } });
+                    } }).catch(this.logger.error);
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -89,7 +89,7 @@ class Mute extends Command {
                     title: 'Cant Text Mute Member',
                     description: `**${member.username}#${member.discriminator}** is already text muted`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         } else if (options === 'voice') {
             try {
@@ -100,7 +100,7 @@ class Mute extends Command {
                     color: client.satomiColor,
                     title: 'Member Voice Mute',
                     description: `**${member.username}#${member.discriminator}** has been **voice** muted`
-                } });
+                } }).catch(this.logger.error);
             } catch (error) {
                 this.logger.error;
                 return responder.send(' ', { embed: {
@@ -108,7 +108,7 @@ class Mute extends Command {
                     title: 'Voice Mute Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         } else if (options === 'full') {
             if (memberHasRole === false) {
@@ -121,7 +121,7 @@ class Mute extends Command {
                         color: client.satomiColor,
                         title: 'Member Full Mute',
                         description: `**${member.username}#${member.discriminator}** has been **text** and **voice** muted`
-                    } });
+                    } }).catch(this.logger.error);
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -129,7 +129,7 @@ class Mute extends Command {
                         title: 'Full Mute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } });
+                    } }).catch(this.logger.error);
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -137,7 +137,7 @@ class Mute extends Command {
                     title: 'Cant Full Mute Member',
                     description: `**${member.username}#${member.discriminator}** is already text muted, please use the voice mute instead of full`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         }
     }

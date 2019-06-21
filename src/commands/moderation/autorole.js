@@ -39,20 +39,20 @@ class AutoRole extends Command {
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
-                } else {
-                    return responder.send(`${msg.author.mention} successfully added **${roleName}** as the autorole!`, { embed: {
-                        color: client.blueColor,
-                        title: 'Added AutoRole Info',
-                        description: 'useful info below',
-                        fields: [{
-                            name: '---------',
-                            value: `Role: ${roleName}` +
-                            `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${g.autoroleID}`
-                        }],
-                        timestamp: new Date()
-                    } }).catch(this.logger.error);
                 }
+
+                return responder.send(`${msg.author.mention} successfully added **${roleName}** as the autorole!`, { embed: {
+                    color: client.blueColor,
+                    title: 'Added AutoRole Info',
+                    description: 'useful info below',
+                    fields: [{
+                        name: '---------',
+                        value: `Role: ${roleName}` +
+                        `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
+                        `\nRole ID: ${g.autoroleID}`
+                    }],
+                    timestamp: new Date()
+                } }).catch(this.logger.error);
             }).catch(this.logger.error);
         }
 
@@ -65,20 +65,20 @@ class AutoRole extends Command {
                         description: `${error}`,
                         timestamp: new Date()
                     } }).catch(this.logger.error);
-                } else {
-                    return responder.send(`${msg.author.mention} successfully removed **${roleName}** from autorole`, { embed: {
-                        color: client.redColor,
-                        title: 'Removed AutoRole Info',
-                        description: 'useful info below',
-                        fields: [{
-                            name: '---------',
-                            value: `Role: ${roleName}` +
-                            `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
-                            `\nRole ID: ${g.autoroleID}`
-                        }],
-                        timestamp: new Date()
-                    } }).catch(this.logger.error);
                 }
+
+                return responder.send(`${msg.author.mention} successfully removed **${roleName}** from autorole`, { embed: {
+                    color: client.redColor,
+                    title: 'Removed AutoRole Info',
+                    description: 'useful info below',
+                    fields: [{
+                        name: '---------',
+                        value: `Role: ${roleName}` +
+                        `\nServer: ${msg.channel.guild.name} (${msg.channel.guild.id})` +
+                        `\nRole ID: ${g.autoroleID || 'none'}`
+                    }],
+                    timestamp: new Date()
+                } }).catch(this.logger.error);
             }).catch(this.logger.error);
         }
     }

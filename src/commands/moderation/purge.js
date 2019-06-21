@@ -47,7 +47,7 @@ class Purge extends Command {
             return responder.send(' ', { embed: {
                 color: client.redColor,
                 description: ':x: Message count too high! Max is 50'
-            } });
+            } }).catch(this.logger.error);
         }
 
         options ? client.purgeChannel(msg.channel.id, limit, m => {
@@ -64,12 +64,12 @@ class Purge extends Command {
             responder.send(' ', { embed: {
                 color: client.redColor,
                 description: `There was an error trying to purge: ${error}`
-            } });
+            } }).catch(this.logger.error);
         }) : client.purgeChannel(msg.channel.id, limit).catch((error) => {
             responder.send(' ', { embed: {
                 color: client.redColor,
                 description: `There was an error trying to purge: ${error}`
-            } });
+            } }).catch(this.logger.error);
         });
     }
 }

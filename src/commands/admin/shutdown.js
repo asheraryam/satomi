@@ -22,8 +22,7 @@ class Shutdown extends Command {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
                 title: ':zzz: Satomi has shut down...'
-            } })
-            .then(async () => {
+            } }).then(async () => {
                 await client.mongodb.destroy();
                 await client.disconnect({ reconnect: false });
             }).catch(this.logger.error);

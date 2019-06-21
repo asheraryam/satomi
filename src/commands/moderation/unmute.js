@@ -28,7 +28,7 @@ class Unmute extends Command {
         if (member.id === msg.author.id) {
             return responder.send(`${msg.author.mention}, You cant unmute yourself :anger:`);
         } else if (member.id === client.user.id) {
-            return responder.send(`${msg.author.mention}, nice try <a:gachiBASS:421166944998129695> <a:HYPERCLAP:477515918813954048>`);
+            return responder.send(`${msg.author.mention}, nice try`);
         }
 
         const muteRole = msg.channel.guild.roles.find(r => r.name === 'Satomi Mute');
@@ -63,7 +63,7 @@ class Unmute extends Command {
                         title: 'Text UnMute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } });
+                    } }).catch(this.logger.error);
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -71,7 +71,7 @@ class Unmute extends Command {
                     title: 'Cant Text UnMute Member',
                     description: `**${member.username}#${member.discriminator}** isnt text muted`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         }
 
@@ -84,7 +84,7 @@ class Unmute extends Command {
                     color: client.satomiColor,
                     title: 'Member Voice UnMute',
                     description: `**${member.username}#${member.discriminator}** has been unmute from **voice**`
-                } });
+                } }).catch(this.logger.error);
             } catch (error) {
                 this.logger.error;
                 return responder.send(' ', { embed: {
@@ -92,7 +92,7 @@ class Unmute extends Command {
                     title: 'Voice UnMute Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         }
 
@@ -107,7 +107,7 @@ class Unmute extends Command {
                         color: client.satomiColor,
                         title: 'Member Full UnMute',
                         description: `**${member.username}#${member.discriminator}** has been unmuted from **text** and **voice**`
-                    } });
+                    } }).catch(this.logger.error);
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -115,7 +115,7 @@ class Unmute extends Command {
                         title: 'Full UnMute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } });
+                    } }).catch(this.logger.error);
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -123,7 +123,7 @@ class Unmute extends Command {
                     title: 'Cant Full UnMute Member',
                     description: `**${member.username}#${member.discriminator}** isnt text muted, please use \`unmute voice\` instead of full maybe`,
                     timestamp: new Date()
-                } });
+                } }).catch(this.logger.error);
             }
         }
     }

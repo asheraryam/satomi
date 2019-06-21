@@ -924,7 +924,7 @@ class Help extends Command {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
                 title: 'Help for SetNSFW (moderation)',
-                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Changes a channel to enable NSFW content',
+                description: '[USERS WITH MANAGE CHANNELS PERMISSION] Changes a channel to enable NSFW content, also "nsfw" cant be the first part of the channel name or it wont add the warning, blame discord',
                 fields: [{
                     name: 'Usage',
                     value: 's.setnsfw on\ns.setnsfw off',
