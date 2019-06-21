@@ -59,14 +59,14 @@ class Clerk extends Module {
                 this._client.addGuildMemberRole(guild.id, member.id, server.autoroleID)
                 .catch(error => this.logger.error('Error giving auto role', error));
             }
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
 
         if (member.bot === false) {
             this.db.models.users.create({ serverID: guild.id, userName: member.username, userID: member.id }, (error, u) => {
                 if (error || !u) {
                     this.logger.error('Error Adding User to DB', error);
                 }
-            }).catch(err => this.logger.error('Error Adding User to DB', err));
+            });
         }
     }
 
@@ -100,7 +100,7 @@ class Clerk extends Module {
                 this.send(`${server.goodbye.channelID}`, server.goodbye.message.replace(/{{user}}/gi, member.mention).replace(/{{guild}}/gi, guild.name))
                 .catch(error => this.logger.error('Error sending goodbye message', error));
             }
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 
     onBan(guild, user, reason) {
@@ -132,7 +132,7 @@ class Clerk extends Module {
                     text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                 }
             } });
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 
     onUnban(guild, user) {
@@ -160,7 +160,7 @@ class Clerk extends Module {
                     text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                 }
             } });
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 
     onKick(guild, user, reason) {
@@ -192,7 +192,7 @@ class Clerk extends Module {
                     text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                 }
             } });
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 
     guildUpdate(guild, oldGuild) {
@@ -220,7 +220,7 @@ class Clerk extends Module {
             if (member.roles.length !== oldMember.roles.length) {
                 return this.onRolesUpdate(member, oldMember, server);
             }
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 
     userUpdate(user, oldUser) {
@@ -238,7 +238,7 @@ class Clerk extends Module {
                 if (user.avatar !== oldUser.avatar) {
                     return this.onAvatarChange(user, oldUser, server);
                 }
-            }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+            });
         });
     }
 
@@ -397,7 +397,7 @@ class Clerk extends Module {
                         text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                     }
                 } });
-            }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+            });
         }
     }
 
@@ -430,7 +430,7 @@ class Clerk extends Module {
                     text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
                 }
             } });
-        }).catch(err => this.logger.error('Error Finding Guild Log Channel', err));
+        });
     }
 }
 

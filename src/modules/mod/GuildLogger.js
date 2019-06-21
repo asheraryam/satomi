@@ -94,7 +94,7 @@ class GuildLog extends Module {
                     }
                 } });
             }
-        }).catch(err => this.logger.error('Error Deleting Guild DB Entry', err));
+        });
 
         this.db.models.roles.deleteMany({ serverID: guild.id }, (error) => {
             if (error) {
@@ -107,7 +107,7 @@ class GuildLog extends Module {
                     }
                 } });
             }
-        }).catch(err => this.logger.error('Error Deleting Role DB Entry', err));
+        });
 
         this.db.models.users.deleteMany({ serverID: guild.id }, (error) => {
             if (error) {
@@ -120,7 +120,7 @@ class GuildLog extends Module {
                     }
                 } });
             }
-        }).catch(err => this.logger.error('Error Deleting User DB Entry', err));
+        });
     }
 }
 
