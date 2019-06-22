@@ -28,11 +28,11 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbackground`, `setbio`, `star`, `stats`, `userinfo`'
+                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbackground`, `setbio`, `star`, `stats`, `userinfo`, `xpleaderboard`'
                 },
                 {
                     name: 'currency',
-                    value: '`betflip`, `betroll`, `daily`, `give`'
+                    value: '`betflip`, `betroll`, `daily`, `give`, `leaderboard`'
                 },
                 {
                     name: 'fun',
@@ -355,6 +355,32 @@ class Help extends Command {
                     text: footerText
                 }
             } }).catch(this.logger.error);
+        } else if (command === 'xpleaderboard') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for XP Leaderboard (basic)',
+                description: 'Shows the Top 10 members in the server for XP',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.xpleaderboard',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.xpleaderboard',
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.xpleaderboard, s.xplb',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
         } else if (command === 'betflip') {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
@@ -441,6 +467,32 @@ class Help extends Command {
                 {
                     name: 'Example',
                     value: 's.give 100 @User, s.give 100 12345678910111213141',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'leaderboard') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Leaderboard (currency)',
+                description: 'Shows the Top 10 members in the server for curency',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.leaderboard',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.leaderboard',
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.leaderboard, s.lb',
                     inline: false
                 }],
                 timestamp: new Date(),
