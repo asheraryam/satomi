@@ -39,7 +39,7 @@ class Clerk extends Module {
                 title: '✅ User Joined!',
                 description: `${member.username}#${member.discriminator}`,
                 thumbnail: {
-                    url: `${member.avatarURL}`
+                    url: `${member.user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'ID',
@@ -85,7 +85,7 @@ class Clerk extends Module {
                 title: '🚫 User Left!',
                 description: `${member.username}#${member.discriminator}`,
                 thumbnail: {
-                    url: `${member.avatarURL}`
+                    url: `${member.user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'ID',
@@ -118,7 +118,7 @@ class Clerk extends Module {
                 title: '🔨 User Banned!',
                 description: `${user.username}#${user.discriminator}`,
                 thumbnail: {
-                    url: `${user.avatarURL}`
+                    url: `${user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'ID',
@@ -150,7 +150,7 @@ class Clerk extends Module {
                 title: '✅ User UnBanned!',
                 description: `${user.username}#${user.discriminator}`,
                 thumbnail: {
-                    url: `${user.avatarURL}`
+                    url: `${user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'ID',
@@ -178,7 +178,7 @@ class Clerk extends Module {
                 title: '👢 User Kicked!',
                 description: `${user.username}#${user.discriminator}`,
                 thumbnail: {
-                    url: `${user.avatarURL}`
+                    url: `${user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'ID',
@@ -266,7 +266,7 @@ class Clerk extends Module {
             title: '👤 Username Changed',
             description: `${user.username}#${user.discriminator} | ${user.id}`,
             thumbnail: {
-                url: `${user.avatarURL}`
+                url: `${user.dynamicAvatarURL()}`
             },
             fields: [{
                 name: 'Old Username',
@@ -288,7 +288,7 @@ class Clerk extends Module {
             title: '👥 Nickname Changed',
             description: `${member.username}#${member.discriminator} | ${member.id}`,
             thumbnail: {
-                url: `${member.avatarURL}`
+                url: `${member.user.dynamicAvatarURL()}`
             },
             fields: [{
                 name: 'Old Nickname',
@@ -312,7 +312,7 @@ class Clerk extends Module {
                 title: '⚔️ Role Added',
                 description: `${member.username}#${member.discriminator} | ${member.id}`,
                 thumbnail: {
-                    url: `${member.avatarURL}`
+                    url: `${member.user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'Role Name',
@@ -329,7 +329,7 @@ class Clerk extends Module {
                 title: '⚔️ Role Removed',
                 description: `${member.username}#${member.discriminator} | ${member.id}`,
                 thumbnail: {
-                    url: `${member.avatarURL}`
+                    url: `${member.user.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'Role Name',
@@ -351,7 +351,7 @@ class Clerk extends Module {
                 url: `https://cdn.discordapp.com/avatars/${user.id}/${oldUser.avatar}.jpg`
             },
             image: {
-                url: `${user.avatarURL}`
+                url: `${user.dynamicAvatarURL()}`
             },
             footer: {
                 text: `${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
@@ -379,7 +379,7 @@ class Clerk extends Module {
                     title: `📝 Message Updated in #${message.channel.name}`,
                     description: `${message.author.username}#${message.author.discriminator} | ${message.author.id}`,
                     thumbnail: {
-                        url: `${message.author.avatarURL}`
+                        url: `${message.author.dynamicAvatarURL()}`
                     },
                     fields: [{
                         name: 'Old Content',
@@ -416,7 +416,7 @@ class Clerk extends Module {
                 title: `📝 Message Deleted in #${message.channel.name}`,
                 description: `${message.author.username}#${message.author.discriminator}`,
                 thumbnail: {
-                    url: `${message.author.avatarURL}`
+                    url: `${message.author.dynamicAvatarURL()}`
                 },
                 fields: [{
                     name: 'Content',

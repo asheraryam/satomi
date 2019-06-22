@@ -31,7 +31,7 @@ class Star extends Command {
         if (options === 'add') {
             await msg.channel.getMessage(msgid).then((message) => {
                 if (message.author.id === msg.author.id) {
-                    return responder.send(`${msg.author.mention} You cannot star your own message <:baka:477515971469377538>`);
+                    return responder.send(`${msg.author.mention} You cannot star your own message 💢`);
                 }
                 const imageURL = message.attachments[0] !== undefined ? imageType(message.attachments[0].url) : '';
 
@@ -43,21 +43,21 @@ class Star extends Command {
                             description: `${error}`,
                             timestamp: new Date()
                         } }).catch(this.logger.error);
-                    } else {
-                        this.send(g.starChannel, `⭐ <#${message.channel.id}> (${message.id})`, { embed: {
-                            color: client.satomiColor,
-                            author: {
-                                name: message.author.username,
-                                icon_url: message.author.avatarURL
-                            },
-                            description: message.cleanContent,
-                            image: {
-                                url: imageURL
-                            },
-                            timestamp: new Date()
-                        } }).catch(this.logger.error);
-                        return responder.send(`${msg.author.mention} message (${msgid}) has been starred! ⭐`);
                     }
+
+                    this.send(g.starChannel, `⭐ <#${message.channel.id}> (${message.id})`, { embed: {
+                        color: client.satomiColor,
+                        author: {
+                            name: message.author.username,
+                            icon_url: message.author.dynamicAvatarURL()
+                        },
+                        description: message.cleanContent,
+                        image: {
+                            url: imageURL
+                        },
+                        timestamp: new Date()
+                    } }).catch(this.logger.error);
+                    return responder.send(`${msg.author.mention} message (${msgid}) has been starred! ⭐`);
                 });
             });
         }
@@ -70,7 +70,7 @@ class Star extends Command {
                     color: client.satomiColor,
                     author: {
                         name: message.author.username,
-                        icon_url: message.author.avatarURL
+                        icon_url: message.author.dynamicAvatarURL()
                     },
                     description: message.cleanContent,
                     image: {

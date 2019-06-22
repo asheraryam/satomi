@@ -48,7 +48,7 @@ class Kick extends Command {
                     color: client.redColor,
                     title: 'Member Kicked!',
                     thumbnail: {
-                        url: member.user.avatarURL
+                        url: member.user.dynamicAvatarURL()
                     },
                     fields: [{
                         name: 'User',

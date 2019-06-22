@@ -50,7 +50,7 @@ class Ban extends Command {
                     color: client.redColor,
                     title: 'Member Banned!',
                     thumbnail: {
-                        url: member.user.avatarURL
+                        url: member.user.dynamicAvatarURL()
                     },
                     fields: [{
                         name: 'User',

@@ -52,7 +52,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 } } }).catch(this.logger.error);
         } else if (command === 'about') {
@@ -77,7 +77,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -103,7 +103,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -124,7 +124,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -145,7 +145,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -171,7 +171,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -199,7 +199,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -225,7 +225,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -246,7 +246,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -272,7 +272,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -299,7 +299,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -325,7 +325,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -351,7 +351,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -377,7 +377,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -403,7 +403,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -429,7 +429,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -450,7 +450,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -471,7 +471,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -497,7 +497,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -518,7 +518,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -539,7 +539,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -560,7 +560,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -581,7 +581,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -602,7 +602,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -623,7 +623,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -649,7 +649,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -670,7 +670,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -691,7 +691,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -718,7 +718,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -745,7 +745,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -772,7 +772,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -793,7 +793,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -819,7 +819,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -846,7 +846,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -879,7 +879,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -912,7 +912,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -933,7 +933,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -968,7 +968,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -995,7 +995,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1022,7 +1022,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1049,7 +1049,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1070,7 +1070,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1096,7 +1096,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1122,7 +1122,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1148,7 +1148,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1174,7 +1174,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1200,7 +1200,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1233,7 +1233,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);
@@ -1254,7 +1254,7 @@ class Help extends Command {
                 }],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: msg.author.avatarURL,
+                    icon_url: msg.author.dynamicAvatarURL(),
                     text: footerText
                 }
             } }).catch(this.logger.error);

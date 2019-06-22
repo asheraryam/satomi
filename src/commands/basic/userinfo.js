@@ -32,7 +32,7 @@ class UserInfo extends Command {
             description: `${user.username}#${user.discriminator}`,
             color: client.satomiColor,
             thumbnail: {
-                url: user.avatarURL
+                url: user.user.dynamicAvatarURL()
             },
             fields: [{
                 name: 'Nickname',

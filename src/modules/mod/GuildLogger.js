@@ -33,14 +33,14 @@ class GuildLog extends Module {
             color: this._client.satomiColor,
             author: {
                 name: `${guild.name} (${guild.id})`,
-                icon_url: `${guild.iconURL}`
+                icon_url: `${guild.iconURL ? guild.iconURL : ''}`
             },
             title: `Satomi has joined "${guild.name}" 🎉`,
             description: `Members: ${guild.memberCount}`,
             footer: {
                 text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
             }
-        } });
+        } }).catch(this.logger.error);
 
         this.send(guild.defaultChannel || guild.channels.find(c => c.name === 'general') || guild.id, `${join.toString()}`, {
             help: '**`s.help`**',
@@ -74,14 +74,14 @@ class GuildLog extends Module {
             color: this._client.redColor,
             author: {
                 name: `${guild.name} (${guild.id})`,
-                icon_url: `${guild.iconURL}`
+                icon_url: `${guild.iconURL ? guild.iconURL : ''}`
             },
             title: `Satomi has left "${guild.name}" 💀`,
             description: `Members: ${guild.memberCount}`,
             footer: {
                 text: `Shard ${guild.shard.id}  |  ${moment().format('ddd Do MMM, YYYY [at] hh:mm:ss a')}`
             }
-        } });
+        } }).catch(this.logger.error);
 
         this.db.models.guilds.deleteOne({ serverID: guild.id }, (error) => {
             if (error) {
