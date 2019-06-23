@@ -51,7 +51,7 @@ class Mute extends Command {
                     title: 'Creating Muted Role Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } }).catch(this.logger.error);
+                } });
             }
         }
 
@@ -73,7 +73,7 @@ class Mute extends Command {
                         color: client.satomiColor,
                         title: 'Member Text Mute',
                         description: `**${member.username}#${member.discriminator}** has been **text** muted`
-                    } }).catch(this.logger.error);
+                    } });
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -81,7 +81,7 @@ class Mute extends Command {
                         title: 'Text Mute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } }).catch(this.logger.error);
+                    } });
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -100,7 +100,7 @@ class Mute extends Command {
                     color: client.satomiColor,
                     title: 'Member Voice Mute',
                     description: `**${member.username}#${member.discriminator}** has been **voice** muted`
-                } }).catch(this.logger.error);
+                } });
             } catch (error) {
                 this.logger.error;
                 return responder.send(' ', { embed: {
@@ -108,7 +108,7 @@ class Mute extends Command {
                     title: 'Voice Mute Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } }).catch(this.logger.error);
+                } });
             }
         } else if (options === 'full') {
             if (memberHasRole === false) {
@@ -121,7 +121,7 @@ class Mute extends Command {
                         color: client.satomiColor,
                         title: 'Member Full Mute',
                         description: `**${member.username}#${member.discriminator}** has been **text** and **voice** muted`
-                    } }).catch(this.logger.error);
+                    } });
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -129,7 +129,7 @@ class Mute extends Command {
                         title: 'Full Mute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } }).catch(this.logger.error);
+                    } });
                 }
             } else {
                 return responder.send(' ', { embed: {

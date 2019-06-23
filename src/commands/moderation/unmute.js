@@ -63,7 +63,7 @@ class Unmute extends Command {
                         title: 'Text UnMute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } }).catch(this.logger.error);
+                    } });
                 }
             } else {
                 return responder.send(' ', { embed: {
@@ -84,7 +84,7 @@ class Unmute extends Command {
                     color: client.satomiColor,
                     title: 'Member Voice UnMute',
                     description: `**${member.username}#${member.discriminator}** has been unmute from **voice**`
-                } }).catch(this.logger.error);
+                } });
             } catch (error) {
                 this.logger.error;
                 return responder.send(' ', { embed: {
@@ -92,7 +92,7 @@ class Unmute extends Command {
                     title: 'Voice UnMute Error',
                     description: `${error}`,
                     timestamp: new Date()
-                } }).catch(this.logger.error);
+                } });
             }
         }
 
@@ -107,7 +107,7 @@ class Unmute extends Command {
                         color: client.satomiColor,
                         title: 'Member Full UnMute',
                         description: `**${member.username}#${member.discriminator}** has been unmuted from **text** and **voice**`
-                    } }).catch(this.logger.error);
+                    } });
                 } catch (error) {
                     this.logger.error;
                     return responder.send(' ', { embed: {
@@ -115,7 +115,7 @@ class Unmute extends Command {
                         title: 'Full UnMute Error',
                         description: `${error}`,
                         timestamp: new Date()
-                    } }).catch(this.logger.error);
+                    } });
                 }
             } else {
                 return responder.send(' ', { embed: {
