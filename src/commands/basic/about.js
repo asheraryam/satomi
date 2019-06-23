@@ -17,7 +17,7 @@ class About extends Command {
 
         return responder.send(' ', { embed: {
             title: 'Satomi, About~',
-            description: 'Hello! I\'m Satomi, a multi-purpose discord bot. I started out as a small project ' +
+            description: 'Hello! I\'m Satomi, your next waifu and general purpose discord bot. I started out as a small project ' +
             'to learn JavaScript, but have became a fully functional bot for servers.' +
             '\n ' +
             '\nI\'m still a work in progress so please bear with me! Report any issues to the repo or ' +
@@ -34,7 +34,7 @@ class About extends Command {
             {
                 name: 'Satomi',
                 value: `Version - ${client.botVersion}` +
-                '\nLanguage - JavaScript + Node',
+                '\nLanguage - JavaScript + Node.js',
                 inline: false
             },
             {
