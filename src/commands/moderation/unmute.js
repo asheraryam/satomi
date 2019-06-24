@@ -16,7 +16,7 @@ class Unmute extends Command {
     }
 
     async handle ({ args, client, msg }, responder) {
-        const member = msg.mentions[0];
+        const member = (await responder.selection(args.member, { mapFunc: m => `${m.user.username}#${m.user.discriminator}` }))[0];
         const options = args.options;
 
         if (!msg.mentions) {
@@ -38,7 +38,7 @@ class Unmute extends Command {
         }
 
         const memberRoleCheck = () => {
-            if (msg.member.roles.find(r => r === muteRole.id)) {
+            if (member.roles.find(r => r === muteRole.id)) {
                 return true;
             } else {
                 return false;
