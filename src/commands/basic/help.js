@@ -1091,7 +1091,7 @@ class Help extends Command {
                 },
                 {
                     name: 'Extra Args',
-                    value: '<tags> - search for images with these tags',
+                    value: '<tags> - search for images with these tags, only 2 tags allowed for this site',
                     inline: false
                 }],
                 timestamp: new Date(),
