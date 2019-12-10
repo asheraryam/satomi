@@ -9,7 +9,7 @@
 
 -------------------
 
-Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. This bot was initially branded under Ryuko (from Kill la Kill) and written in [Discord.js](https://www.merriam-webster.com/dictionary/trash) and using [Discord-Akairo](https://github.com/discord-akairo/discord-akairo). Though I deleted the repository/code after looking into and experimenting with Eris.
+Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. This bot was initially branded under Ryuko (from Kill la Kill) and written in [Discord.js](https://github.com/discordjs/discord.js) and using [Discord-Akairo](https://github.com/discord-akairo/discord-akairo). Though I deleted the repository/code after looking into and experimenting with Eris.
 
 If you don't mind, you can check out Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
 
