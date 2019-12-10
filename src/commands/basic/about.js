@@ -52,7 +52,7 @@ class About extends Command {
             timestamp: new Date(),
             footer: {
                 icon_url: owner.avatarURL,
-                text: 'Satomi © 2018 | All Rights Reserved'
+                text: 'Satomi © 2017 | All Rights Reserved'
             }
         } }).catch(this.logger.error);
     }
