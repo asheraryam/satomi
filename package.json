@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.20.2",
+  "version": "0.20.3",
   "description": "Your new waifu and general purpose Discord bot",
   "main": "./src/satomi.js",
   "scripts": {
