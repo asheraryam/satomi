@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "eslint": "^7.1.0",
-    "eslint-config-kyostra": "^0.4.3"
+    "eslint-config-kyostra": "^0.5.0"
   },
   "eslintConfig": {
     "extends": "kyostra/node"
