@@ -28,7 +28,7 @@ class Reputation extends Command {
         }
 
         if (member === msg.author.id || msg.mentions[0].id === msg.author.id) {
-            return responder.send(`${msg.author.mention} You can\'t give yourself reputation`).catch(this.logger.error);
+            return responder.send(`${msg.author.mention} You can't give yourself reputation`).catch(this.logger.error);
         }
 
         client.mongodb.models.users.findOne({ serverID: msg.channel.guild.id, userID: user }, (error, u) => {

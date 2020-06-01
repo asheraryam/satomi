@@ -28,7 +28,7 @@ class Owo extends Command {
 
         const owoPhrase = string => {
             while (string.match(/!+/)) {
-                string = string.replace(/!+/, ` ${faces[Math.floor(Math.random() * faces.length)]} `)
+                string = string.replace(/!+/, ` ${faces[Math.floor(Math.random() * faces.length)]} `);
             }
 
             return string
