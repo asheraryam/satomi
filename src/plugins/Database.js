@@ -21,6 +21,7 @@ class Database {
             });
             Mongoose.set('useFindAndModify', false);
             Mongoose.set('useCreateIndex', true);
+            Mongoose.set('useUnifiedTopology', true);
             Mongoose.connection.on('error', (error) => this.satomi.logger.error(chalk.red.bold(`[DB] Mongoose error: ${error}`)));
             Mongoose.connection.once('open', () => this.satomi.logger.info(chalk.green.bold('[DB] Mongoose Connected')));
             return resolve(this);
