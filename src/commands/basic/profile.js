@@ -124,7 +124,7 @@ class Profile extends Command {
                 ctx.font = '12px Roboto';
                 ctx.fillStyle = '#333333';
                 textWrapped.forEach((line, i) => {
-                    ctx.fillText(line, 158, (i + 18.6) * parseInt(12, 0));
+                    ctx.fillText(line, 158, (i + 18.6) * parseInt(12, 10));
                 });
 
                 // Image
