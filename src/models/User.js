@@ -14,6 +14,8 @@ let UserSchema = new Mongoose.Schema({
     xpCD: { type: Date, default: new Date(0) },
     currency: { type: Number, default: 0 },
     currencyCD: { type: Date, default: new Date(0) },
+    reputation: { type: Number, default: 0 },
+    reputationCD: { type: Date, default: new Date(0) },
     blacklist: { type: Boolean, default: false }
 });
 
