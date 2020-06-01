@@ -28,7 +28,7 @@ class Help extends Command {
                 },
                 fields: [{
                     name: 'basic',
-                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `role`, `serverinfo`, `setbackground`, `setbio`, `star`, `stats`, `userinfo`, `xpleaderboard`'
+                    value: '`about`, `avatar`, `help`, `ping`, `profile`, `reputation`, `role`, `serverinfo`, `setbackground`, `setbio`, `star`, `stats`, `userinfo`, `xpleaderboard`'
                 },
                 {
                     name: 'currency',
@@ -167,6 +167,32 @@ class Help extends Command {
                 {
                     name: 'Extra Args',
                     value: 'not using a mention will default to the message author\'s profile',
+                    inline: false
+                }],
+                timestamp: new Date(),
+                footer: {
+                    icon_url: msg.author.dynamicAvatarURL(),
+                    text: footerText
+                }
+            } }).catch(this.logger.error);
+        } else if (command === 'reputation') {
+            return responder.send(' ', { embed: {
+                color: client.satomiColor,
+                title: 'Help for Reputation (basic)',
+                description: 'Give someone some reputation',
+                fields: [{
+                    name: 'Usage',
+                    value: 's.reputation @user',
+                    inline: false
+                },
+                {
+                    name: 'Example',
+                    value: 's.reputation @friend',
+                    inline: false
+                },
+                {
+                    name: 'Aliases',
+                    value: 's.reputation, s.rep',
                     inline: false
                 }],
                 timestamp: new Date(),
