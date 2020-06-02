@@ -233,7 +233,8 @@ class Help extends Command {
             return responder.send(' ', { embed: {
                 color: client.satomiColor,
                 title: 'Help for Star (basic)',
-                description: 'Star a message to the starboard or show a message. You cannot star your own message',
+                description: 'Star a message to the starboard or show a message. You cannot star your own message' +
+                '\nYou can also react to messages with the ⭐ emoji to add them to the starboard',
                 fields: [{
                     name: 'Usage',
                     value: 's.star add <message_id>\ns.star show <message_id>',
