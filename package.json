@@ -1,6 +1,6 @@
 {
   "name": "satomi",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "description": "Your new waifu and general purpose Discord bot",
   "main": "./src/satomi.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "satomi",
     "kyostra"
   ],
-  "author": "Kyostra [Kyostra on Github/Twitter]",
+  "author": "Kyostra",
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/kyostra/satomi/issues"

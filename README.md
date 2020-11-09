@@ -9,7 +9,9 @@
 
 -------------------
 
-Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. This bot was initially branded under Ryuko (from Kill la Kill) and written in [Discord.js](https://github.com/discordjs/discord.js) and using [Discord-Akairo](https://github.com/discord-akairo/discord-akairo). Though I deleted the repository/code after looking into and experimenting with Eris.
+<p align="center"><b>ARCHIVED/NO LONGER BEING MAINTAINED UNTIL FURTHER NOTICE</b></p>
+
+Satomi is a discord bot created in JavaScript (Node.js) using Eris and Sylphy. It is currently a project of mine to learn JavaScript in a fun way. This bot was initially branded under Ryuko (from Kill la Kill) and written in [Discord.js](https://github.com/discordjs/discord.js) and using [Discord-Akairo](https://github.com/discord-akairo/discord-akairo). Though I deleted the repository/code after looking into and experimenting with Eris. I do not intend on hosting this bot ever, this is just a for fun project.
 
 If you don't mind, you can check out Satomi's trello here -> [Trello Link](https://trello.com/b/TRspnxiz/satomi)
 
@@ -21,11 +23,8 @@ If you don't mind, you can check out Satomi's trello here -> [Trello Link](https
 * [ESLint](https://eslint.org) : A configurable JavaScript linter for old and current ECMAScript versions
 * [PM2](https://pm2.keymetrics.io/) : An advanced process manager for applications in production
 
-## Want to invite Satomi?
-As of right now, I am not done with Satomi's development. Im aiming for "public use" by version 1.0.0, as by then I hope to have most of the features I want on Satomi present. I also **do not** recommend anyone using the bot for their own until 1.0.0 due to the ever evolving structure of the code and how quickly database models can be changed within updates. After 1.0.0, there will be no changes in the database models as that would ruin public use. I also might not ever bring this bot online and just leave this here for others to use.
-
 ## Bot Usage
-You are feely able to use the bot for your own server, change the name of it if you want to, and use for your own development. But leave my name in the files or some other way of creditting me as the creator because licenses are a thing and no one likes a takedown. And if you are confused about AGPL-3.0 license, heres a run down:
+You are feely able to use the bot for your own server, change the name of it if you want to, and use for your own development. But leave my name in the files or some other way of creditting me as the creator because licenses are a thing. And if you are confused about AGPL-3.0 license, heres a run down:
 
 **You can**
 * Use this for commercial reasons
@@ -42,9 +41,7 @@ You are feely able to use the bot for your own server, change the name of it if 
 
 **Other info**
 * You can't hook me into what mess you got yourself into, you are liable for you actions
-* There is no warranty (lol)
-
-Also I might change the license at a later date, so keep an eye on the next updates if it occurs. It will be specified greatly if I changed it to ensure notice.
+* There is no warranty (whatever this means)
 
 ## Development
 Thanks for your interest in my code, I have added some setup documentation below to get you familiar. Just pay attention to the [License](https://github.com/kyostra/satomi/blob/master/LICENSE) and what I said above.
@@ -114,5 +111,3 @@ $ pm2 logs
 **Satomi** © [Kyostra](https://github.com/kyostra), Released under the [AGPL-3.0 License](https://github.com/kyostra/satomi/blob/master/LICENSE)
 
 Created and maintained by Kyostra.
-
-> Website - [kyostra.github.io](https://kyostra.github.io) | Github - [kyostra](https://github.com/kyostra) | Twitter - [@kyostra](https://twitter.com/kyostra) | Discord - **Kyostra#6290**
